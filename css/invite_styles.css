@@ -1,0 +1,1591 @@
+/* ==============================================================================
+   LUXURY DIGITAL WEDDING INVITATION STYLESHEET
+   Mobile-First (9:16) with Elegant Desktop Stage Framing
+   ============================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&family=Noto+Serif+Devanagari:wght@400;600;700&family=Hind:wght@400;600&family=Great+Vibes&family=Pinyon+Script&family=Cinzel:wght@500;700&display=swap');
+
+:root {
+  /* Royal Rajasthani Sandstone & Terracotta Palette */
+  --bg-ivory: #FAF5EE;               /* Jodhpur Sandstone Ivory base */
+  --bg-card: #FFFFFF;
+  --bg-card-tint: #F1E6D6;          /* Warm Champagne bands/cards */
+  --terracotta: #B85D4B;            /* Terracotta Rose */
+  --terracotta-dark: #8F4232;
+  --gold-brass: #C29B58;            /* Antique Brass Gold */
+  --gold-primary: #C29B58;
+  --gold-dark: #9A773C;
+  --gold-light: #F7E8D0;            /* Soft Marigold */
+  --gold-shimmer: linear-gradient(135deg, #FFF9E6 0%, #C29B58 35%, #F7E8D0 60%, #9A773C 100%);
+  --maroon-seal: #B85D4B;           /* Terracotta Rose */
+  --maroon-seal-dark: #8F4232;
+  --espresso-text: #2E241F;         /* Espresso Text */
+  --text-primary: #2E241F;
+  --text-muted: #6B5E54;
+  --text-gold: #9A773C;
+  --border-gold: rgba(194, 155, 88, 0.4);
+  --border-gold-strong: rgba(194, 155, 88, 0.85);
+  --shadow-card: 0 10px 32px rgba(46, 36, 31, 0.08);
+  --shadow-seal: 0 8px 24px rgba(184, 93, 75, 0.45);
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-devanagari: 'Noto Serif Devanagari', 'Hind', serif;
+  --font-script: 'Pinyon Script', 'Great Vibes', cursive;
+  --font-roman: 'Cinzel', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--bg-ivory);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Desktop Stage Background Container - Seamless Ivory Theme */
+.desktop-stage {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  background-color: var(--bg-ivory);
+  background: var(--bg-ivory);
+  padding: 0;
+}
+
+@media (min-width: 600px) {
+  .desktop-stage {
+    padding: 0;
+    background-color: var(--bg-ivory);
+    background: var(--bg-ivory);
+  }
+}
+
+/* Mobile Screen Wrapper (9:16 aspect ratio feeling, seamlessly blended on wide screens) */
+.mobile-wrapper {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  background-color: var(--bg-ivory);
+  position: relative;
+  box-shadow: 0 0 35px rgba(184, 93, 75, 0.07);
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 600px) {
+  .mobile-wrapper {
+    border-radius: 0;
+    border-left: 1px solid rgba(194, 155, 88, 0.2);
+    border-right: 1px solid rgba(194, 155, 88, 0.2);
+    box-shadow: 0 0 45px rgba(184, 93, 75, 0.08);
+  }
+}
+
+/* Global Floating Audio & Navigation Bar */
+.floating-top-bar {
+  position: fixed;
+  top: 16px;
+  max-width: 448px;
+  width: calc(100% - 32px);
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+.floating-btn {
+  pointer-events: auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-gold-strong);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--gold-dark);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.floating-btn:hover {
+  transform: scale(1.08);
+  background: #FFF;
+}
+
+.music-btn.playing svg {
+  animation: spinSlow 6s linear infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ==============================================================================
+   VIDEO OPENING & ENDSCREEN NAMES REVEAL (9:16 VERTICAL CONTAINER)
+   ============================================================================== */
+.video-opening-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  background-color: #120e0b;
+  overflow: hidden;
+  z-index: 10;
+}
+
+#openingEnvelopeVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.15);
+  transform-origin: 50% 0%;
+}
+
+/* Initial Tap to Open Overlay showing card start scene */
+.video-tap-overlay {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  cursor: pointer;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.video-tap-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tap-seal-btn {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #9E2430 0%, var(--maroon-seal) 55%, var(--maroon-seal-dark) 100%);
+  box-shadow: 0 10px 28px rgba(128, 24, 42, 0.55), 0 0 0 0 rgba(197, 164, 109, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  animation: sealPulse 2.4s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.tap-seal-btn:hover {
+  transform: scale(1.1);
+}
+
+.tap-seal-inner {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 1px dashed rgba(247, 230, 195, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tap-seal-inner svg {
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.5));
+}
+
+.tap-prompt-text {
+  margin-top: 24px;
+  color: #F7E6C3;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+/* Names Reveal Overlay on Video Endscreen with Dedicated Background Image (Centered) */
+.video-endscreen-reveal {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 24px;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 15;
+}
+
+.video-endscreen-reveal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(18, 14, 11, 0.25) 0%, rgba(18, 14, 11, 0.72) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.video-endscreen-reveal .hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-endscreen-reveal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Scroll Lock State */
+body.scroll-locked {
+  overflow: hidden !important;
+  touch-action: none;
+}
+
+body.scroll-unlocked {
+  overflow-y: auto !important;
+  touch-action: auto;
+}
+
+@keyframes sealPulse {
+  0%, 100% {
+    box-shadow: 0 8px 24px rgba(80, 15, 22, 0.45), 0 0 0 0 rgba(197, 164, 109, 0.5);
+  }
+  50% {
+    box-shadow: 0 12px 30px rgba(80, 15, 22, 0.6), 0 0 0 14px rgba(197, 164, 109, 0);
+  }
+}
+
+.seal-prompt-text {
+  margin-top: 36px;
+  color: #F4E8D3;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: fadeInOut 2s ease-in-out infinite;
+  text-align: center;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.65; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-3px); }
+}
+
+/* Canvas for Golden Particle Wave Burst */
+#particleWaveCanvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* ==============================================================================
+   ANIMATION 2: CINEMATIC VENUE REVEAL & NAMES
+   ============================================================================== */
+.hero-venue-section {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px 24px;
+  overflow: hidden;
+  background-color: #1A130F;
+}
+
+.venue-bg-image {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(180deg, rgba(20, 15, 12, 0.3) 0%, rgba(20, 15, 12, 0.75) 75%, #FAF6EE 100%),
+                    url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center top;
+  transform: scale(1.05);
+  animation: subtleZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes subtleZoom {
+  from { transform: scale(1.0); }
+  to { transform: scale(1.08); }
+}
+
+#lightTrailCanvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: #FFF;
+}
+
+.script-heading {
+  font-family: var(--font-script);
+  font-size: 38px;
+  font-weight: normal;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.hero-tagline {
+  font-family: var(--font-script);
+  font-size: 24px;
+  color: #FFF;
+  margin-bottom: 4px;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: heroFadeUp 1.2s 0.3s forwards ease-out;
+}
+
+.hero-couple-names {
+  font-family: var(--font-script);
+  font-size: 56px;
+  font-weight: normal;
+  line-height: 1.1;
+  color: #FFFFFF;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.6));
+  margin-bottom: 12px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeUp 1.4s 0.6s forwards ease-out;
+}
+
+.hero-ampersand {
+  font-family: var(--font-script);
+  font-size: 38px;
+  display: inline-block;
+  margin: 0 4px;
+  color: var(--gold-light);
+}
+
+.hero-date-badge {
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 30px;
+  border: 1px solid rgba(232, 211, 167, 0.4);
+  background: rgba(25, 20, 16, 0.65);
+  backdrop-filter: blur(6px);
+  color: var(--gold-light);
+  font-family: var(--font-roman);
+  font-size: 13px;
+  letter-spacing: 2px;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: heroFadeUp 1.2s 0.9s forwards ease-out;
+}
+
+@keyframes heroFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 24px;
+  color: var(--gold-light);
+  opacity: 0.8;
+  animation: bounceHint 2s infinite ease-in-out;
+}
+
+@keyframes bounceHint {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* ==============================================================================
+   SECTION BASE STYLES & LUXURY CARDS
+   ============================================================================== */
+.section-container {
+  padding: 48px 20px;
+  position: relative;
+}
+
+.ornate-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 32px 24px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-gold);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Double Hairline Gold Border */
+.ornate-card::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(197, 164, 109, 0.35);
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.card-floret-top {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: var(--gold-dark);
+}
+
+/* ==============================================================================
+   ANIMATION 3: TRADITIONAL INVITATION CARD SCROLL & DETAILS
+   ============================================================================== */
+.traditional-card {
+  text-align: center;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF5EE 100%);
+}
+
+.ganesha-header-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.ganesha-img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(194, 155, 88, 0.3));
+}
+
+.shloka-header {
+  font-family: var(--font-devanagari), var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--terracotta);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.shloka-desc {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.gold-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 18px 0;
+  color: var(--gold-primary);
+}
+
+.gold-divider::before,
+.gold-divider::after {
+  content: '';
+  height: 1px;
+  width: 45px;
+  background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+}
+
+.lineage-text {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.invitation-body {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--espresso-text);
+  margin: 16px 0;
+}
+
+/* Groom & Bride Lineage (Son of... / Daughter of...) */
+.couple-family-lineage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin: 24px 0 20px;
+}
+
+.person-card {
+  text-align: center;
+  width: 100%;
+}
+
+.person-full-name {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--espresso-text);
+  line-height: 1.15;
+}
+
+.person-relation {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.person-relation strong {
+  color: var(--gold-dark);
+  font-weight: 600;
+}
+
+.weds-script {
+  font-family: var(--font-script);
+  font-size: 38px;
+  color: var(--terracotta);
+  margin: -4px 0;
+}
+
+.compliments-footer {
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-top: 20px;
+  border-top: 1px dashed rgba(197, 164, 109, 0.3);
+  padding-top: 16px;
+}
+
+/* ==============================================================================
+   ANIMATION 4: PURE HEART-SHAPED "SCRATCH TO REVEAL" SECTION
+   (No Rectangular Box - Pure Heart Silhouette & Dynamic Title Morph)
+   ============================================================================== */
+.heart-scratch-section {
+  text-align: center;
+  padding: 56px 20px 48px;
+  position: relative;
+}
+
+.scratch-header-wrap {
+  margin-bottom: 24px;
+}
+
+.scratch-title {
+  font-family: var(--font-script);
+  font-size: 52px;
+  color: var(--maroon-seal);
+  line-height: 1.1;
+  margin-bottom: 6px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.scratch-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: var(--font-serif);
+  transition: opacity 0.4s ease;
+}
+
+/* Pure Heart Stage without rectangular outer box */
+.pure-heart-stage {
+  position: relative;
+  width: 270px;
+  height: 250px;
+  margin: 0 auto;
+  user-select: none;
+  filter: drop-shadow(0 14px 30px rgba(128, 24, 42, 0.22));
+}
+
+/* Revealed Content (Heart Silhouette Layer) */
+.revealed-heart-card {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 40%, #FFFDF8 0%, #FAF2E4 100%);
+  clip-path: path("M 135 235 C 45 165 0 120 0 65 C 0 25 35 0 75 0 C 105 0 125 15 135 32 C 145 15 165 0 195 0 C 235 0 270 25 270 65 C 270 120 225 165 135 235 Z");
+  -webkit-clip-path: path("M 135 235 C 45 165 0 120 0 65 C 0 25 35 0 75 0 C 105 0 125 15 135 32 C 145 15 165 0 195 0 C 235 0 270 25 270 65 C 270 120 225 165 135 235 Z");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  text-align: center;
+  z-index: 1;
+  border: 1px solid rgba(197, 164, 109, 0.5);
+}
+
+.heart-inner-decor {
+  color: var(--gold-primary);
+  font-size: 16px;
+  margin-top: -10px;
+  margin-bottom: 2px;
+}
+
+.revealed-date-day {
+  font-family: var(--font-roman);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--maroon-seal);
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+/* Animated Golden Heart Border on Scratch Reveal */
+.heart-border-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+  overflow: visible;
+}
+
+.heart-border-animated {
+  stroke-dasharray: 850;
+  stroke-dashoffset: 850;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.pure-heart-stage.revealed .heart-border-animated {
+  opacity: 1;
+  animation: drawGoldenHeartBorder 1.5s cubic-bezier(0.2, 0.9, 0.4, 1) forwards,
+             heartBorderGlowPulse 2.6s ease-in-out 1.5s infinite alternate;
+}
+
+@keyframes drawGoldenHeartBorder {
+  0% {
+    stroke-dashoffset: 850;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes heartBorderGlowPulse {
+  0% {
+    stroke-width: 4px;
+    filter: drop-shadow(0 0 4px rgba(194, 155, 88, 0.7));
+  }
+  50% {
+    stroke-width: 6px;
+    filter: drop-shadow(0 0 12px rgba(247, 232, 208, 0.95)) drop-shadow(0 0 20px rgba(184, 93, 75, 0.5));
+  }
+  100% {
+    stroke-width: 4px;
+    filter: drop-shadow(0 0 4px rgba(194, 155, 88, 0.7));
+  }
+}
+
+.revealed-date-month {
+  font-family: var(--font-script);
+  font-size: 34px;
+  color: var(--gold-dark);
+  line-height: 1.1;
+  margin-top: -2px;
+}
+
+.revealed-date-year {
+  font-family: var(--font-roman);
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+}
+
+.heart-city-note {
+  font-family: var(--font-serif);
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+/* The Gold Foil Canvas Layer (Also Heart-Clipped) */
+#scratchCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  cursor: crosshair;
+  touch-action: none;
+  clip-path: path("M 135 235 C 45 165 0 120 0 65 C 0 25 35 0 75 0 C 105 0 125 15 135 32 C 145 15 165 0 195 0 C 235 0 270 25 270 65 C 270 120 225 165 135 235 Z");
+  -webkit-clip-path: path("M 135 235 C 45 165 0 120 0 65 C 0 25 35 0 75 0 C 105 0 125 15 135 32 C 145 15 165 0 195 0 C 235 0 270 25 270 65 C 270 120 225 165 135 235 Z");
+  transition: opacity 0.8s ease;
+}
+
+/* ==============================================================================
+   ANIMATION 5: LIVE COUNTDOWN TIMER & CONFETTI BURST
+   ============================================================================== */
+.countdown-section {
+  text-align: center;
+  position: relative;
+}
+
+#confettiCanvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.countdown-heart-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  background: var(--bg-card-tint);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-dark);
+  font-family: var(--font-serif);
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.countdown-box {
+  background: var(--maroon-seal);
+  border: 1px solid rgba(197, 164, 109, 0.4);
+  border-radius: 10px;
+  padding: 12px 6px;
+  box-shadow: 0 4px 14px rgba(128, 24, 42, 0.25);
+}
+
+.countdown-num {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.countdown-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.calendar-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold-primary);
+  color: #FFF;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(197, 164, 109, 0.4);
+  transition: transform 0.25s, background 0.25s;
+}
+
+.calendar-action-btn:hover {
+  background: var(--gold-dark);
+  transform: translateY(-2px);
+}
+
+/* ==============================================================================
+   ANIMATION 6: "OUR STORY" TOUCH-SWIPE CAROUSEL WITH ORNATE DROP CAP
+   ============================================================================== */
+.story-section-wrap {
+  padding: 44px 20px;
+  position: relative;
+}
+
+.story-carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 16px;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.story-carousel-container:active {
+  cursor: grabbing;
+}
+
+.story-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  width: 100%;
+  will-change: transform;
+}
+
+.story-slide {
+  min-width: 100%;
+  padding: 4px;
+}
+
+.story-card-inner {
+  background: #FFF;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-gold);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 440px) {
+  .story-card-inner {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .story-photo-wrap {
+    width: 45% !important;
+    height: auto !important;
+    min-height: 240px;
+  }
+  .story-content {
+    width: 55%;
+  }
+}
+
+.story-photo-wrap {
+  width: 100%;
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+.story-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.story-content {
+  padding: 24px 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.story-year {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 2px;
+}
+
+.story-title {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+/* Ornate Drop Cap matching video */
+.story-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.story-desc::first-letter {
+  font-family: var(--font-serif);
+  font-size: 38px;
+  float: left;
+  line-height: 0.85;
+  margin: 4px 8px 0 0;
+  color: var(--maroon-seal);
+  font-weight: 700;
+}
+
+.carousel-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.carousel-arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #FFF;
+  border: 1px solid var(--border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--gold-dark);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.carousel-arrow:hover {
+  background: var(--bg-card-tint);
+  transform: scale(1.08);
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(197, 164, 109, 0.35);
+  transition: background 0.3s, transform 0.3s;
+}
+
+.dot.active {
+  background: var(--gold-primary);
+  transform: scale(1.3);
+}
+
+/* ==============================================================================
+   ANIMATION 7: INTERACTIVE TIMELINE / EVENTS PATH
+   ============================================================================== */
+.timeline-section {
+  position: relative;
+}
+
+.timeline-wrapper {
+  position: relative;
+  padding: 20px 0;
+}
+
+/* Dynamic SVG Path for Winding Gold Thread */
+.timeline-svg-container {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 40px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+#timelineSvg {
+  width: 100%;
+  height: 100%;
+}
+
+.timeline-path-bg {
+  stroke: rgba(197, 164, 109, 0.2);
+  stroke-width: 3;
+  fill: none;
+}
+
+.timeline-path-active {
+  stroke: var(--gold-primary);
+  stroke-width: 3.5;
+  fill: none;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 4px rgba(197, 164, 109, 0.6));
+}
+
+/* Moving Heart Marker */
+#timelineHeartMarker {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--maroon-seal);
+  border: 2px solid #FFF;
+  box-shadow: 0 0 10px rgba(197, 164, 109, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  z-index: 3;
+  transition: transform 0.1s ease-out;
+}
+
+.timeline-cards-list {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-left: 48px;
+}
+
+.event-card {
+  background: #FFF;
+  border-radius: 14px;
+  padding: 20px 20px;
+  border: 1px solid var(--border-gold);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  text-align: left;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateX(4px);
+  border-color: var(--gold-dark);
+}
+
+.event-name-bold {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--espresso-text);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.event-info-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: var(--espresso-text);
+  margin-bottom: 5px;
+}
+
+.event-icon-sym {
+  font-size: 15px;
+  width: 20px;
+  text-align: center;
+  color: var(--terracotta);
+}
+
+.event-location-bold {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--espresso-text);
+  margin: 10px 0 6px;
+}
+
+.dress-code-badge {
+  display: inline-block;
+  font-size: 11px;
+  background: var(--bg-card-tint);
+  color: var(--espresso-text);
+  padding: 3px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(194, 155, 88, 0.4);
+  margin: 4px 0 8px;
+}
+
+.event-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.event-actions-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.event-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 7px 14px;
+  border-radius: 20px;
+  transition: all 0.25s ease;
+}
+
+.event-btn.directions {
+  background: var(--terracotta);
+  color: #FFF;
+  border: 1px solid var(--terracotta);
+}
+
+.event-btn.directions:hover {
+  background: var(--terracotta-dark);
+}
+
+.event-btn.calendar {
+  background: #FFF;
+  color: var(--gold-dark);
+  border: 1px solid var(--border-gold);
+}
+
+.event-btn.calendar:hover {
+  background: var(--bg-card-tint);
+  color: var(--espresso-text);
+}
+
+/* ==============================================================================
+   ANIMATION 8: CEREMONY LOCATION CARD & MAP INTEGRATION
+   ============================================================================== */
+.venue-location-card {
+  text-align: center;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF6EE 100%);
+}
+
+.venue-thumb-frame {
+  width: 220px;
+  height: 260px;
+  border-radius: 130px 130px 16px 16px;
+  margin: 0 auto 20px;
+  padding: 4px;
+  border: 1px solid var(--border-gold-strong);
+  box-shadow: 0 10px 28px rgba(128, 24, 42, 0.15);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.4s ease;
+}
+
+.venue-thumb-frame:hover {
+  transform: scale(1.03);
+}
+
+.venue-thumb-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 126px 126px 12px 12px;
+}
+
+.venue-title-big {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.venue-address-text {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 320px;
+  margin: 0 auto 20px;
+}
+
+/* Pulsing "Open in Maps" CTA */
+.maps-pulse-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--maroon-seal);
+  color: #FFF;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 18px rgba(128, 24, 42, 0.35);
+  animation: buttonPulse 2.2s infinite;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.maps-pulse-btn:hover {
+  transform: scale(1.05);
+  background: var(--maroon-seal-dark);
+}
+
+@keyframes buttonPulse {
+  0%, 100% {
+    box-shadow: 0 4px 18px rgba(128, 24, 42, 0.35), 0 0 0 0 rgba(128, 24, 42, 0.4);
+  }
+  50% {
+    box-shadow: 0 6px 24px rgba(128, 24, 42, 0.5), 0 0 0 10px rgba(128, 24, 42, 0);
+  }
+}
+
+/* ==============================================================================
+   ANIMATION 9: RSVP & THANK YOU FORM
+   ============================================================================== */
+.rsvp-section {
+  text-align: center;
+}
+
+.rsvp-form {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border-gold);
+  background: #FFF;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--gold-dark);
+  box-shadow: 0 0 0 3px rgba(197, 164, 109, 0.15);
+}
+
+.form-group label {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  color: var(--text-muted);
+  font-size: 14px;
+  pointer-events: none;
+  transition: 0.25s ease all;
+}
+
+.form-group input:focus ~ label,
+.form-group input:not(:placeholder-shown) ~ label,
+.form-group textarea:focus ~ label,
+.form-group textarea:not(:placeholder-shown) ~ label {
+  top: -9px;
+  left: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  background: #FFF;
+  padding: 0 6px;
+  color: var(--gold-dark);
+}
+
+.rsvp-submit-btn {
+  background: var(--maroon-seal);
+  color: #FFF;
+  border: none;
+  padding: 16px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(120, 24, 34, 0.3);
+  transition: transform 0.2s, background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.rsvp-submit-btn:hover {
+  background: var(--maroon-seal-dark);
+  transform: translateY(-2px);
+}
+
+/* Success Checkmark Animation */
+.rsvp-success-box {
+  display: none;
+  text-align: center;
+  padding: 30px 16px;
+}
+
+.rsvp-success-box.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+.checkmark-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--bg-card-tint);
+  border: 2px solid var(--terracotta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  color: var(--terracotta);
+  animation: scaleBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes scaleBounce {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.whatsapp-direct-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--terracotta);
+  color: #FFF;
+  text-decoration: none;
+  padding: 13px 26px;
+  border-radius: 26px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 16px;
+  border: 1px solid rgba(194, 155, 88, 0.4);
+  box-shadow: 0 4px 16px rgba(184, 93, 75, 0.3);
+  transition: background 0.25s, transform 0.25s;
+}
+
+.whatsapp-direct-btn:hover {
+  background: var(--terracotta-dark);
+  transform: translateY(-2px);
+}
+
+/* Quick Action Buttons in RSVP Section: Share Invite, Copy Link, Save as PDF */
+.rsvp-actions-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 24px 0 10px;
+  padding-top: 18px;
+  border-top: 1px dashed rgba(194, 155, 88, 0.4);
+}
+
+.action-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card-tint);
+  border: 1px solid var(--border-gold);
+  color: var(--terracotta);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  border-radius: 24px;
+  padding: 10px 18px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(46, 36, 31, 0.04);
+  transition: all 0.25s ease;
+}
+
+.action-pill-btn svg {
+  color: var(--terracotta);
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.action-pill-btn:hover {
+  background: var(--terracotta);
+  color: #FFF;
+  border-color: var(--terracotta);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(184, 93, 75, 0.3);
+}
+
+.action-pill-btn:hover svg {
+  color: #FFF;
+  transform: scale(1.1);
+}
+
+.action-pill-btn.copied {
+  background: #558B2F;
+  color: #FFF;
+  border-color: #558B2F;
+}
+
+.action-pill-btn.copied svg {
+  color: #FFF;
+}
+
+/* Print Stylesheet for Save as PDF */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm;
+  }
+
+  html, body {
+    background: #FAF5EE !important;
+    background-color: #FAF5EE !important;
+    color: #2E241F !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .desktop-stage {
+    display: block !important;
+    padding: 0 !important;
+    background: #FAF5EE !important;
+  }
+
+  .mobile-wrapper {
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    background: #FAF5EE !important;
+  }
+
+  /* Page 1: Video Endscreen Cover Page containing Couple Names */
+  .video-opening-wrapper {
+    display: flex !important;
+    position: relative !important;
+    width: 100% !important;
+    height: 100vh !important;
+    min-height: 900px !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    overflow: hidden !important;
+    background-color: #FAF5EE !important;
+  }
+
+  .video-tap-overlay,
+  video,
+  #lightTrailCanvas,
+  .scroll-hint,
+  .floating-top-bar,
+  #flowerParallaxCanvas,
+  #confettiCanvas,
+  .rsvp-actions-bar,
+  .rsvp-form,
+  .rsvp-submit-btn,
+  #backToTopBtn,
+  .carousel-nav,
+  .event-actions-row,
+  .maps-pulse-btn {
+    display: none !important;
+  }
+
+  .video-endscreen-reveal {
+    display: flex !important;
+    position: absolute !important;
+    inset: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 10 !important;
+    background-size: cover !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .video-endscreen-reveal .hero-content {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .video-endscreen-reveal .hero-couple-names {
+    color: #C29B58 !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6) !important;
+  }
+
+  .video-endscreen-reveal .hero-tagline {
+    color: #F1E6D6 !important;
+  }
+
+  /* All other pages as they are */
+  .section-container {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    page-break-after: auto !important;
+    padding: 16px 0 !important;
+    margin-bottom: 20px !important;
+  }
+
+  .ornate-card {
+    box-shadow: none !important;
+    border: 1px solid #C29B58 !important;
+    background: #FFFFFF !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Ensure Save the Date 14th is visible on printed PDF without scratch foil */
+  #scratchCanvas {
+    display: none !important;
+  }
+
+  .scratch-underlay-content {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .scratch-title-dynamic {
+    color: var(--gold-dark) !important;
+  }
+}
+
+/* Global Footer */
+.wedding-footer {
+  text-align: center;
+  padding: 40px 20px 60px;
+  background: #F4ECE1;
+  border-top: 1px solid var(--border-gold);
+}
+
+.footer-hashtag {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  color: var(--gold-dark);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.footer-credits {
+  font-size: 12px;
+  color: var(--text-muted);
+}

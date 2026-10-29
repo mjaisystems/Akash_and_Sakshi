@@ -1,0 +1,147 @@
+# ==============================================================================
+# LUXURY DIGITAL WEDDING INVITATION CONFIGURATION
+# ==============================================================================
+# Simply fill in your details below replacing the placeholder text inside [brackets].
+# Lines starting with '#' are helpful guides and will be ignored by the builder.
+# Run `python make_invite.py build` in this project folder to generate your invite!
+# ==============================================================================
+
+[CULTURE_AND_THEME]
+# Culture options: Hindu | Sikh | Muslim | SouthIndian | Christian | DestinationFusion
+CULTURE: Hindu
+# Theme Palette: RoyalGold | SandstoneTerracotta | PastelSage | EmeraldPearl | RoseBlush | KanjeevaramGold
+THEME_PALETTE: SandstoneTerracotta
+LANGUAGE: English
+# Optional bilingual script (e.g. Hindi, Punjabi, Urdu, Tamil, etc.)
+SECONDARY_LANGUAGE: Hindi
+
+[COUPLE_DETAILS]
+GROOM_NAME: Akash
+BRIDE_NAME: Sakshi
+GROOM_FULL_NAME: Akash Sharma
+BRIDE_FULL_NAME: Sakshi Verma
+HASHTAG: #AkashKiSakshi
+TAGLINE: Together with their families, invite you to celebrate their love
+
+[MAIN_WEDDING_EVENT]
+# Used for the live countdown, venue reveal, and main ceremony card
+EVENT_TITLE: Shubh Vivah (Wedding Ceremony)
+EVENT_DATE: 2026-12-14
+EVENT_TIME: 07:00 PM onwards
+COUNTDOWN_TARGET_TIMESTAMP: 2026-12-14T19:00:00+05:30
+VENUE_NAME: The Grand Palace Resort & Convention Center
+VENUE_CITY: Udaipur, Rajasthan
+VENUE_ADDRESS: 108 Heritage Lake Road, Near Lake Pichola, Udaipur, Rajasthan 313001
+GOOGLE_MAPS_LINK: https://maps.google.com/?q=The+Grand+Palace+Resort+Udaipur
+
+[TRADITIONAL_INVITATION_CARD]
+# Opening spiritual blessing / Shloka / Invocation
+BLESSING_HEADER: ॐ श्री गणेशाय नमः
+BLESSING_TEXT: With the divine blessings of Lord Ganesha and our beloved ancestors, we embark on this sacred journey of love and togetherness.
+# Host names & Family lineage
+HOST_GROOM_PARENTS: Smt. Sunita & Shri Rajesh Sharma
+HOST_BRIDE_PARENTS: Smt. Meena & Shri Dinesh Verma
+GRANDPARENTS_BLESSINGS: With heavenly blessings from Late Shri Ram Lal Sharma & Late Smt. Kamala Devi
+FORMAL_INVITATION_BODY: Cordially request the pleasure of your gracious company and blessings on the auspicious wedding ceremony of their beloved children.
+COMPLIMENTS_NOTE: With best compliments from all Sharma & Verma family members, relatives and friends.
+
+[SCRATCH_TO_REVEAL_SECTION]
+# The pure heart-shaped golden scratch layer conceals this special reveal
+# When scratched, the title automatically morphs into "Save the Date"
+SCRATCH_CARD_TITLE: Scratch to Reveal
+SCRATCH_CARD_INSTRUCTION: Swipe across the golden heart
+REVEALED_HEADLINE: Save the Date
+REVEALED_DATE: December 14th, 2026
+REVEALED_MESSAGE: We cannot wait to celebrate the most magical night of our lives with you!
+
+[OUR_STORY_MILESTONES]
+# 2 to 4 milestones for the sliding story carousel
+STORY_1_TITLE: How We Met
+STORY_1_YEAR: October 2022
+STORY_1_DESC: A chance encounter at a cozy rooftop café over cold brew coffee turned into a four-hour conversation about dreams, music, and travel.
+STORY_1_IMAGE: images/gallery/story_1.jpg
+
+STORY_2_TITLE: The First Trip
+STORY_2_YEAR: November 2023
+STORY_2_DESC: Exploring the misty hills of Munnar, getting caught in sudden monsoon rains, and realizing we never wanted to wander through life without each other.
+STORY_2_IMAGE: images/gallery/story_2.jpg
+
+STORY_3_TITLE: The Proposal
+STORY_3_YEAR: February 2025
+STORY_3_DESC: Under a golden sunset on a quiet beach in Goa, with waves softly crashing against the shore, Akash got down on one knee. Sakshi said yes before he could even finish asking!
+STORY_3_IMAGE: images/gallery/story_3.jpg
+
+STORY_4_TITLE: Growing Together
+STORY_4_YEAR: June 2025
+STORY_4_DESC: Through every laugh, shared dream, and adventure, our bond grew deeper and stronger each passing day.
+STORY_4_IMAGE: images/gallery/story_4.jpg
+
+STORY_5_TITLE: The Families Meet
+STORY_5_YEAR: September 2025
+STORY_5_DESC: Bringing our two families together filled the room with joy, sweet blessings, and heartwarming celebration.
+STORY_5_IMAGE: images/gallery/story_5.jpg
+
+STORY_6_TITLE: Counting Down to Forever
+STORY_6_YEAR: December 2026
+STORY_6_DESC: Ready to begin this sacred next chapter surrounded by the love, laughter, and blessings of our dearest family and friends.
+STORY_6_IMAGE: images/gallery/story_6.jpg
+
+[INTERACTIVE_TIMELINE_EVENTS]
+# Chronological events connected by the winding animated gold path
+EVENT_COUNT: 4
+
+EVENT_1_NAME: Satsang & Ganesh Puja
+EVENT_1_DATE: Friday, December 12, 2026
+EVENT_1_TIME: 10:00 AM - 01:00 PM
+EVENT_1_VENUE: Crystal Banquet Hall, The Grand Palace
+EVENT_1_MAPS_LINK: https://www.google.com/maps/search/?api=1&query=Crystal+Banquet+Hall+The+Grand+Palace+Udaipur+Rajasthan
+EVENT_1_DRESS_CODE: Traditional Pastels & Florals
+EVENT_1_DESC: An auspicious prayer gathering invoking divine grace for the couple's new beginning, followed by lunch.
+
+EVENT_2_NAME: Mehendi & Sundowner Carnival
+EVENT_2_DATE: Friday, December 12, 2026
+EVENT_2_TIME: 04:00 PM onwards
+EVENT_2_VENUE: Lakeside Lawn, The Grand Palace
+EVENT_2_MAPS_LINK: https://www.google.com/maps/search/?api=1&query=Lakeside+Lawn+The+Grand+Palace+Udaipur+Rajasthan
+EVENT_2_DRESS_CODE: Bright Festive & Bohemian Colors
+EVENT_2_DESC: Henna patterns, foot-tapping beats, live food stalls, and sunset cocktails by the lake.
+
+EVENT_3_NAME: Sangeet & DJ Night
+EVENT_3_DATE: Saturday, December 13, 2026
+EVENT_3_TIME: 07:30 PM till late
+EVENT_3_VENUE: Royal Ballroom, The Grand Palace
+EVENT_3_MAPS_LINK: https://www.google.com/maps/search/?api=1&query=Royal+Ballroom+The+Grand+Palace+Udaipur+Rajasthan
+EVENT_3_DRESS_CODE: Glitz, Glamour & Indo-Western
+EVENT_3_DESC: An electrifying night of family dance performances, cocktails, and non-stop dancing under the starlight!
+
+EVENT_4_NAME: Shubh Vivah (Wedding & Pheras)
+EVENT_4_DATE: Sunday, December 14, 2026
+EVENT_4_TIME: 06:30 PM (Baraat Swagat) | 08:30 PM (Pheras)
+EVENT_4_VENUE: Shahi Mandapam by the Lake
+EVENT_4_MAPS_LINK: https://www.google.com/maps/search/?api=1&query=Shahi+Mandapam+The+Grand+Palace+Resort+Udaipur+Rajasthan
+EVENT_4_DRESS_CODE: Royal Traditional Elegance
+EVENT_4_DESC: The grand wedding rituals, Vedic vows around the sacred fire, followed by royal dinner and blessings.
+
+[RSVP_AND_GUESTBOOK]
+RSVP_CLOSING_NOTE: Your love, laughter, and presence will make our celebration truly complete.
+RSVP_DEADLINE: Please let us know by November 15, 2026
+RSVP_CONTACT_NAME: Rohit Sharma / Priya Verma
+RSVP_WHATSAPP_NUMBER: +919876543210
+ALLOW_GUESTBOOK_MESSAGES: true
+
+[MEDIA_ASSETS]
+# 1. Opening Video of the wax-sealed envelope unlatching
+OPENING_VIDEO: video/envelope_opening.mp4
+
+# 2. Card/Envelope initial scene before tap to play
+HERO_START_SCENE_IMAGE: images/hero/start_scene.png
+
+# 3. Still image of the video's end scene/background from where the website starts & names reveal
+HERO_END_SCENE_IMAGE: images/hero/end_scene.png
+
+# 3. Branding, Audio, Venue & UI Reference
+VENUE_THUMB_IMAGE: images/venue/venue.png
+MONOGRAM_IMAGE: images/monogram/monogram.png
+BACKGROUND_SONG: song/song.mp3
+INVITATION_VIDEO: video/invite_film.mp4
+UI_MOCKUP_REFERENCE: images/reference/ui_reference.png

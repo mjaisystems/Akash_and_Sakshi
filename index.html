@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Akash & Sakshi's Wedding Invitation</title>
+
+  <!-- Open Graph Meta Tags for WhatsApp & Social Sharing -->
+  <meta property="og:title" content="Akash & Sakshi are Getting Married! 💍">
+  <meta property="og:description" content="You are cordially invited to celebrate our wedding. Tap to open our interactive invitation, view ceremonies & RSVP.">
+  <meta property="og:image" content="images/reference/ui_reference.png">
+  <meta property="og:type" content="website">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/invite_styles.css">
+  <style>
+    /* Dynamic Theme Color Overrides if specified */
+    
+      :root {
+        --bg-ivory: #FAF5EE;
+        --gold-primary: #C29B58;
+        --gold-dark: #9B783E;
+        --gold-light: #F1E6D6;
+        --maroon-seal: #B85D4B;
+        --maroon-seal-dark: #8F4232;
+        --text-primary: #2E241F;
+      }
+    
+  </style>
+</head>
+<body class="scroll-locked">
+
+  <!-- Background Audio Element -->
+  <audio id="bgAudio" loop preload="auto">
+    <source src="song/song.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Desktop Presentation Stage -->
+  <div class="desktop-stage">
+    <main class="mobile-wrapper">
+
+      <!-- ============================================================================
+           ANIMATION 1 & 2: CARD START SCENE -> VIDEO OPENING -> CENTERED NAMES REVEAL
+           (Click directly on image to open, no top floating buttons, no seal icon/text)
+           ============================================================================ -->
+      <section class="video-opening-wrapper" id="videoOpeningWrapper">
+        <video id="openingEnvelopeVideo" playsinline preload="auto" muted poster="images/hero/start_scene.png">
+          <source src="video/envelope_opening.mp4" type="video/mp4">
+        </video>
+
+        <!-- Clickable Start Scene Card Overlay (User clicks directly on image) -->
+        <div class="video-tap-overlay" id="videoTapOverlay" style="background-image: url('images/hero/start_scene.png');" title="Click anywhere to open invitation"></div>
+
+        <!-- Names Reveal Centered on Video Endscreen with End Scene Backdrop -->
+        <div class="video-endscreen-reveal" id="videoEndscreenReveal" style="background-image: url('images/hero/end_scene.png');">
+          <canvas id="lightTrailCanvas"></canvas>
+          <div class="hero-content">
+            <p class="hero-tagline">We're getting married</p>
+            <h1 class="hero-couple-names">
+              Akash
+              <span class="hero-ampersand">&</span>
+              Sakshi
+            </h1>
+
+            <div class="scroll-hint">
+              <span style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase;">Scroll to Enter</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================================
+           ANIMATION 3: TRADITIONAL INVITATION CARD SCROLL & BLESSINGS
+           (Ganeshji Artwork + Lineage format: Son of... / Daughter of...)
+           ============================================================================ -->
+      <section class="section-container" id="traditionalCardSection">
+        <div class="ornate-card traditional-card">
+          <div class="ganesha-header-wrap">
+            <img src="images/decor/ganesha.png" alt="Shree Ganeshji" class="ganesha-img">
+          </div>
+          <h2 class="shloka-header">ॐ श्री गणेशाय नमः</h2>
+          <p class="shloka-desc">With the divine blessings of Lord Ganesha and our beloved ancestors, we embark on this sacred journey of love and togetherness.</p>
+
+          <div class="gold-divider">✦ ✦ ✦</div>
+
+          <p class="lineage-text">With heavenly blessings from Late Shri Ram Lal Sharma & Late Smt. Kamala Devi</p>
+
+          <p class="invitation-body">
+            Cordially request the pleasure of your gracious company and blessings on the auspicious wedding ceremony of their beloved children.
+          </p>
+
+          <!-- Individual Lineage: Son of / Daughter of format -->
+          <div class="couple-family-lineage">
+            <div class="person-card">
+              <div class="person-full-name">Akash Sharma</div>
+              <p class="person-relation">Son of <strong>Smt. Sunita & Shri Rajesh Sharma</strong></p>
+            </div>
+
+            <div class="weds-script">weds</div>
+
+            <div class="person-card">
+              <div class="person-full-name">Sakshi Verma</div>
+              <p class="person-relation">Daughter of <strong>Smt. Meena & Shri Dinesh Verma</strong></p>
+            </div>
+          </div>
+
+          <p class="compliments-footer">With best compliments from all Sharma & Verma family members, relatives and friends.</p>
+        </div>
+      </section>
+
+      <!-- ============================================================================
+           ANIMATION 4: PURE HEART-SHAPED "SCRATCH TO REVEAL" SECTION
+           (Heart Silhouette Only, No Outer Box, Morphs to "Save the Date")
+           ============================================================================ -->
+      <section class="section-container heart-scratch-section" id="scratchCardSection">
+        <div class="scratch-header-wrap">
+          <h2 class="scratch-title" id="scratchHeading">Scratch to Reveal</h2>
+        </div>
+
+        <div class="pure-heart-stage">
+          <!-- Revealed Date Card Layer (Heart Shaped) -->
+          <div class="revealed-heart-card" id="revealedHeartCard">
+            <div class="heart-inner-decor">✦</div>
+            <div class="revealed-date-day">14th</div>
+            <div class="revealed-date-month">December</div>
+            <div class="revealed-date-year">2026</div>
+            <div class="heart-city-note">Udaipur, Rajasthan</div>
+          </div>
+
+          <!-- Animated Golden Heart Border Layer -->
+          <svg class="heart-border-svg" id="heartBorderSvg" viewBox="0 0 270 250" aria-hidden="true">
+            <defs>
+              <linearGradient id="goldHeartStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#C29B58"/>
+                <stop offset="25%" stop-color="#FFF4D0"/>
+                <stop offset="50%" stop-color="#E8C374"/>
+                <stop offset="75%" stop-color="#FFF9E6"/>
+                <stop offset="100%" stop-color="#9A773C"/>
+              </linearGradient>
+            </defs>
+            <path class="heart-border-animated" id="heartBorderPath" d="M 135 235 C 45 165 0 120 0 65 C 0 25 35 0 75 0 C 105 0 125 15 135 32 C 145 15 165 0 195 0 C 235 0 270 25 270 65 C 270 120 225 165 135 235 Z" fill="none" stroke="url(#goldHeartStroke)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+
+          <!-- Top Gold Scratch Canvas Layer (Heart-Clipped) -->
+          <canvas id="scratchCanvas"></canvas>
+        </div>
+      </section>
+
+      <!-- ============================================================================
+           ANIMATION 5: LIVE COUNTDOWN TIMER & CONFETTI BURST
+           ============================================================================ -->
+      <section class="section-container countdown-section" id="countdownSection" data-target="2026-12-14T19:00:00+05:30">
+        <canvas id="confettiCanvas"></canvas>
+
+        <div class="ornate-card" style="position: relative; z-index: 2;">
+          <div class="countdown-heart-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            Counting the Days
+          </div>
+
+          <h2 style="font-family: var(--font-serif); font-size: 26px; margin-bottom: 18px; color: var(--espresso-text);">
+            Counting Down To The Big Day
+          </h2>
+
+          <div class="countdown-grid">
+            <div class="countdown-box">
+              <div class="countdown-num" id="days">00</div>
+              <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-box">
+              <div class="countdown-num" id="hours">00</div>
+              <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-box">
+              <div class="countdown-num" id="minutes">00</div>
+              <div class="countdown-label">Mins</div>
+            </div>
+            <div class="countdown-box">
+              <div class="countdown-num" id="seconds">00</div>
+              <div class="countdown-label">Secs</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================================
+           ANIMATION 6: "OUR STORY" TOUCH-SWIPE CAROUSEL WITH ORNATE DROP CAP
+           ============================================================================ -->
+      <section class="section-container story-section-wrap" id="storySection">
+        <div style="text-align: center; margin-bottom: 20px;">
+          <h2 class="script-heading" style="font-size: 46px;">
+            Our Story
+          </h2>
+        </div>
+
+        <div class="story-carousel-container">
+          <div class="story-track" id="storyTrack">
+            
+              <div class="story-slide">
+                <div class="story-card-inner">
+                  <div class="story-photo-wrap">
+                    <img src="images/gallery/story_1.jpg" alt="How We Met">
+                  </div>
+                  <div class="story-content">
+                    <div class="story-year">October 2022</div>
+                    <h3 class="story-title">How We Met</h3>
+                    <p class="story-desc">A chance encounter at a cozy rooftop café over cold brew coffee turned into a four-hour conversation about dreams, music, and travel.</p>
+                  </div>
+                </div>
+              </div>
+            
+
+              <div class="story-slide">
+                <div class="story-card-inner">
+                  <div class="story-photo-wrap">
+                    <img src="images/gallery/story_2.jpg" alt="The First Trip">
+                  </div>
+                  <div class="story-content">
+                    <div class="story-year">November 2023</div>
+                    <h3 class="story-title">The First Trip</h3>
+                    <p class="story-desc">Exploring the misty hills of Munnar, getting caught in sudden monsoon rains, and realizing we never wanted to wander through life without each other.</p>
+                  </div>
+                </div>
+              </div>
+            
+
+              <div class="story-slide">
+                <div class="story-card-inner">
+                  <div class="story-photo-wrap">
+                    <img src="images/gallery/story_3.jpg" alt="The Proposal">
+                  </div>
+                  <div class="story-content">
+                    <div class="story-year">February 2025</div>
+                    <h3 class="story-title">The Proposal</h3>
+                    <p class="story-desc">Under a golden sunset on a quiet beach in Goa, with waves softly crashing against the shore, Akash got down on one knee. Sakshi said yes before he could even finish asking!</p>
+                  </div>
+                </div>
+              </div>
+            
+
+              <div class="story-slide">
+                <div class="story-card-inner">
+                  <div class="story-photo-wrap">
+                    <img src="images/gallery/story_4.jpg" alt="Growing Together">
+                  </div>
+                  <div class="story-content">
+                    <div class="story-year">June 2025</div>
+                    <h3 class="story-title">Growing Together</h3>
+                    <p class="story-desc">Through every laugh, shared dream, and adventure, our bond grew deeper and stronger each passing day.</p>
+                  </div>
+                </div>
+              </div>
+            
+
+              <div class="story-slide">
+                <div class="story-card-inner">
+                  <div class="story-photo-wrap">
+                    <img src="images/gallery/story_5.jpg" alt="The Families Meet">
+                  </div>
+                  <div class="story-content">
+                    <div class="story-year">September 2025</div>
+                    <h3 class="story-title">The Families Meet</h3>
+                    <p class="story-desc">Bringing our two families together filled the room with joy, sweet blessings, and heartwarming celebration.</p>
+                  </div>
+                </div>
+              </div>
+            
+
+              <div class="story-slide">
+                <div class="story-card-inner">
+                  <div class="story-photo-wrap">
+                    <img src="images/gallery/story_6.jpg" alt="Counting Down to Forever">
+                  </div>
+                  <div class="story-content">
+                    <div class="story-year">December 2026</div>
+                    <h3 class="story-title">Counting Down to Forever</h3>
+                    <p class="story-desc">Ready to begin this sacred next chapter surrounded by the love, laughter, and blessings of our dearest family and friends.</p>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+
+        <div class="carousel-nav">
+          <button class="carousel-arrow" id="storyPrev" title="Previous story">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <div class="carousel-dots">
+            <span class="dot active" data-index="0"></span>
+<span class="dot" data-index="1"></span>
+<span class="dot" data-index="2"></span>
+<span class="dot" data-index="3"></span>
+<span class="dot" data-index="4"></span>
+<span class="dot" data-index="5"></span>
+          </div>
+          <button class="carousel-arrow" id="storyNext" title="Next story">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- ============================================================================
+           ANIMATION 7: "THE CELEBRATIONS" WINDING TIMELINE
+           (Format: Bold Name, 📅 Date, ⏰ Time, Location in Bold, Desc, 2 Buttons)
+           ============================================================================ -->
+      <section class="section-container timeline-section" id="timelineSection">
+        <div style="text-align: center; margin-bottom: 24px;">
+          <h2 class="script-heading" style="font-size: 48px;">
+            The Celebrations
+          </h2>
+        </div>
+
+        <div class="timeline-wrapper">
+          <!-- Continuous Winding SVG Thread Path -->
+          <div class="timeline-svg-container">
+            <svg id="timelineSvg">
+              <path id="timelinePathBg" class="timeline-path-bg" />
+              <path id="timelinePathActive" class="timeline-path-active" />
+            </svg>
+          </div>
+
+          <!-- Dynamic Moving Heart Marker -->
+          <div id="timelineHeartMarker">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </div>
+
+          <!-- Events List with Get Directions & Add to Calendar Buttons -->
+          <div class="timeline-cards-list">
+            
+          <div class="event-card">
+            <h3 class="event-name-bold">Satsang & Ganesh Puja</h3>
+            <div class="event-info-line">
+              <span class="event-icon-sym">📅</span>
+              <span>Friday, December 12, 2026</span>
+            </div>
+            <div class="event-info-line">
+              <span class="event-icon-sym">⏰</span>
+              <span>10:00 AM - 01:00 PM</span>
+            </div>
+            <div class="event-location-bold">
+              <strong>Crystal Banquet Hall, The Grand Palace</strong>
+            </div>
+            <div class="dress-code-badge">👗 Dress Code: Traditional Pastels & Florals</div>
+            <p class="event-desc">An auspicious prayer gathering invoking divine grace for the couple's new beginning, followed by lunch.</p>
+            <div class="event-actions-row">
+              <a href="https://www.google.com/maps/search/?api=1&query=Crystal+Banquet+Hall+The+Grand+Palace+Udaipur+Rajasthan" target="_blank" rel="noopener" class="event-btn directions" title="Get Directions to Satsang & Ganesh Puja">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Get Directions
+              </a>
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding%20-%20Akash%20%26%20Sakshi%20-%20Satsang%20%26%20Ganesh%20Puja&dates=20261212T043000Z/20261212T073000Z&ctz=Asia/Kolkata&location=Crystal%20Banquet%20Hall%2C%20The%20Grand%20Palace%2C%20Udaipur%2C%20Rajasthan&details=An%20auspicious%20prayer%20gathering%20invoking%20divine%20grace%20for%20the%20couple%27s%20new%20beginning%2C%20followed%20by%20lunch." target="_blank" rel="noopener" class="event-btn calendar"
+                 data-title="Wedding - Akash &amp; Sakshi - Satsang &amp; Ganesh Puja"
+                 data-start="20261212T100000"
+                 data-end="20261212T130000"
+                 data-location="Crystal Banquet Hall, The Grand Palace, Udaipur, Rajasthan"
+                 data-details="An auspicious prayer gathering invoking divine grace for the couple&#x27;s new beginning, followed by lunch."
+                 title="Add Satsang & Ganesh Puja to Calendar">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                Add to Calendar
+              </a>
+            </div>
+          </div>
+        
+
+          <div class="event-card">
+            <h3 class="event-name-bold">Mehendi & Sundowner Carnival</h3>
+            <div class="event-info-line">
+              <span class="event-icon-sym">📅</span>
+              <span>Friday, December 12, 2026</span>
+            </div>
+            <div class="event-info-line">
+              <span class="event-icon-sym">⏰</span>
+              <span>04:00 PM onwards</span>
+            </div>
+            <div class="event-location-bold">
+              <strong>Lakeside Lawn, The Grand Palace</strong>
+            </div>
+            <div class="dress-code-badge">👗 Dress Code: Bright Festive & Bohemian Colors</div>
+            <p class="event-desc">Henna patterns, foot-tapping beats, live food stalls, and sunset cocktails by the lake.</p>
+            <div class="event-actions-row">
+              <a href="https://www.google.com/maps/search/?api=1&query=Lakeside+Lawn+The+Grand+Palace+Udaipur+Rajasthan" target="_blank" rel="noopener" class="event-btn directions" title="Get Directions to Mehendi & Sundowner Carnival">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Get Directions
+              </a>
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding%20-%20Akash%20%26%20Sakshi%20-%20Mehendi%20%26%20Sundowner%20Carnival&dates=20261212T103000Z/20261212T140000Z&ctz=Asia/Kolkata&location=Lakeside%20Lawn%2C%20The%20Grand%20Palace%2C%20Udaipur%2C%20Rajasthan&details=Henna%20patterns%2C%20foot-tapping%20beats%2C%20live%20food%20stalls%2C%20and%20sunset%20cocktails%20by%20the%20lake." target="_blank" rel="noopener" class="event-btn calendar"
+                 data-title="Wedding - Akash &amp; Sakshi - Mehendi &amp; Sundowner Carnival"
+                 data-start="20261212T160000"
+                 data-end="20261212T193000"
+                 data-location="Lakeside Lawn, The Grand Palace, Udaipur, Rajasthan"
+                 data-details="Henna patterns, foot-tapping beats, live food stalls, and sunset cocktails by the lake."
+                 title="Add Mehendi & Sundowner Carnival to Calendar">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                Add to Calendar
+              </a>
+            </div>
+          </div>
+        
+
+          <div class="event-card">
+            <h3 class="event-name-bold">Sangeet & DJ Night</h3>
+            <div class="event-info-line">
+              <span class="event-icon-sym">📅</span>
+              <span>Saturday, December 13, 2026</span>
+            </div>
+            <div class="event-info-line">
+              <span class="event-icon-sym">⏰</span>
+              <span>07:30 PM till late</span>
+            </div>
+            <div class="event-location-bold">
+              <strong>Royal Ballroom, The Grand Palace</strong>
+            </div>
+            <div class="dress-code-badge">👗 Dress Code: Glitz, Glamour & Indo-Western</div>
+            <p class="event-desc">An electrifying night of family dance performances, cocktails, and non-stop dancing under the starlight!</p>
+            <div class="event-actions-row">
+              <a href="https://www.google.com/maps/search/?api=1&query=Royal+Ballroom+The+Grand+Palace+Udaipur+Rajasthan" target="_blank" rel="noopener" class="event-btn directions" title="Get Directions to Sangeet & DJ Night">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Get Directions
+              </a>
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding%20-%20Akash%20%26%20Sakshi%20-%20Sangeet%20%26%20DJ%20Night&dates=20261213T140000Z/20261213T173000Z&ctz=Asia/Kolkata&location=Royal%20Ballroom%2C%20The%20Grand%20Palace%2C%20Udaipur%2C%20Rajasthan&details=An%20electrifying%20night%20of%20family%20dance%20performances%2C%20cocktails%2C%20and%20non-stop%20dancing%20under%20the%20starlight%21" target="_blank" rel="noopener" class="event-btn calendar"
+                 data-title="Wedding - Akash &amp; Sakshi - Sangeet &amp; DJ Night"
+                 data-start="20261213T193000"
+                 data-end="20261213T230000"
+                 data-location="Royal Ballroom, The Grand Palace, Udaipur, Rajasthan"
+                 data-details="An electrifying night of family dance performances, cocktails, and non-stop dancing under the starlight!"
+                 title="Add Sangeet & DJ Night to Calendar">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                Add to Calendar
+              </a>
+            </div>
+          </div>
+        
+
+          <div class="event-card">
+            <h3 class="event-name-bold">Shubh Vivah (Wedding & Pheras)</h3>
+            <div class="event-info-line">
+              <span class="event-icon-sym">📅</span>
+              <span>Sunday, December 14, 2026</span>
+            </div>
+            <div class="event-info-line">
+              <span class="event-icon-sym">⏰</span>
+              <span>06:30 PM (Baraat Swagat) | 08:30 PM (Pheras)</span>
+            </div>
+            <div class="event-location-bold">
+              <strong>Shahi Mandapam by the Lake</strong>
+            </div>
+            <div class="dress-code-badge">👗 Dress Code: Royal Traditional Elegance</div>
+            <p class="event-desc">The grand wedding rituals, Vedic vows around the sacred fire, followed by royal dinner and blessings.</p>
+            <div class="event-actions-row">
+              <a href="https://www.google.com/maps/search/?api=1&query=Shahi+Mandapam+The+Grand+Palace+Resort+Udaipur+Rajasthan" target="_blank" rel="noopener" class="event-btn directions" title="Get Directions to Shubh Vivah (Wedding & Pheras)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Get Directions
+              </a>
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding%20-%20Akash%20%26%20Sakshi%20-%20Shubh%20Vivah%20%28Wedding%20%26%20Pheras%29&dates=20261214T130000Z/20261214T150000Z&ctz=Asia/Kolkata&location=Shahi%20Mandapam%20by%20the%20Lake%2C%20Udaipur%2C%20Rajasthan&details=The%20grand%20wedding%20rituals%2C%20Vedic%20vows%20around%20the%20sacred%20fire%2C%20followed%20by%20royal%20dinner%20and%20blessings." target="_blank" rel="noopener" class="event-btn calendar"
+                 data-title="Wedding - Akash &amp; Sakshi - Shubh Vivah (Wedding &amp; Pheras)"
+                 data-start="20261214T183000"
+                 data-end="20261214T203000"
+                 data-location="Shahi Mandapam by the Lake, Udaipur, Rajasthan"
+                 data-details="The grand wedding rituals, Vedic vows around the sacred fire, followed by royal dinner and blessings."
+                 title="Add Shubh Vivah (Wedding & Pheras) to Calendar">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                Add to Calendar
+              </a>
+            </div>
+          </div>
+        
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================================
+           ANIMATION 8: CEREMONY LOCATION CARD & MAP INTEGRATION
+           ============================================================================ -->
+      <section class="section-container">
+        <div class="ornate-card venue-location-card">
+          <h2 class="script-heading" style="font-size: 44px; margin-bottom: 16px;">
+            The Wedding Ceremony
+          </h2>
+          <div class="venue-thumb-frame">
+            <img src="images/venue/venue.png" alt="The Grand Palace Resort & Convention Center">
+          </div>
+          <h3 class="venue-title-big" style="font-family: var(--font-serif); font-size: 22px;">The Grand Palace Resort & Convention Center</h3>
+          <p class="venue-address-text">108 Heritage Lake Road, Near Lake Pichola, Udaipur, Rajasthan 313001</p>
+
+          <a href="https://maps.google.com/?q=The+Grand+Palace+Resort+Udaipur" target="_blank" rel="noopener" class="maps-pulse-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            OPEN IN MAPS
+          </a>
+        </div>
+      </section>
+
+      <!-- ============================================================================
+           ANIMATION 9: OUR FAMILY, THANK YOU & THEME-STYLED RSVP GUESTBOOK
+           ============================================================================ -->
+      <section class="section-container rsvp-section" id="rsvpSection">
+        <div class="ornate-card">
+          <h2 class="script-heading" style="font-size: 44px; margin-bottom: 8px;">
+            Our Family
+          </h2>
+          <div style="font-size: 14.5px; color: var(--text-muted); line-height: 1.8; margin-bottom: 16px;">
+            <div>Smt. Sunita & Shri Rajesh Sharma</div>
+            <div>Smt. Meena & Shri Dinesh Verma</div>
+            <div>With heavenly blessings from Late Shri Ram Lal Sharma & Late Smt. Kamala Devi</div>
+          </div>
+          <p style="font-family: var(--font-serif); font-size: 17px; font-weight: 600; color: var(--terracotta); letter-spacing: 1px;">
+            All Relatives & Friends
+          </p>
+
+          <!-- Small Terracotta Lotus Wax Seal Icon -->
+          <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--terracotta); margin: 20px auto 14px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(184, 93, 75, 0.35);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#F7E8D0">
+              <path d="M12 3C12 3 8 8 8 13C8 16.5 10 18.5 12 19C14 18.5 16 16.5 16 13C16 8 12 3 12 3Z"/>
+              <path d="M12 19C10.5 18 6 15 4 11C2.5 8 4.5 5 4.5 5C4.5 5 6 9.5 9 12C10.5 13.2 12 19 12 19Z"/>
+              <path d="M12 19C13.5 18 18 15 20 11C21.5 8 19.5 5 19.5 5C19.5 5 18 9.5 15 12C13.5 13.2 12 19 12 19Z"/>
+            </svg>
+          </div>
+
+          <h2 class="script-heading" style="font-size: 46px; margin-bottom: 8px;">
+            Thank You
+          </h2>
+          <p style="font-size: 14px; color: var(--text-muted); line-height: 1.5;">
+            Your love, laughter, and presence will make our celebration truly complete.<br>
+            <strong style="color: var(--terracotta);">Please let us know by November 15, 2026</strong>
+          </p>
+
+          <form class="rsvp-form" id="rsvpForm" data-whatsapp="+919876543210">
+            <div class="form-group">
+              <input type="text" id="guestName" placeholder=" " required>
+              <label for="guestName">Your Full Name</label>
+            </div>
+
+            <div class="form-group">
+              <select id="attendanceSelect" required>
+                <option value="Joyfully Accepts">Joyfully Accepts (Will Attend)</option>
+                <option value="Regretfully Declines">Regretfully Declines</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <select id="guestCount" required>
+                <option value="1 Guest">1 Guest</option>
+                <option value="2 Guests" selected>2 Guests</option>
+                <option value="3 Guests">3 Guests</option>
+                <option value="4+ Guests">4+ Guests</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <textarea id="guestWishes" rows="3" placeholder=" "></textarea>
+              <label for="guestWishes">Warm Wishes & Blessings for Couple</label>
+            </div>
+
+            <button type="submit" class="rsvp-submit-btn">
+              <span>Send RSVP Confirmation</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+
+          <!-- Theme-Colored Checkmark Success Feedback (No Bright Green) -->
+          <div class="rsvp-success-box" id="rsvpSuccessBox">
+            <div class="checkmark-circle">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <h3 style="font-family: var(--font-serif); font-size: 24px; color: var(--espresso-text); margin-bottom: 6px;">
+              Thank You!
+            </h3>
+            <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 16px;">
+              Your response and heartfelt blessings have been received with love.
+            </p>
+            <a href="#" id="whatsappDirectBtn" target="_blank" rel="noopener" class="whatsapp-direct-btn">
+              Send RSVP to Host via WhatsApp 💬
+            </a>
+          </div>
+
+          <!-- Quick Action Buttons: Share Invite, Copy Link & Save as PDF -->
+          <div class="rsvp-actions-bar">
+            <button type="button" class="action-pill-btn" id="shareInviteBtn" title="Share Invitation">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              </svg>
+              <span>Share Invite</span>
+            </button>
+
+            <button type="button" class="action-pill-btn" id="copyLinkBtn" title="Copy Website Link">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span id="copyLinkText">Copy Link</span>
+            </button>
+
+            <button type="button" class="action-pill-btn" id="savePdfBtn" title="Save as PDF">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="12" y1="18" x2="12" y2="12"></line>
+                <line x1="9" y1="15" x2="12" y2="18"></line>
+                <line x1="15" y1="15" x2="12" y2="18"></line>
+              </svg>
+              <span>Save as PDF</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Global Footer -->
+      <footer class="wedding-footer">
+        <div class="footer-hashtag">#AkashKiSakshi</div>
+        <p class="footer-credits">Made with love for our family and friends</p>
+        <button id="backToTopBtn" style="margin-top: 20px; background: none; border: none; font-size: 12px; color: var(--terracotta); cursor: pointer; text-decoration: underline;">
+          Back to Top ↑
+        </button>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- Interactive JavaScript Modules -->
+  <script src="js/envelope_particles.js"></script>
+  <script src="js/scratch_card.js"></script>
+  <script src="js/countdown_confetti.js"></script>
+  <script src="js/timeline_path.js"></script>
+  <script src="js/rsvp_handler.js"></script>
+  <script src="js/flower_petals_parallax.js"></script>
+</body>
+</html>

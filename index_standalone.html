@@ -1,0 +1,3592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Akash & Sakshi's Wedding Invitation</title>
+
+  <!-- Open Graph Meta Tags for WhatsApp & Social Sharing -->
+  <meta property="og:title" content="Akash & Sakshi are Getting Married! 💍">
+  <meta property="og:description" content="You are cordially invited to celebrate our wedding. Tap to open our interactive invitation, view ceremonies & RSVP.">
+  <meta property="og:image" content="images/reference/ui_reference.png">
+  <meta property="og:type" content="website">
+
+  <!-- Core Stylesheet -->
+  <style>
+/* ==============================================================================
+   LUXURY DIGITAL WEDDING INVITATION STYLESHEET
+   Mobile-First (9:16) with Elegant Desktop Stage Framing
+   ============================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&family=Noto+Serif+Devanagari:wght@400;600;700&family=Hind:wght@400;600&family=Great+Vibes&family=Pinyon+Script&family=Cinzel:wght@500;700&display=swap');
+
+:root {
+  /* Royal Rajasthani Sandstone & Terracotta Palette */
+  --bg-ivory: #FAF5EE;               /* Jodhpur Sandstone Ivory base */
+  --bg-card: #FFFFFF;
+  --bg-card-tint: #F1E6D6;          /* Warm Champagne bands/cards */
+  --terracotta: #B85D4B;            /* Terracotta Rose */
+  --terracotta-dark: #8F4232;
+  --gold-brass: #C29B58;            /* Antique Brass Gold */
+  --gold-primary: #C29B58;
+  --gold-dark: #9A773C;
+  --gold-light: #F7E8D0;            /* Soft Marigold */
+  --gold-shimmer: linear-gradient(135deg, #FFF9E6 0%, #C29B58 35%, #F7E8D0 60%, #9A773C 100%);
+  --maroon-seal: #B85D4B;           /* Terracotta Rose */
+  --maroon-seal-dark: #8F4232;
+  --espresso-text: #2E241F;         /* Espresso Text */
+  --text-primary: #2E241F;
+  --text-muted: #6B5E54;
+  --text-gold: #9A773C;
+  --border-gold: rgba(194, 155, 88, 0.4);
+  --border-gold-strong: rgba(194, 155, 88, 0.85);
+  --shadow-card: 0 10px 32px rgba(46, 36, 31, 0.08);
+  --shadow-seal: 0 8px 24px rgba(184, 93, 75, 0.45);
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-devanagari: 'Noto Serif Devanagari', 'Hind', serif;
+  --font-script: 'Pinyon Script', 'Great Vibes', cursive;
+  --font-roman: 'Cinzel', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--bg-ivory);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Desktop Stage Background Container - Seamless Ivory Theme */
+.desktop-stage {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  background-color: var(--bg-ivory);
+  background: var(--bg-ivory);
+  padding: 0;
+}
+
+@media (min-width: 600px) {
+  .desktop-stage {
+    padding: 0;
+    background-color: var(--bg-ivory);
+    background: var(--bg-ivory);
+  }
+}
+
+/* Mobile Screen Wrapper (9:16 aspect ratio feeling, seamlessly blended on wide screens) */
+.mobile-wrapper {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  background-color: var(--bg-ivory);
+  position: relative;
+  box-shadow: 0 0 35px rgba(184, 93, 75, 0.07);
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 600px) {
+  .mobile-wrapper {
+    border-radius: 0;
+    border-left: 1px solid rgba(194, 155, 88, 0.2);
+    border-right: 1px solid rgba(194, 155, 88, 0.2);
+    box-shadow: 0 0 45px rgba(184, 93, 75, 0.08);
+  }
+}
+
+/* Global Floating Audio & Navigation Bar */
+.floating-top-bar {
+  position: fixed;
+  top: 16px;
+  max-width: 448px;
+  width: calc(100% - 32px);
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+.floating-btn {
+  pointer-events: auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-gold-strong);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--gold-dark);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.floating-btn:hover {
+  transform: scale(1.08);
+  background: #FFF;
+}
+
+.music-btn.playing svg {
+  animation: spinSlow 6s linear infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ==============================================================================
+   VIDEO OPENING & ENDSCREEN NAMES REVEAL (9:16 VERTICAL CONTAINER)
+   ============================================================================== */
+.video-opening-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  background-color: #120e0b;
+  overflow: hidden;
+  z-index: 10;
+}
+
+#openingEnvelopeVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.15);
+  transform-origin: 50% 0%;
+}
+
+/* Initial Tap to Open Overlay showing card start scene */
+.video-tap-overlay {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  cursor: pointer;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.video-tap-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tap-seal-btn {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #9E2430 0%, var(--maroon-seal) 55%, var(--maroon-seal-dark) 100%);
+  box-shadow: 0 10px 28px rgba(128, 24, 42, 0.55), 0 0 0 0 rgba(197, 164, 109, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  animation: sealPulse 2.4s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.tap-seal-btn:hover {
+  transform: scale(1.1);
+}
+
+.tap-seal-inner {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 1px dashed rgba(247, 230, 195, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tap-seal-inner svg {
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.5));
+}
+
+.tap-prompt-text {
+  margin-top: 24px;
+  color: #F7E6C3;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+/* Names Reveal Overlay on Video Endscreen with Dedicated Background Image (Centered) */
+.video-endscreen-reveal {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 24px;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 15;
+}
+
+.video-endscreen-reveal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(18, 14, 11, 0.25) 0%, rgba(18, 14, 11, 0.72) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.video-endscreen-reveal .hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-endscreen-reveal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Scroll Lock State */
+body.scroll-locked {
+  overflow: hidden !important;
+  touch-action: none;
+}
+
+body.scroll-unlocked {
+  overflow-y: auto !important;
+  touch-action: auto;
+}
+
+@keyframes sealPulse {
+  0%, 100% {
+    box-shadow: 0 8px 24px rgba(80, 15, 22, 0.45), 0 0 0 0 rgba(197, 164, 109, 0.5);
+  }
+  50% {
+    box-shadow: 0 12px 30px rgba(80, 15, 22, 0.6), 0 0 0 14px rgba(197, 164, 109, 0);
+  }
+}
+
+.seal-prompt-text {
+  margin-top: 36px;
+  color: #F4E8D3;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: fadeInOut 2s ease-in-out infinite;
+  text-align: center;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.65; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-3px); }
+}
+
+/* Canvas for Golden Particle Wave Burst */
+#particleWaveCanvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* ==============================================================================
+   ANIMATION 2: CINEMATIC VENUE REVEAL & NAMES
+   ============================================================================== */
+.hero-venue-section {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px 24px;
+  overflow: hidden;
+  background-color: #1A130F;
+}
+
+.venue-bg-image {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(180deg, rgba(20, 15, 12, 0.3) 0%, rgba(20, 15, 12, 0.75) 75%, #FAF6EE 100%),
+                    url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center top;
+  transform: scale(1.05);
+  animation: subtleZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes subtleZoom {
+  from { transform: scale(1.0); }
+  to { transform: scale(1.08); }
+}
+
+#lightTrailCanvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: #FFF;
+}
+
+.script-heading {
+  font-family: var(--font-script);
+  font-size: 38px;
+  font-weight: normal;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.hero-tagline {
+  font-family: var(--font-script);
+  font-size: 24px;
+  color: #FFF;
+  margin-bottom: 4px;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: heroFadeUp 1.2s 0.3s forwards ease-out;
+}
+
+.hero-couple-names {
+  font-family: var(--font-script);
+  font-size: 56px;
+  font-weight: normal;
+  line-height: 1.1;
+  color: #FFFFFF;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.6));
+  margin-bottom: 12px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeUp 1.4s 0.6s forwards ease-out;
+}
+
+.hero-ampersand {
+  font-family: var(--font-script);
+  font-size: 38px;
+  display: inline-block;
+  margin: 0 4px;
+  color: var(--gold-light);
+}
+
+.hero-date-badge {
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 30px;
+  border: 1px solid rgba(232, 211, 167, 0.4);
+  background: rgba(25, 20, 16, 0.65);
+  backdrop-filter: blur(6px);
+  color: var(--gold-light);
+  font-family: var(--font-roman);
+  font-size: 13px;
+  letter-spacing: 2px;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: heroFadeUp 1.2s 0.9s forwards ease-out;
+}
+
+@keyframes heroFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 24px;
+  color: var(--gold-light);
+  opacity: 0.8;
+  animation: bounceHint 2s infinite ease-in-out;
+}
+
+@keyframes bounceHint {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* ==============================================================================
+   SECTION BASE STYLES & LUXURY CARDS
+   ============================================================================== */
+.section-container {
+  padding: 48px 20px;
+  position: relative;
+}
+
+.ornate-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 32px 24px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-gold);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Double Hairline Gold Border */
+.ornate-card::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(197, 164, 109, 0.35);
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.card-floret-top {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: var(--gold-dark);
+}
+
+/* ==============================================================================
+   ANIMATION 3: TRADITIONAL INVITATION CARD SCROLL & DETAILS
+   ============================================================================== */
+.traditional-card {
+  text-align: center;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF5EE 100%);
+}
+
+.ganesha-header-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.ganesha-img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(194, 155, 88, 0.3));
+}
+
+.shloka-header {
+  font-family: var(--font-devanagari), var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--terracotta);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.shloka-desc {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.gold-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 18px 0;
+  color: var(--gold-primary);
+}
+
+.gold-divider::before,
+.gold-divider::after {
+  content: '';
+  height: 1px;
+  width: 45px;
+  background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+}
+
+.lineage-text {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.invitation-body {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--espresso-text);
+  margin: 16px 0;
+}
+
+/* Groom & Bride Lineage (Son of... / Daughter of...) */
+.couple-family-lineage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin: 24px 0 20px;
+}
+
+.person-card {
+  text-align: center;
+  width: 100%;
+}
+
+.person-full-name {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--espresso-text);
+  line-height: 1.15;
+}
+
+.person-relation {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.person-relation strong {
+  color: var(--gold-dark);
+  font-weight: 600;
+}
+
+.weds-script {
+  font-family: var(--font-script);
+  font-size: 38px;
+  color: var(--terracotta);
+  margin: -4px 0;
+}
+
+.compliments-footer {
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-top: 20px;
+  border-top: 1px dashed rgba(197, 164, 109, 0.3);
+  padding-top: 16px;
+}
+
+/* ==============================================================================
+   ANIMATION 4: PURE HEART-SHAPED "SCRATCH TO REVEAL" SECTION
+   (No Rectangular Box - Pure Heart Silhouette & Dynamic Title Morph)
+   ============================================================================== */
+.heart-scratch-section {
+  text-align: center;
+  padding: 56px 20px 48px;
+  position: relative;
+}
+
+.scratch-header-wrap {
+  margin-bottom: 24px;
+}
+
+.scratch-title {
+  font-family: var(--font-script);
+  font-size: 52px;
+  color: var(--maroon-seal);
+  line-height: 1.1;
+  margin-bottom: 6px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.scratch-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: var(--font-serif);
+  transition: opacity 0.4s ease;
+}
+
+/* Pure Heart Stage without rectangular outer box */
+.pure-heart-stage {
+  position: relative;
+  width: 270px;
+  height: 250px;
+  margin: 0 auto;
+  user-select: none;
+  filter: drop-shadow(0 14px 30px rgba(128, 24, 42, 0.22));
+}
+
+/* Revealed Content (Heart Silhouette Layer) */
+.revealed-heart-card {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 40%, #FFFDF8 0%, #FAF2E4 100%);
+  clip-path: path("M 135 235 C 45 165 0 120 0 65 C 0 25 35 0 75 0 C 105 0 125 15 135 32 C 145 15 165 0 195 0 C 235 0 270 25 270 65 C 270 120 225 165 135 235 Z");
+  -webkit-clip-path: path("M 135 235 C 45 165 0 120 0 65 C 0 25 35 0 75 0 C 105 0 125 15 135 32 C 145 15 165 0 195 0 C 235 0 270 25 270 65 C 270 120 225 165 135 235 Z");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  text-align: center;
+  z-index: 1;
+  border: 1px solid rgba(197, 164, 109, 0.5);
+}
+
+.heart-inner-decor {
+  color: var(--gold-primary);
+  font-size: 16px;
+  margin-top: -10px;
+  margin-bottom: 2px;
+}
+
+.revealed-date-day {
+  font-family: var(--font-roman);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--maroon-seal);
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+/* Animated Golden Heart Border on Scratch Reveal */
+.heart-border-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+  overflow: visible;
+}
+
+.heart-border-animated {
+  stroke-dasharray: 850;
+  stroke-dashoffset: 850;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.pure-heart-stage.revealed .heart-border-animated {
+  opacity: 1;
+  animation: drawGoldenHeartBorder 1.5s cubic-bezier(0.2, 0.9, 0.4, 1) forwards,
+             heartBorderGlowPulse 2.6s ease-in-out 1.5s infinite alternate;
+}
+
+@keyframes drawGoldenHeartBorder {
+  0% {
+    stroke-dashoffset: 850;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes heartBorderGlowPulse {
+  0% {
+    stroke-width: 4px;
+    filter: drop-shadow(0 0 4px rgba(194, 155, 88, 0.7));
+  }
+  50% {
+    stroke-width: 6px;
+    filter: drop-shadow(0 0 12px rgba(247, 232, 208, 0.95)) drop-shadow(0 0 20px rgba(184, 93, 75, 0.5));
+  }
+  100% {
+    stroke-width: 4px;
+    filter: drop-shadow(0 0 4px rgba(194, 155, 88, 0.7));
+  }
+}
+
+.revealed-date-month {
+  font-family: var(--font-script);
+  font-size: 34px;
+  color: var(--gold-dark);
+  line-height: 1.1;
+  margin-top: -2px;
+}
+
+.revealed-date-year {
+  font-family: var(--font-roman);
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+}
+
+.heart-city-note {
+  font-family: var(--font-serif);
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+/* The Gold Foil Canvas Layer (Also Heart-Clipped) */
+#scratchCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  cursor: crosshair;
+  touch-action: none;
+  clip-path: path("M 135 235 C 45 165 0 120 0 65 C 0 25 35 0 75 0 C 105 0 125 15 135 32 C 145 15 165 0 195 0 C 235 0 270 25 270 65 C 270 120 225 165 135 235 Z");
+  -webkit-clip-path: path("M 135 235 C 45 165 0 120 0 65 C 0 25 35 0 75 0 C 105 0 125 15 135 32 C 145 15 165 0 195 0 C 235 0 270 25 270 65 C 270 120 225 165 135 235 Z");
+  transition: opacity 0.8s ease;
+}
+
+/* ==============================================================================
+   ANIMATION 5: LIVE COUNTDOWN TIMER & CONFETTI BURST
+   ============================================================================== */
+.countdown-section {
+  text-align: center;
+  position: relative;
+}
+
+#confettiCanvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.countdown-heart-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  background: var(--bg-card-tint);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-dark);
+  font-family: var(--font-serif);
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.countdown-box {
+  background: var(--maroon-seal);
+  border: 1px solid rgba(197, 164, 109, 0.4);
+  border-radius: 10px;
+  padding: 12px 6px;
+  box-shadow: 0 4px 14px rgba(128, 24, 42, 0.25);
+}
+
+.countdown-num {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.countdown-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.calendar-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold-primary);
+  color: #FFF;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(197, 164, 109, 0.4);
+  transition: transform 0.25s, background 0.25s;
+}
+
+.calendar-action-btn:hover {
+  background: var(--gold-dark);
+  transform: translateY(-2px);
+}
+
+/* ==============================================================================
+   ANIMATION 6: "OUR STORY" TOUCH-SWIPE CAROUSEL WITH ORNATE DROP CAP
+   ============================================================================== */
+.story-section-wrap {
+  padding: 44px 20px;
+  position: relative;
+}
+
+.story-carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 16px;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.story-carousel-container:active {
+  cursor: grabbing;
+}
+
+.story-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  width: 100%;
+  will-change: transform;
+}
+
+.story-slide {
+  min-width: 100%;
+  padding: 4px;
+}
+
+.story-card-inner {
+  background: #FFF;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-gold);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 440px) {
+  .story-card-inner {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .story-photo-wrap {
+    width: 45% !important;
+    height: auto !important;
+    min-height: 240px;
+  }
+  .story-content {
+    width: 55%;
+  }
+}
+
+.story-photo-wrap {
+  width: 100%;
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+.story-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.story-content {
+  padding: 24px 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.story-year {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 2px;
+}
+
+.story-title {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+/* Ornate Drop Cap matching video */
+.story-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.story-desc::first-letter {
+  font-family: var(--font-serif);
+  font-size: 38px;
+  float: left;
+  line-height: 0.85;
+  margin: 4px 8px 0 0;
+  color: var(--maroon-seal);
+  font-weight: 700;
+}
+
+.carousel-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.carousel-arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #FFF;
+  border: 1px solid var(--border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--gold-dark);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.carousel-arrow:hover {
+  background: var(--bg-card-tint);
+  transform: scale(1.08);
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(197, 164, 109, 0.35);
+  transition: background 0.3s, transform 0.3s;
+}
+
+.dot.active {
+  background: var(--gold-primary);
+  transform: scale(1.3);
+}
+
+/* ==============================================================================
+   ANIMATION 7: INTERACTIVE TIMELINE / EVENTS PATH
+   ============================================================================== */
+.timeline-section {
+  position: relative;
+}
+
+.timeline-wrapper {
+  position: relative;
+  padding: 20px 0;
+}
+
+/* Dynamic SVG Path for Winding Gold Thread */
+.timeline-svg-container {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 40px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+#timelineSvg {
+  width: 100%;
+  height: 100%;
+}
+
+.timeline-path-bg {
+  stroke: rgba(197, 164, 109, 0.2);
+  stroke-width: 3;
+  fill: none;
+}
+
+.timeline-path-active {
+  stroke: var(--gold-primary);
+  stroke-width: 3.5;
+  fill: none;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 4px rgba(197, 164, 109, 0.6));
+}
+
+/* Moving Heart Marker */
+#timelineHeartMarker {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--maroon-seal);
+  border: 2px solid #FFF;
+  box-shadow: 0 0 10px rgba(197, 164, 109, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  z-index: 3;
+  transition: transform 0.1s ease-out;
+}
+
+.timeline-cards-list {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-left: 48px;
+}
+
+.event-card {
+  background: #FFF;
+  border-radius: 14px;
+  padding: 20px 20px;
+  border: 1px solid var(--border-gold);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  text-align: left;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateX(4px);
+  border-color: var(--gold-dark);
+}
+
+.event-name-bold {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--espresso-text);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.event-info-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: var(--espresso-text);
+  margin-bottom: 5px;
+}
+
+.event-icon-sym {
+  font-size: 15px;
+  width: 20px;
+  text-align: center;
+  color: var(--terracotta);
+}
+
+.event-location-bold {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--espresso-text);
+  margin: 10px 0 6px;
+}
+
+.dress-code-badge {
+  display: inline-block;
+  font-size: 11px;
+  background: var(--bg-card-tint);
+  color: var(--espresso-text);
+  padding: 3px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(194, 155, 88, 0.4);
+  margin: 4px 0 8px;
+}
+
+.event-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.event-actions-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.event-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 7px 14px;
+  border-radius: 20px;
+  transition: all 0.25s ease;
+}
+
+.event-btn.directions {
+  background: var(--terracotta);
+  color: #FFF;
+  border: 1px solid var(--terracotta);
+}
+
+.event-btn.directions:hover {
+  background: var(--terracotta-dark);
+}
+
+.event-btn.calendar {
+  background: #FFF;
+  color: var(--gold-dark);
+  border: 1px solid var(--border-gold);
+}
+
+.event-btn.calendar:hover {
+  background: var(--bg-card-tint);
+  color: var(--espresso-text);
+}
+
+/* ==============================================================================
+   ANIMATION 8: CEREMONY LOCATION CARD & MAP INTEGRATION
+   ============================================================================== */
+.venue-location-card {
+  text-align: center;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF6EE 100%);
+}
+
+.venue-thumb-frame {
+  width: 220px;
+  height: 260px;
+  border-radius: 130px 130px 16px 16px;
+  margin: 0 auto 20px;
+  padding: 4px;
+  border: 1px solid var(--border-gold-strong);
+  box-shadow: 0 10px 28px rgba(128, 24, 42, 0.15);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.4s ease;
+}
+
+.venue-thumb-frame:hover {
+  transform: scale(1.03);
+}
+
+.venue-thumb-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 126px 126px 12px 12px;
+}
+
+.venue-title-big {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.venue-address-text {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 320px;
+  margin: 0 auto 20px;
+}
+
+/* Pulsing "Open in Maps" CTA */
+.maps-pulse-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--maroon-seal);
+  color: #FFF;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 18px rgba(128, 24, 42, 0.35);
+  animation: buttonPulse 2.2s infinite;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.maps-pulse-btn:hover {
+  transform: scale(1.05);
+  background: var(--maroon-seal-dark);
+}
+
+@keyframes buttonPulse {
+  0%, 100% {
+    box-shadow: 0 4px 18px rgba(128, 24, 42, 0.35), 0 0 0 0 rgba(128, 24, 42, 0.4);
+  }
+  50% {
+    box-shadow: 0 6px 24px rgba(128, 24, 42, 0.5), 0 0 0 10px rgba(128, 24, 42, 0);
+  }
+}
+
+/* ==============================================================================
+   ANIMATION 9: RSVP & THANK YOU FORM
+   ============================================================================== */
+.rsvp-section {
+  text-align: center;
+}
+
+.rsvp-form {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border-gold);
+  background: #FFF;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--gold-dark);
+  box-shadow: 0 0 0 3px rgba(197, 164, 109, 0.15);
+}
+
+.form-group label {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  color: var(--text-muted);
+  font-size: 14px;
+  pointer-events: none;
+  transition: 0.25s ease all;
+}
+
+.form-group input:focus ~ label,
+.form-group input:not(:placeholder-shown) ~ label,
+.form-group textarea:focus ~ label,
+.form-group textarea:not(:placeholder-shown) ~ label {
+  top: -9px;
+  left: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  background: #FFF;
+  padding: 0 6px;
+  color: var(--gold-dark);
+}
+
+.rsvp-submit-btn {
+  background: var(--maroon-seal);
+  color: #FFF;
+  border: none;
+  padding: 16px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(120, 24, 34, 0.3);
+  transition: transform 0.2s, background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.rsvp-submit-btn:hover {
+  background: var(--maroon-seal-dark);
+  transform: translateY(-2px);
+}
+
+/* Success Checkmark Animation */
+.rsvp-success-box {
+  display: none;
+  text-align: center;
+  padding: 30px 16px;
+}
+
+.rsvp-success-box.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+.checkmark-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--bg-card-tint);
+  border: 2px solid var(--terracotta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  color: var(--terracotta);
+  animation: scaleBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes scaleBounce {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.whatsapp-direct-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--terracotta);
+  color: #FFF;
+  text-decoration: none;
+  padding: 13px 26px;
+  border-radius: 26px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 16px;
+  border: 1px solid rgba(194, 155, 88, 0.4);
+  box-shadow: 0 4px 16px rgba(184, 93, 75, 0.3);
+  transition: background 0.25s, transform 0.25s;
+}
+
+.whatsapp-direct-btn:hover {
+  background: var(--terracotta-dark);
+  transform: translateY(-2px);
+}
+
+/* Quick Action Buttons in RSVP Section: Share Invite, Copy Link, Save as PDF */
+.rsvp-actions-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 24px 0 10px;
+  padding-top: 18px;
+  border-top: 1px dashed rgba(194, 155, 88, 0.4);
+}
+
+.action-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card-tint);
+  border: 1px solid var(--border-gold);
+  color: var(--terracotta);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  border-radius: 24px;
+  padding: 10px 18px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(46, 36, 31, 0.04);
+  transition: all 0.25s ease;
+}
+
+.action-pill-btn svg {
+  color: var(--terracotta);
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.action-pill-btn:hover {
+  background: var(--terracotta);
+  color: #FFF;
+  border-color: var(--terracotta);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(184, 93, 75, 0.3);
+}
+
+.action-pill-btn:hover svg {
+  color: #FFF;
+  transform: scale(1.1);
+}
+
+.action-pill-btn.copied {
+  background: #558B2F;
+  color: #FFF;
+  border-color: #558B2F;
+}
+
+.action-pill-btn.copied svg {
+  color: #FFF;
+}
+
+/* Print Stylesheet for Save as PDF */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm;
+  }
+
+  html, body {
+    background: #FAF5EE !important;
+    background-color: #FAF5EE !important;
+    color: #2E241F !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .desktop-stage {
+    display: block !important;
+    padding: 0 !important;
+    background: #FAF5EE !important;
+  }
+
+  .mobile-wrapper {
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    background: #FAF5EE !important;
+  }
+
+  /* Page 1: Video Endscreen Cover Page containing Couple Names */
+  .video-opening-wrapper {
+    display: flex !important;
+    position: relative !important;
+    width: 100% !important;
+    height: 100vh !important;
+    min-height: 900px !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    overflow: hidden !important;
+    background-color: #FAF5EE !important;
+  }
+
+  .video-tap-overlay,
+  video,
+  #lightTrailCanvas,
+  .scroll-hint,
+  .floating-top-bar,
+  #flowerParallaxCanvas,
+  #confettiCanvas,
+  .rsvp-actions-bar,
+  .rsvp-form,
+  .rsvp-submit-btn,
+  #backToTopBtn,
+  .carousel-nav,
+  .event-actions-row,
+  .maps-pulse-btn {
+    display: none !important;
+  }
+
+  .video-endscreen-reveal {
+    display: flex !important;
+    position: absolute !important;
+    inset: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 10 !important;
+    background-size: cover !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .video-endscreen-reveal .hero-content {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .video-endscreen-reveal .hero-couple-names {
+    color: #C29B58 !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6) !important;
+  }
+
+  .video-endscreen-reveal .hero-tagline {
+    color: #F1E6D6 !important;
+  }
+
+  /* All other pages as they are */
+  .section-container {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    page-break-after: auto !important;
+    padding: 16px 0 !important;
+    margin-bottom: 20px !important;
+  }
+
+  .ornate-card {
+    box-shadow: none !important;
+    border: 1px solid #C29B58 !important;
+    background: #FFFFFF !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Ensure Save the Date 14th is visible on printed PDF without scratch foil */
+  #scratchCanvas {
+    display: none !important;
+  }
+
+  .scratch-underlay-content {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .scratch-title-dynamic {
+    color: var(--gold-dark) !important;
+  }
+}
+
+/* Global Footer */
+.wedding-footer {
+  text-align: center;
+  padding: 40px 20px 60px;
+  background: #F4ECE1;
+  border-top: 1px solid var(--border-gold);
+}
+
+.footer-hashtag {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  color: var(--gold-dark);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.footer-credits {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+</style>
+  <style>
+    /* Dynamic Theme Color Overrides if specified */
+    
+      :root {
+        --bg-ivory: #FAF5EE;
+        --gold-primary: #C29B58;
+        --gold-dark: #9B783E;
+        --gold-light: #F1E6D6;
+        --maroon-seal: #B85D4B;
+        --maroon-seal-dark: #8F4232;
+        --text-primary: #2E241F;
+      }
+    
+  </style>
+</head>
+<body class="scroll-locked">
+
+  <!-- Background Audio Element -->
+  <audio id="bgAudio" loop preload="auto">
+    <source src="song/song.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Desktop Presentation Stage -->
+  <div class="desktop-stage">
+    <main class="mobile-wrapper">
+
+      <!-- ============================================================================
+           ANIMATION 1 & 2: CARD START SCENE -> VIDEO OPENING -> CENTERED NAMES REVEAL
+           (Click directly on image to open, no top floating buttons, no seal icon/text)
+           ============================================================================ -->
+      <section class="video-opening-wrapper" id="videoOpeningWrapper">
+        <video id="openingEnvelopeVideo" playsinline preload="auto" muted poster="images/hero/start_scene.png">
+          <source src="video/envelope_opening.mp4" type="video/mp4">
+        </video>
+
+        <!-- Clickable Start Scene Card Overlay (User clicks directly on image) -->
+        <div class="video-tap-overlay" id="videoTapOverlay" style="background-image: url('images/hero/start_scene.png');" title="Click anywhere to open invitation"></div>
+
+        <!-- Names Reveal Centered on Video Endscreen with End Scene Backdrop -->
+        <div class="video-endscreen-reveal" id="videoEndscreenReveal" style="background-image: url('images/hero/end_scene.png');">
+          <canvas id="lightTrailCanvas"></canvas>
+          <div class="hero-content">
+            <p class="hero-tagline">We're getting married</p>
+            <h1 class="hero-couple-names">
+              Akash
+              <span class="hero-ampersand">&</span>
+              Sakshi
+            </h1>
+
+            <div class="scroll-hint">
+              <span style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase;">Scroll to Enter</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================================
+           ANIMATION 3: TRADITIONAL INVITATION CARD SCROLL & BLESSINGS
+           (Ganeshji Artwork + Lineage format: Son of... / Daughter of...)
+           ============================================================================ -->
+      <section class="section-container" id="traditionalCardSection">
+        <div class="ornate-card traditional-card">
+          <div class="ganesha-header-wrap">
+            <img src="images/decor/ganesha.png" alt="Shree Ganeshji" class="ganesha-img">
+          </div>
+          <h2 class="shloka-header">ॐ श्री गणेशाय नमः</h2>
+          <p class="shloka-desc">With the divine blessings of Lord Ganesha and our beloved ancestors, we embark on this sacred journey of love and togetherness.</p>
+
+          <div class="gold-divider">✦ ✦ ✦</div>
+
+          <p class="lineage-text">With heavenly blessings from Late Shri Ram Lal Sharma & Late Smt. Kamala Devi</p>
+
+          <p class="invitation-body">
+            Cordially request the pleasure of your gracious company and blessings on the auspicious wedding ceremony of their beloved children.
+          </p>
+
+          <!-- Individual Lineage: Son of / Daughter of format -->
+          <div class="couple-family-lineage">
+            <div class="person-card">
+              <div class="person-full-name">Akash Sharma</div>
+              <p class="person-relation">Son of <strong>Smt. Sunita & Shri Rajesh Sharma</strong></p>
+            </div>
+
+            <div class="weds-script">weds</div>
+
+            <div class="person-card">
+              <div class="person-full-name">Sakshi Verma</div>
+              <p class="person-relation">Daughter of <strong>Smt. Meena & Shri Dinesh Verma</strong></p>
+            </div>
+          </div>
+
+          <p class="compliments-footer">With best compliments from all Sharma & Verma family members, relatives and friends.</p>
+        </div>
+      </section>
+
+      <!-- ============================================================================
+           ANIMATION 4: PURE HEART-SHAPED "SCRATCH TO REVEAL" SECTION
+           (Heart Silhouette Only, No Outer Box, Morphs to "Save the Date")
+           ============================================================================ -->
+      <section class="section-container heart-scratch-section" id="scratchCardSection">
+        <div class="scratch-header-wrap">
+          <h2 class="scratch-title" id="scratchHeading">Scratch to Reveal</h2>
+        </div>
+
+        <div class="pure-heart-stage">
+          <!-- Revealed Date Card Layer (Heart Shaped) -->
+          <div class="revealed-heart-card" id="revealedHeartCard">
+            <div class="heart-inner-decor">✦</div>
+            <div class="revealed-date-day">14th</div>
+            <div class="revealed-date-month">December</div>
+            <div class="revealed-date-year">2026</div>
+            <div class="heart-city-note">Udaipur, Rajasthan</div>
+          </div>
+
+          <!-- Animated Golden Heart Border Layer -->
+          <svg class="heart-border-svg" id="heartBorderSvg" viewBox="0 0 270 250" aria-hidden="true">
+            <defs>
+              <linearGradient id="goldHeartStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#C29B58"/>
+                <stop offset="25%" stop-color="#FFF4D0"/>
+                <stop offset="50%" stop-color="#E8C374"/>
+                <stop offset="75%" stop-color="#FFF9E6"/>
+                <stop offset="100%" stop-color="#9A773C"/>
+              </linearGradient>
+            </defs>
+            <path class="heart-border-animated" id="heartBorderPath" d="M 135 235 C 45 165 0 120 0 65 C 0 25 35 0 75 0 C 105 0 125 15 135 32 C 145 15 165 0 195 0 C 235 0 270 25 270 65 C 270 120 225 165 135 235 Z" fill="none" stroke="url(#goldHeartStroke)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+
+          <!-- Top Gold Scratch Canvas Layer (Heart-Clipped) -->
+          <canvas id="scratchCanvas"></canvas>
+        </div>
+      </section>
+
+      <!-- ============================================================================
+           ANIMATION 5: LIVE COUNTDOWN TIMER & CONFETTI BURST
+           ============================================================================ -->
+      <section class="section-container countdown-section" id="countdownSection" data-target="2026-12-14T19:00:00+05:30">
+        <canvas id="confettiCanvas"></canvas>
+
+        <div class="ornate-card" style="position: relative; z-index: 2;">
+          <div class="countdown-heart-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            Counting the Days
+          </div>
+
+          <h2 style="font-family: var(--font-serif); font-size: 26px; margin-bottom: 18px; color: var(--espresso-text);">
+            Counting Down To The Big Day
+          </h2>
+
+          <div class="countdown-grid">
+            <div class="countdown-box">
+              <div class="countdown-num" id="days">00</div>
+              <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-box">
+              <div class="countdown-num" id="hours">00</div>
+              <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-box">
+              <div class="countdown-num" id="minutes">00</div>
+              <div class="countdown-label">Mins</div>
+            </div>
+            <div class="countdown-box">
+              <div class="countdown-num" id="seconds">00</div>
+              <div class="countdown-label">Secs</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================================
+           ANIMATION 6: "OUR STORY" TOUCH-SWIPE CAROUSEL WITH ORNATE DROP CAP
+           ============================================================================ -->
+      <section class="section-container story-section-wrap" id="storySection">
+        <div style="text-align: center; margin-bottom: 20px;">
+          <h2 class="script-heading" style="font-size: 46px;">
+            Our Story
+          </h2>
+        </div>
+
+        <div class="story-carousel-container">
+          <div class="story-track" id="storyTrack">
+            
+              <div class="story-slide">
+                <div class="story-card-inner">
+                  <div class="story-photo-wrap">
+                    <img src="images/gallery/story_1.jpg" alt="How We Met">
+                  </div>
+                  <div class="story-content">
+                    <div class="story-year">October 2022</div>
+                    <h3 class="story-title">How We Met</h3>
+                    <p class="story-desc">A chance encounter at a cozy rooftop café over cold brew coffee turned into a four-hour conversation about dreams, music, and travel.</p>
+                  </div>
+                </div>
+              </div>
+            
+
+              <div class="story-slide">
+                <div class="story-card-inner">
+                  <div class="story-photo-wrap">
+                    <img src="images/gallery/story_2.jpg" alt="The First Trip">
+                  </div>
+                  <div class="story-content">
+                    <div class="story-year">November 2023</div>
+                    <h3 class="story-title">The First Trip</h3>
+                    <p class="story-desc">Exploring the misty hills of Munnar, getting caught in sudden monsoon rains, and realizing we never wanted to wander through life without each other.</p>
+                  </div>
+                </div>
+              </div>
+            
+
+              <div class="story-slide">
+                <div class="story-card-inner">
+                  <div class="story-photo-wrap">
+                    <img src="images/gallery/story_3.jpg" alt="The Proposal">
+                  </div>
+                  <div class="story-content">
+                    <div class="story-year">February 2025</div>
+                    <h3 class="story-title">The Proposal</h3>
+                    <p class="story-desc">Under a golden sunset on a quiet beach in Goa, with waves softly crashing against the shore, Akash got down on one knee. Sakshi said yes before he could even finish asking!</p>
+                  </div>
+                </div>
+              </div>
+            
+
+              <div class="story-slide">
+                <div class="story-card-inner">
+                  <div class="story-photo-wrap">
+                    <img src="images/gallery/story_4.jpg" alt="Growing Together">
+                  </div>
+                  <div class="story-content">
+                    <div class="story-year">June 2025</div>
+                    <h3 class="story-title">Growing Together</h3>
+                    <p class="story-desc">Through every laugh, shared dream, and adventure, our bond grew deeper and stronger each passing day.</p>
+                  </div>
+                </div>
+              </div>
+            
+
+              <div class="story-slide">
+                <div class="story-card-inner">
+                  <div class="story-photo-wrap">
+                    <img src="images/gallery/story_5.jpg" alt="The Families Meet">
+                  </div>
+                  <div class="story-content">
+                    <div class="story-year">September 2025</div>
+                    <h3 class="story-title">The Families Meet</h3>
+                    <p class="story-desc">Bringing our two families together filled the room with joy, sweet blessings, and heartwarming celebration.</p>
+                  </div>
+                </div>
+              </div>
+            
+
+              <div class="story-slide">
+                <div class="story-card-inner">
+                  <div class="story-photo-wrap">
+                    <img src="images/gallery/story_6.jpg" alt="Counting Down to Forever">
+                  </div>
+                  <div class="story-content">
+                    <div class="story-year">December 2026</div>
+                    <h3 class="story-title">Counting Down to Forever</h3>
+                    <p class="story-desc">Ready to begin this sacred next chapter surrounded by the love, laughter, and blessings of our dearest family and friends.</p>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+
+        <div class="carousel-nav">
+          <button class="carousel-arrow" id="storyPrev" title="Previous story">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <div class="carousel-dots">
+            <span class="dot active" data-index="0"></span>
+<span class="dot" data-index="1"></span>
+<span class="dot" data-index="2"></span>
+<span class="dot" data-index="3"></span>
+<span class="dot" data-index="4"></span>
+<span class="dot" data-index="5"></span>
+          </div>
+          <button class="carousel-arrow" id="storyNext" title="Next story">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- ============================================================================
+           ANIMATION 7: "THE CELEBRATIONS" WINDING TIMELINE
+           (Format: Bold Name, 📅 Date, ⏰ Time, Location in Bold, Desc, 2 Buttons)
+           ============================================================================ -->
+      <section class="section-container timeline-section" id="timelineSection">
+        <div style="text-align: center; margin-bottom: 24px;">
+          <h2 class="script-heading" style="font-size: 48px;">
+            The Celebrations
+          </h2>
+        </div>
+
+        <div class="timeline-wrapper">
+          <!-- Continuous Winding SVG Thread Path -->
+          <div class="timeline-svg-container">
+            <svg id="timelineSvg">
+              <path id="timelinePathBg" class="timeline-path-bg" />
+              <path id="timelinePathActive" class="timeline-path-active" />
+            </svg>
+          </div>
+
+          <!-- Dynamic Moving Heart Marker -->
+          <div id="timelineHeartMarker">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </div>
+
+          <!-- Events List with Get Directions & Add to Calendar Buttons -->
+          <div class="timeline-cards-list">
+            
+          <div class="event-card">
+            <h3 class="event-name-bold">Satsang & Ganesh Puja</h3>
+            <div class="event-info-line">
+              <span class="event-icon-sym">📅</span>
+              <span>Friday, December 12, 2026</span>
+            </div>
+            <div class="event-info-line">
+              <span class="event-icon-sym">⏰</span>
+              <span>10:00 AM - 01:00 PM</span>
+            </div>
+            <div class="event-location-bold">
+              <strong>Crystal Banquet Hall, The Grand Palace</strong>
+            </div>
+            <div class="dress-code-badge">👗 Dress Code: Traditional Pastels & Florals</div>
+            <p class="event-desc">An auspicious prayer gathering invoking divine grace for the couple's new beginning, followed by lunch.</p>
+            <div class="event-actions-row">
+              <a href="https://www.google.com/maps/search/?api=1&query=Crystal+Banquet+Hall+The+Grand+Palace+Udaipur+Rajasthan" target="_blank" rel="noopener" class="event-btn directions" title="Get Directions to Satsang & Ganesh Puja">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Get Directions
+              </a>
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding%20-%20Akash%20%26%20Sakshi%20-%20Satsang%20%26%20Ganesh%20Puja&dates=20261212T043000Z/20261212T073000Z&ctz=Asia/Kolkata&location=Crystal%20Banquet%20Hall%2C%20The%20Grand%20Palace%2C%20Udaipur%2C%20Rajasthan&details=An%20auspicious%20prayer%20gathering%20invoking%20divine%20grace%20for%20the%20couple%27s%20new%20beginning%2C%20followed%20by%20lunch." target="_blank" rel="noopener" class="event-btn calendar"
+                 data-title="Wedding - Akash &amp; Sakshi - Satsang &amp; Ganesh Puja"
+                 data-start="20261212T100000"
+                 data-end="20261212T130000"
+                 data-location="Crystal Banquet Hall, The Grand Palace, Udaipur, Rajasthan"
+                 data-details="An auspicious prayer gathering invoking divine grace for the couple&#x27;s new beginning, followed by lunch."
+                 title="Add Satsang & Ganesh Puja to Calendar">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                Add to Calendar
+              </a>
+            </div>
+          </div>
+        
+
+          <div class="event-card">
+            <h3 class="event-name-bold">Mehendi & Sundowner Carnival</h3>
+            <div class="event-info-line">
+              <span class="event-icon-sym">📅</span>
+              <span>Friday, December 12, 2026</span>
+            </div>
+            <div class="event-info-line">
+              <span class="event-icon-sym">⏰</span>
+              <span>04:00 PM onwards</span>
+            </div>
+            <div class="event-location-bold">
+              <strong>Lakeside Lawn, The Grand Palace</strong>
+            </div>
+            <div class="dress-code-badge">👗 Dress Code: Bright Festive & Bohemian Colors</div>
+            <p class="event-desc">Henna patterns, foot-tapping beats, live food stalls, and sunset cocktails by the lake.</p>
+            <div class="event-actions-row">
+              <a href="https://www.google.com/maps/search/?api=1&query=Lakeside+Lawn+The+Grand+Palace+Udaipur+Rajasthan" target="_blank" rel="noopener" class="event-btn directions" title="Get Directions to Mehendi & Sundowner Carnival">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Get Directions
+              </a>
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding%20-%20Akash%20%26%20Sakshi%20-%20Mehendi%20%26%20Sundowner%20Carnival&dates=20261212T103000Z/20261212T140000Z&ctz=Asia/Kolkata&location=Lakeside%20Lawn%2C%20The%20Grand%20Palace%2C%20Udaipur%2C%20Rajasthan&details=Henna%20patterns%2C%20foot-tapping%20beats%2C%20live%20food%20stalls%2C%20and%20sunset%20cocktails%20by%20the%20lake." target="_blank" rel="noopener" class="event-btn calendar"
+                 data-title="Wedding - Akash &amp; Sakshi - Mehendi &amp; Sundowner Carnival"
+                 data-start="20261212T160000"
+                 data-end="20261212T193000"
+                 data-location="Lakeside Lawn, The Grand Palace, Udaipur, Rajasthan"
+                 data-details="Henna patterns, foot-tapping beats, live food stalls, and sunset cocktails by the lake."
+                 title="Add Mehendi & Sundowner Carnival to Calendar">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                Add to Calendar
+              </a>
+            </div>
+          </div>
+        
+
+          <div class="event-card">
+            <h3 class="event-name-bold">Sangeet & DJ Night</h3>
+            <div class="event-info-line">
+              <span class="event-icon-sym">📅</span>
+              <span>Saturday, December 13, 2026</span>
+            </div>
+            <div class="event-info-line">
+              <span class="event-icon-sym">⏰</span>
+              <span>07:30 PM till late</span>
+            </div>
+            <div class="event-location-bold">
+              <strong>Royal Ballroom, The Grand Palace</strong>
+            </div>
+            <div class="dress-code-badge">👗 Dress Code: Glitz, Glamour & Indo-Western</div>
+            <p class="event-desc">An electrifying night of family dance performances, cocktails, and non-stop dancing under the starlight!</p>
+            <div class="event-actions-row">
+              <a href="https://www.google.com/maps/search/?api=1&query=Royal+Ballroom+The+Grand+Palace+Udaipur+Rajasthan" target="_blank" rel="noopener" class="event-btn directions" title="Get Directions to Sangeet & DJ Night">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Get Directions
+              </a>
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding%20-%20Akash%20%26%20Sakshi%20-%20Sangeet%20%26%20DJ%20Night&dates=20261213T140000Z/20261213T173000Z&ctz=Asia/Kolkata&location=Royal%20Ballroom%2C%20The%20Grand%20Palace%2C%20Udaipur%2C%20Rajasthan&details=An%20electrifying%20night%20of%20family%20dance%20performances%2C%20cocktails%2C%20and%20non-stop%20dancing%20under%20the%20starlight%21" target="_blank" rel="noopener" class="event-btn calendar"
+                 data-title="Wedding - Akash &amp; Sakshi - Sangeet &amp; DJ Night"
+                 data-start="20261213T193000"
+                 data-end="20261213T230000"
+                 data-location="Royal Ballroom, The Grand Palace, Udaipur, Rajasthan"
+                 data-details="An electrifying night of family dance performances, cocktails, and non-stop dancing under the starlight!"
+                 title="Add Sangeet & DJ Night to Calendar">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                Add to Calendar
+              </a>
+            </div>
+          </div>
+        
+
+          <div class="event-card">
+            <h3 class="event-name-bold">Shubh Vivah (Wedding & Pheras)</h3>
+            <div class="event-info-line">
+              <span class="event-icon-sym">📅</span>
+              <span>Sunday, December 14, 2026</span>
+            </div>
+            <div class="event-info-line">
+              <span class="event-icon-sym">⏰</span>
+              <span>06:30 PM (Baraat Swagat) | 08:30 PM (Pheras)</span>
+            </div>
+            <div class="event-location-bold">
+              <strong>Shahi Mandapam by the Lake</strong>
+            </div>
+            <div class="dress-code-badge">👗 Dress Code: Royal Traditional Elegance</div>
+            <p class="event-desc">The grand wedding rituals, Vedic vows around the sacred fire, followed by royal dinner and blessings.</p>
+            <div class="event-actions-row">
+              <a href="https://www.google.com/maps/search/?api=1&query=Shahi+Mandapam+The+Grand+Palace+Resort+Udaipur+Rajasthan" target="_blank" rel="noopener" class="event-btn directions" title="Get Directions to Shubh Vivah (Wedding & Pheras)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Get Directions
+              </a>
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding%20-%20Akash%20%26%20Sakshi%20-%20Shubh%20Vivah%20%28Wedding%20%26%20Pheras%29&dates=20261214T130000Z/20261214T150000Z&ctz=Asia/Kolkata&location=Shahi%20Mandapam%20by%20the%20Lake%2C%20Udaipur%2C%20Rajasthan&details=The%20grand%20wedding%20rituals%2C%20Vedic%20vows%20around%20the%20sacred%20fire%2C%20followed%20by%20royal%20dinner%20and%20blessings." target="_blank" rel="noopener" class="event-btn calendar"
+                 data-title="Wedding - Akash &amp; Sakshi - Shubh Vivah (Wedding &amp; Pheras)"
+                 data-start="20261214T183000"
+                 data-end="20261214T203000"
+                 data-location="Shahi Mandapam by the Lake, Udaipur, Rajasthan"
+                 data-details="The grand wedding rituals, Vedic vows around the sacred fire, followed by royal dinner and blessings."
+                 title="Add Shubh Vivah (Wedding & Pheras) to Calendar">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                Add to Calendar
+              </a>
+            </div>
+          </div>
+        
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================================
+           ANIMATION 8: CEREMONY LOCATION CARD & MAP INTEGRATION
+           ============================================================================ -->
+      <section class="section-container">
+        <div class="ornate-card venue-location-card">
+          <h2 class="script-heading" style="font-size: 44px; margin-bottom: 16px;">
+            The Wedding Ceremony
+          </h2>
+          <div class="venue-thumb-frame">
+            <img src="images/venue/venue.png" alt="The Grand Palace Resort & Convention Center">
+          </div>
+          <h3 class="venue-title-big" style="font-family: var(--font-serif); font-size: 22px;">The Grand Palace Resort & Convention Center</h3>
+          <p class="venue-address-text">108 Heritage Lake Road, Near Lake Pichola, Udaipur, Rajasthan 313001</p>
+
+          <a href="https://maps.google.com/?q=The+Grand+Palace+Resort+Udaipur" target="_blank" rel="noopener" class="maps-pulse-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            OPEN IN MAPS
+          </a>
+        </div>
+      </section>
+
+      <!-- ============================================================================
+           ANIMATION 9: OUR FAMILY, THANK YOU & THEME-STYLED RSVP GUESTBOOK
+           ============================================================================ -->
+      <section class="section-container rsvp-section" id="rsvpSection">
+        <div class="ornate-card">
+          <h2 class="script-heading" style="font-size: 44px; margin-bottom: 8px;">
+            Our Family
+          </h2>
+          <div style="font-size: 14.5px; color: var(--text-muted); line-height: 1.8; margin-bottom: 16px;">
+            <div>Smt. Sunita & Shri Rajesh Sharma</div>
+            <div>Smt. Meena & Shri Dinesh Verma</div>
+            <div>With heavenly blessings from Late Shri Ram Lal Sharma & Late Smt. Kamala Devi</div>
+          </div>
+          <p style="font-family: var(--font-serif); font-size: 17px; font-weight: 600; color: var(--terracotta); letter-spacing: 1px;">
+            All Relatives & Friends
+          </p>
+
+          <!-- Small Terracotta Lotus Wax Seal Icon -->
+          <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--terracotta); margin: 20px auto 14px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(184, 93, 75, 0.35);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#F7E8D0">
+              <path d="M12 3C12 3 8 8 8 13C8 16.5 10 18.5 12 19C14 18.5 16 16.5 16 13C16 8 12 3 12 3Z"/>
+              <path d="M12 19C10.5 18 6 15 4 11C2.5 8 4.5 5 4.5 5C4.5 5 6 9.5 9 12C10.5 13.2 12 19 12 19Z"/>
+              <path d="M12 19C13.5 18 18 15 20 11C21.5 8 19.5 5 19.5 5C19.5 5 18 9.5 15 12C13.5 13.2 12 19 12 19Z"/>
+            </svg>
+          </div>
+
+          <h2 class="script-heading" style="font-size: 46px; margin-bottom: 8px;">
+            Thank You
+          </h2>
+          <p style="font-size: 14px; color: var(--text-muted); line-height: 1.5;">
+            Your love, laughter, and presence will make our celebration truly complete.<br>
+            <strong style="color: var(--terracotta);">Please let us know by November 15, 2026</strong>
+          </p>
+
+          <form class="rsvp-form" id="rsvpForm" data-whatsapp="+919876543210">
+            <div class="form-group">
+              <input type="text" id="guestName" placeholder=" " required>
+              <label for="guestName">Your Full Name</label>
+            </div>
+
+            <div class="form-group">
+              <select id="attendanceSelect" required>
+                <option value="Joyfully Accepts">Joyfully Accepts (Will Attend)</option>
+                <option value="Regretfully Declines">Regretfully Declines</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <select id="guestCount" required>
+                <option value="1 Guest">1 Guest</option>
+                <option value="2 Guests" selected>2 Guests</option>
+                <option value="3 Guests">3 Guests</option>
+                <option value="4+ Guests">4+ Guests</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <textarea id="guestWishes" rows="3" placeholder=" "></textarea>
+              <label for="guestWishes">Warm Wishes & Blessings for Couple</label>
+            </div>
+
+            <button type="submit" class="rsvp-submit-btn">
+              <span>Send RSVP Confirmation</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+
+          <!-- Theme-Colored Checkmark Success Feedback (No Bright Green) -->
+          <div class="rsvp-success-box" id="rsvpSuccessBox">
+            <div class="checkmark-circle">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <h3 style="font-family: var(--font-serif); font-size: 24px; color: var(--espresso-text); margin-bottom: 6px;">
+              Thank You!
+            </h3>
+            <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 16px;">
+              Your response and heartfelt blessings have been received with love.
+            </p>
+            <a href="#" id="whatsappDirectBtn" target="_blank" rel="noopener" class="whatsapp-direct-btn">
+              Send RSVP to Host via WhatsApp 💬
+            </a>
+          </div>
+
+          <!-- Quick Action Buttons: Share Invite, Copy Link & Save as PDF -->
+          <div class="rsvp-actions-bar">
+            <button type="button" class="action-pill-btn" id="shareInviteBtn" title="Share Invitation">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              </svg>
+              <span>Share Invite</span>
+            </button>
+
+            <button type="button" class="action-pill-btn" id="copyLinkBtn" title="Copy Website Link">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span id="copyLinkText">Copy Link</span>
+            </button>
+
+            <button type="button" class="action-pill-btn" id="savePdfBtn" title="Save as PDF">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="12" y1="18" x2="12" y2="12"></line>
+                <line x1="9" y1="15" x2="12" y2="18"></line>
+                <line x1="15" y1="15" x2="12" y2="18"></line>
+              </svg>
+              <span>Save as PDF</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Global Footer -->
+      <footer class="wedding-footer">
+        <div class="footer-hashtag">#AkashKiSakshi</div>
+        <p class="footer-credits">Made with love for our family and friends</p>
+        <button id="backToTopBtn" style="margin-top: 20px; background: none; border: none; font-size: 12px; color: var(--terracotta); cursor: pointer; text-decoration: underline;">
+          Back to Top ↑
+        </button>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- Interactive JavaScript Modules -->
+  
+  
+  
+  
+  
+  
+<script>
+/* === flower_petals_parallax.js === */
+/**
+ * Luxury Falling Petals & Romantic Hearts Canvas Engine
+ * Inspired by the organic natural falling petal physics of weddingblues
+ * 
+ * Features:
+ * 1. Pure natural gravity and harmonic sine-wave sway (no sideways scroll-push drift).
+ * 2. Falling romantic hearts throughout the website across all pages.
+ * 3. Section-themed botanicals matching user blueprint:
+ *    - Hero: Red roses + white mogra + falling hearts
+ *    - Blessings: Yellow/orange genda marigold + falling hearts
+ *    - Invitation: Sacred lotus + rose + falling hearts
+ *    - Countdown: Soft pink lotus + falling hearts
+ *    - Functions: Slender Ashoka leaves + marigold + falling hearts
+ *    - Gallery: Vibrant bougainvillea + falling hearts
+ *    - Closing: Velvet rose + antique gold glitter dust + falling hearts
+ * 4. High-visibility fixed overlay (z-index: 99999, pointer-events: none).
+ * 5. Retina / HiDPI crisp canvas scaling.
+ * 6. Clean ivory aesthetic (no dark background, seamless full screen).
+ */
+
+(function () {
+  'use strict';
+
+  // Support prefers-reduced-motion gently
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Create full-bleed fixed canvas on document.body
+  const canvas = document.createElement('canvas');
+  canvas.id = 'flowerParallaxCanvas';
+  canvas.style.position = 'fixed';
+  canvas.style.top = '0';
+  canvas.style.left = '0';
+  canvas.style.width = '100vw';
+  canvas.style.height = '100vh';
+  canvas.style.pointerEvents = 'none';
+  canvas.style.zIndex = '99999';
+
+  function attachCanvas() {
+    if (!document.body.contains(canvas)) {
+      document.body.appendChild(canvas);
+    }
+  }
+
+  if (document.body) {
+    attachCanvas();
+  } else {
+    document.addEventListener('DOMContentLoaded', attachCanvas);
+  }
+
+  const ctx = canvas.getContext('2d');
+  let width = 0;
+  let height = 0;
+  let dpr = 1;
+
+  function resizeCanvas() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth || document.documentElement.clientWidth || 360;
+    height = window.innerHeight || document.documentElement.clientHeight || 640;
+    canvas.width = Math.round(width * dpr);
+    canvas.height = Math.round(height * dpr);
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(dpr, dpr);
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  // Section Palettes & Distinct Botanicals + Falling Hearts
+  const sectionThemes = {
+    hero: [
+      { type: 'heart', color: '#B85D4B', size: 18 },  // Terracotta Rose Heart
+      { type: 'heart', color: '#C29B58', size: 17 },  // Antique Gold Heart
+      { type: 'petal', color: '#C41E3A', size: 17 },  // Vibrant Red Rose Petal
+      { type: 'petal', color: '#8E1620', size: 15 },  // Deep Crimson Petal
+      { type: 'mogra', color: '#FFFDF7', size: 13 }   // White Mogra Jasmine
+    ],
+    blessings: [
+      { type: 'heart', color: '#E65100', size: 18 },  // Saffron Gold Heart
+      { type: 'heart', color: '#C29B58', size: 16 },  // Antique Brass Heart
+      { type: 'marigold', color: '#FFB300', size: 16 },// Golden Genda Petal
+      { type: 'marigold', color: '#FF8F00', size: 17 },// Orange Genda Petal
+      { type: 'marigold', color: '#FFA000', size: 15 } // Saffron Genda Petal
+    ],
+    invitation: [
+      { type: 'heart', color: '#D4AF37', size: 18 },  // Royal Gold Heart
+      { type: 'heart', color: '#B85D4B', size: 16 },  // Rose Terracotta Heart
+      { type: 'lotus', color: '#E91E63', size: 18 },  // Sacred Lotus Pink
+      { type: 'lotus', color: '#F06292', size: 16 },  // Soft Pink Lotus
+      { type: 'petal', color: '#9E1C28', size: 15 }   // Crimson Rose Petal
+    ],
+    countdown: [
+      { type: 'heart', color: '#F48FB1', size: 18 },  // Lotus Blush Pink Heart
+      { type: 'heart', color: '#C29B58', size: 16 },  // Antique Gold Heart
+      { type: 'heart', color: '#E57373', size: 16 },  // Coral Rose Heart
+      { type: 'lotus', color: '#E91E63', size: 18 },  // Vibrant Pink Lotus
+      { type: 'lotus', color: '#F8BBD0', size: 15 }   // Blossom Lotus Petal
+    ],
+    functions: [
+      { type: 'heart', color: '#C29B58', size: 18 },  // Antique Brass Heart
+      { type: 'heart', color: '#388E3C', size: 16 },  // Emerald Leaf Heart
+      { type: 'leaf', color: '#2E7D32', size: 18 },   // Slender Ashoka Leaf
+      { type: 'leaf', color: '#43A047', size: 15 },   // Green Leaf
+      { type: 'marigold', color: '#FFB300', size: 15 } // Festive Marigold
+    ],
+    gallery: [
+      { type: 'heart', color: '#E91E63', size: 18 },  // Bougainvillea Magenta Heart
+      { type: 'heart', color: '#B85D4B', size: 16 },  // Terracotta Heart
+      { type: 'bougainvillea', color: '#D81B60', size: 17 }, // Magenta Bract
+      { type: 'bougainvillea', color: '#AD1457', size: 15 }, // Deep Magenta
+      { type: 'bougainvillea', color: '#EC407A', size: 14 }  // Pink Bract
+    ],
+    closing: [
+      { type: 'heart', color: '#C29B58', size: 19 },  // Antique Gold Heart
+      { type: 'heart', color: '#B71C1C', size: 17 },  // Ruby Crimson Heart
+      { type: 'petal', color: '#880E4F', size: 16 },  // Velvet Rose Petal
+      { type: 'glitter', color: '#FFD700', size: 7 }, // Radiant Gold Diamond
+      { type: 'glitter', color: '#C29B58', size: 6 }  // Antique Gold Glitter
+    ]
+  };
+
+  // Determine current active section on screen using viewport getBoundingClientRect
+  function getCurrentSection() {
+    const sections = [
+      { id: 'rsvpSection', name: 'closing' },
+      { id: 'timelineSection', name: 'functions' },
+      { id: 'storySection', name: 'gallery' },
+      { id: 'countdownSection', name: 'countdown' },
+      { id: 'scratchCardSection', name: 'invitation' },
+      { id: 'traditionalCardSection', name: 'blessings' },
+      { id: 'videoOpeningWrapper', name: 'hero' }
+    ];
+
+    const midY = height * 0.45;
+    for (let s of sections) {
+      const el = document.getElementById(s.id);
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= midY && rect.bottom >= midY) {
+          return s.name;
+        }
+      }
+    }
+    return 'hero';
+  }
+
+  // Draw romantic precision heart
+  function drawHeart(c, size) {
+    c.beginPath();
+    const topY = -size * 0.25;
+    const bottomY = size * 0.65;
+    const lobeW = size * 0.55;
+
+    c.moveTo(0, topY);
+    // Left lobe arch
+    c.bezierCurveTo(-lobeW * 0.4, -size * 0.75, -lobeW * 1.15, -size * 0.55, -lobeW, -size * 0.1);
+    // Left flank down to point
+    c.bezierCurveTo(-lobeW * 0.9, size * 0.3, -lobeW * 0.2, size * 0.5, 0, bottomY);
+    // Right flank up from point
+    c.bezierCurveTo(lobeW * 0.2, size * 0.5, lobeW * 0.9, size * 0.3, lobeW, -size * 0.1);
+    // Right lobe arch back to center
+    c.bezierCurveTo(lobeW * 1.15, -size * 0.55, lobeW * 0.4, -size * 0.75, 0, topY);
+    c.closePath();
+    c.fill();
+  }
+
+  // Organic curved petal (exact formula from weddingblues)
+  function drawPetal(c, size) {
+    c.beginPath();
+    c.moveTo(0, 0);
+    c.bezierCurveTo(-size / 2, -size / 2, -size, size / 3, 0, size);
+    c.bezierCurveTo(size, size / 3, size / 2, -size / 2, 0, 0);
+    c.fill();
+  }
+
+  function drawMogra(c, size) {
+    c.beginPath();
+    for (let j = 0; j < 5; j++) {
+      const ang = (j * Math.PI * 2) / 5;
+      const px = Math.cos(ang) * size * 0.55;
+      const py = Math.sin(ang) * size * 0.55;
+      c.arc(px, py, size * 0.35, 0, Math.PI * 2);
+    }
+    c.fill();
+    c.save();
+    c.fillStyle = '#C29B58';
+    c.beginPath();
+    c.arc(0, 0, size * 0.22, 0, Math.PI * 2);
+    c.fill();
+    c.restore();
+  }
+
+  function drawMarigold(c, size) {
+    c.beginPath();
+    c.moveTo(-size * 0.4, size * 0.6);
+    c.quadraticCurveTo(-size * 0.6, 0, -size * 0.3, -size * 0.5);
+    c.quadraticCurveTo(0, -size * 0.75, size * 0.3, -size * 0.5);
+    c.quadraticCurveTo(size * 0.6, 0, size * 0.4, size * 0.6);
+    c.closePath();
+    c.fill();
+  }
+
+  function drawLotus(c, size) {
+    c.beginPath();
+    c.moveTo(0, -size);
+    c.quadraticCurveTo(size * 0.6, -size * 0.2, 0, size * 0.8);
+    c.quadraticCurveTo(-size * 0.6, -size * 0.2, 0, -size);
+    c.closePath();
+    c.fill();
+  }
+
+  function drawLeaf(c, size) {
+    c.beginPath();
+    c.moveTo(0, -size * 1.35);
+    c.quadraticCurveTo(size * 0.45, 0, 0, size * 1.35);
+    c.quadraticCurveTo(-size * 0.45, 0, 0, -size * 1.35);
+    c.closePath();
+    c.fill();
+  }
+
+  function drawBougainvillea(c, size) {
+    c.beginPath();
+    c.moveTo(0, -size * 0.9);
+    c.bezierCurveTo(size * 0.85, -size * 0.5, size * 0.85, size * 0.5, 0, size * 0.9);
+    c.bezierCurveTo(-size * 0.85, size * 0.5, -size * 0.85, -size * 0.5, 0, -size * 0.9);
+    c.closePath();
+    c.fill();
+  }
+
+  function drawGlitter(c, size) {
+    c.beginPath();
+    c.moveTo(0, -size * 1.3);
+    c.lineTo(size * 0.4, -size * 0.2);
+    c.lineTo(size * 1.3, 0);
+    c.lineTo(size * 0.4, size * 0.2);
+    c.lineTo(0, size * 1.3);
+    c.lineTo(-size * 0.4, size * 0.2);
+    c.lineTo(-size * 1.3, 0);
+    c.lineTo(-size * 0.4, -size * 0.2);
+    c.closePath();
+    c.fill();
+  }
+
+  // Particle Class with natural falling physics
+  class NaturalParticle {
+    constructor(index) {
+      this.layer = index % 3; // 0: far, 1: mid, 2: near
+      this.reset(true);
+    }
+
+    reset(initialSpread) {
+      this.x = Math.random() * width;
+      this.y = initialSpread ? Math.random() * height : -25 - Math.random() * 30;
+      
+      const speedMultiplier = prefersReduced ? 0.45 : 1.0;
+      // Layer-based depth fall speeds (far is gentler, near is slightly faster)
+      if (this.layer === 0) {
+        this.speedY = (0.75 + Math.random() * 0.5) * speedMultiplier;
+        this.scale = 0.85;
+        this.opacity = 0.55 + Math.random() * 0.2;
+      } else if (this.layer === 1) {
+        this.speedY = (1.1 + Math.random() * 0.6) * speedMultiplier;
+        this.scale = 1.05;
+        this.opacity = 0.75 + Math.random() * 0.2;
+      } else {
+        this.speedY = (1.5 + Math.random() * 0.7) * speedMultiplier;
+        this.scale = 1.35;
+        this.opacity = 0.85 + Math.random() * 0.15;
+      }
+
+      this.speedX = -0.3 + Math.random() * 0.6; // Subtle natural air current
+      this.phase = Math.random() * Math.PI * 2; // Independent sway phase
+      this.rotation = Math.random() * Math.PI * 2;
+      this.rotSpeed = (Math.random() - 0.5) * 0.025;
+      this.flip = Math.random() * Math.PI * 2;
+      this.flipSpeed = 0.015 + Math.random() * 0.02;
+    }
+
+    update() {
+      // Natural steady vertical fall
+      this.y += this.speedY;
+
+      // Organic harmonic sine-wave sway directly proportional to y position (from weddingblues)
+      // No scroll-drift kicking to the right; falls calmly and naturally
+      this.x += Math.sin(this.y * 0.014 + this.phase) * 0.75 + this.speedX;
+      
+      this.rotation += this.rotSpeed;
+      this.flip += this.flipSpeed;
+
+      // Wrap-around boundaries
+      if (this.y > height + 25) {
+        this.reset(false);
+      }
+      if (this.x < -30) this.x = width + 30;
+      if (this.x > width + 30) this.x = -30;
+    }
+
+    draw(currentTheme) {
+      const themeItems = sectionThemes[currentTheme] || sectionThemes.hero;
+      const item = themeItems[(this.layer + Math.floor(this.phase * 3)) % themeItems.length];
+
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.rotation);
+
+      // Gentle 3D flutter: oscillates smoothly between 0.55 and 1.0
+      const flutter = 0.55 + 0.45 * Math.cos(this.flip);
+      ctx.scale(this.scale * flutter, this.scale);
+      ctx.globalAlpha = this.opacity;
+      ctx.fillStyle = item.color;
+
+      const size = item.size;
+      switch (item.type) {
+        case 'heart':
+          drawHeart(ctx, size);
+          if (this.layer >= 1) {
+            ctx.save();
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.35)';
+            ctx.beginPath();
+            ctx.ellipse(-size * 0.2, -size * 0.28, size * 0.12, size * 0.07, -Math.PI / 4, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+          }
+          break;
+        case 'petal':
+          drawPetal(ctx, size);
+          break;
+        case 'mogra':
+          drawMogra(ctx, size);
+          break;
+        case 'marigold':
+          drawMarigold(ctx, size);
+          break;
+        case 'lotus':
+          drawLotus(ctx, size);
+          break;
+        case 'leaf':
+          drawLeaf(ctx, size);
+          break;
+        case 'bougainvillea':
+          drawBougainvillea(ctx, size);
+          break;
+        case 'glitter':
+          drawGlitter(ctx, size);
+          break;
+        default:
+          drawPetal(ctx, size);
+      }
+
+      ctx.restore();
+    }
+  }
+
+  // Create particles (balanced count for smooth 60fps luxury look)
+  const MAX_PARTICLES = prefersReduced ? 18 : 34;
+  const particles = [];
+  for (let i = 0; i < MAX_PARTICLES; i++) {
+    particles.push(new NaturalParticle(i));
+  }
+
+  // Animation Loop
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+
+    const currentTheme = getCurrentSection();
+    for (let i = 0; i < particles.length; i++) {
+      particles[i].update();
+      particles[i].draw(currentTheme);
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  // Start animation loop
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', animate);
+  } else {
+    animate();
+  }
+})();
+
+/* === envelope_particles.js === */
+/**
+ * Video Opening & Endscreen Names Reveal Engine
+ * Plays envelope opening video on tap, reveals couple names on endscreen, and unlocks page scrolling.
+ */
+
+(function () {
+  const videoTapOverlay = document.getElementById('videoTapOverlay');
+  const tapSealBtn = document.getElementById('tapSealBtn');
+  const openingVideo = document.getElementById('openingEnvelopeVideo');
+  const videoEndscreenReveal = document.getElementById('videoEndscreenReveal');
+  const lightTrailCanvas = document.getElementById('lightTrailCanvas');
+  const bgAudio = document.getElementById('bgAudio');
+  const musicToggleBtn = document.getElementById('musicToggleBtn');
+
+  let trailCtx = lightTrailCanvas ? lightTrailCanvas.getContext('2d') : null;
+  let hasStarted = false;
+  let isPlayingAudio = false;
+
+  // Set initial scroll lock
+  document.body.classList.add('scroll-locked');
+
+  function resizeTrailCanvas() {
+    if (lightTrailCanvas && videoEndscreenReveal) {
+      lightTrailCanvas.width = videoEndscreenReveal.offsetWidth;
+      lightTrailCanvas.height = videoEndscreenReveal.offsetHeight;
+    }
+  }
+  window.addEventListener('resize', resizeTrailCanvas);
+
+  function startInvitation() {
+    if (hasStarted) return;
+    hasStarted = true;
+
+    // 1. Hide tap overlay
+    if (videoTapOverlay) {
+      videoTapOverlay.classList.add('hidden');
+    }
+
+    // 2. Play background audio safely
+    if (bgAudio) {
+      bgAudio.volume = 0.5;
+      bgAudio.play().then(() => {
+        isPlayingAudio = true;
+        if (musicToggleBtn) musicToggleBtn.classList.add('playing');
+      }).catch(err => {
+        console.log('Background audio playback note:', err);
+      });
+    }
+
+    // 3. Play envelope opening video
+    if (openingVideo) {
+      openingVideo.currentTime = 0;
+      openingVideo.play().catch(err => {
+        console.warn('Video play error, triggering fallback reveal:', err);
+        revealEndscreen();
+      });
+
+      // Detect end of video or near-end
+      openingVideo.addEventListener('timeupdate', () => {
+        if (openingVideo.duration && openingVideo.currentTime >= openingVideo.duration - 0.5) {
+          revealEndscreen();
+        }
+      });
+      openingVideo.addEventListener('ended', revealEndscreen);
+    } else {
+      revealEndscreen();
+    }
+  }
+
+  function revealEndscreen() {
+    if (videoEndscreenReveal.classList.contains('active')) return;
+    videoEndscreenReveal.classList.add('active');
+
+    // Unlock document scrolling
+    document.body.classList.remove('scroll-locked');
+    document.body.classList.add('scroll-unlocked');
+
+    // Initialize cinematic swirling golden light trails
+    resizeTrailCanvas();
+    initLightTrails();
+  }
+
+  if (tapSealBtn) {
+    tapSealBtn.addEventListener('click', startInvitation);
+  }
+  if (videoTapOverlay) {
+    videoTapOverlay.addEventListener('click', startInvitation);
+  }
+
+  // Audio Toggle
+  if (musicToggleBtn && bgAudio) {
+    musicToggleBtn.addEventListener('click', () => {
+      if (bgAudio.paused) {
+        bgAudio.play();
+        musicToggleBtn.classList.add('playing');
+        isPlayingAudio = true;
+      } else {
+        bgAudio.pause();
+        musicToggleBtn.classList.remove('playing');
+        isPlayingAudio = false;
+      }
+    });
+  }
+
+  // Auto-pause audio on tab hidden
+  document.addEventListener('visibilitychange', () => {
+    if (!bgAudio) return;
+    if (document.hidden) {
+      if (!bgAudio.paused) bgAudio.pause();
+    } else {
+      if (isPlayingAudio) bgAudio.play();
+    }
+  });
+
+  // Golden Light Trails Animation on Endscreen
+  let lightTrails = [];
+  function initLightTrails() {
+    if (!lightTrailCanvas || !trailCtx) return;
+    const w = lightTrailCanvas.width;
+    const h = lightTrailCanvas.height;
+
+    lightTrails = [];
+    const trailCount = 4;
+    for (let i = 0; i < trailCount; i++) {
+      lightTrails.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        targetX: w / 2 + (Math.random() - 0.5) * (w * 0.7),
+        targetY: h / 2 + (Math.random() - 0.5) * (h * 0.45),
+        angle: Math.random() * Math.PI * 2,
+        speed: 2.2 + Math.random() * 2,
+        history: []
+      });
+    }
+    animateLightTrails();
+  }
+
+  function animateLightTrails() {
+    if (!trailCtx || !lightTrailCanvas) return;
+    const w = lightTrailCanvas.width;
+    const h = lightTrailCanvas.height;
+
+    trailCtx.clearRect(0, 0, w, h);
+
+    for (let t of lightTrails) {
+      const dx = t.targetX - t.x;
+      const dy = t.targetY - t.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < 40) {
+        t.targetX = w / 2 + (Math.random() - 0.5) * (w * 0.7);
+        t.targetY = h / 2 + (Math.random() - 0.5) * (h * 0.45);
+      }
+
+      t.angle += (Math.atan2(dy, dx) - t.angle) * 0.04;
+      t.x += Math.cos(t.angle) * t.speed;
+      t.y += Math.sin(t.angle) * t.speed;
+
+      t.history.push({ x: t.x, y: t.y });
+      if (t.history.length > 30) {
+        t.history.shift();
+      }
+
+      if (t.history.length > 2) {
+        for (let i = 1; i < t.history.length; i++) {
+          const ratio = i / t.history.length;
+          trailCtx.save();
+          trailCtx.strokeStyle = `rgba(238, 215, 161, ${ratio * 0.7})`;
+          trailCtx.lineWidth = ratio * 3;
+          trailCtx.shadowBlur = 10;
+          trailCtx.shadowColor = '#D4AF37';
+          trailCtx.beginPath();
+          trailCtx.moveTo(t.history[i - 1].x, t.history[i - 1].y);
+          trailCtx.lineTo(t.history[i].x, t.history[i].y);
+          trailCtx.stroke();
+          trailCtx.restore();
+        }
+      }
+
+      trailCtx.save();
+      trailCtx.fillStyle = '#FFFEE8';
+      trailCtx.shadowBlur = 14;
+      trailCtx.shadowColor = '#FFD700';
+      trailCtx.beginPath();
+      trailCtx.arc(t.x, t.y, 2, 0, Math.PI * 2);
+      trailCtx.fill();
+      trailCtx.restore();
+    }
+
+    requestAnimationFrame(animateLightTrails);
+  }
+})();
+
+/* === scratch_card.js === */
+/**
+ * Animation 4: Pure Heart-Shaped "Scratch to Reveal" Engine
+ * Erases gold foil strictly on the heart silhouette.
+ * On reveal: Heading dynamically morphs into "Save the Date" with NO calendar buttons.
+ */
+
+(function () {
+  const canvas = document.getElementById('scratchCanvas');
+  const stage = document.querySelector('.pure-heart-stage');
+  const heading = document.getElementById('scratchHeading');
+  const subtitle = document.getElementById('scratchSubtitle');
+  if (!canvas || !stage) return;
+
+  const ctx = canvas.getContext('2d');
+  let isDrawing = false;
+  let isRevealed = false;
+  let brushRadius = 24;
+
+  function initScratchCanvas() {
+    canvas.width = stage.offsetWidth;
+    canvas.height = stage.offsetHeight;
+
+    const w = canvas.width;
+    const h = canvas.height;
+
+    // Draw Gold Foil Metallic Gradient
+    const grad = ctx.createLinearGradient(0, 0, w, h);
+    grad.addColorStop(0, '#B8860B');
+    grad.addColorStop(0.2, '#E6CA65');
+    grad.addColorStop(0.4, '#FFF7D6');
+    grad.addColorStop(0.6, '#D4AF37');
+    grad.addColorStop(0.8, '#AA7C11');
+    grad.addColorStop(1, '#855A05');
+
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, w, h);
+
+    // Stippled sparkling texture
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+    for (let i = 0; i < 450; i++) {
+      ctx.fillRect(Math.random() * w, Math.random() * h, 2, 2);
+    }
+
+    // Inner embossed heart line
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+    ctx.lineWidth = 1.5;
+    drawHeartPath(ctx, w * 0.82, h * 0.82, w * 0.09, h * 0.09);
+    ctx.stroke();
+
+    // Stamped Text in center of heart
+    ctx.fillStyle = '#4A3305';
+    ctx.font = 'bold 16px "Cinzel", Georgia, serif';
+    ctx.textAlign = 'center';
+    ctx.letterSpacing = '2px';
+    ctx.fillText('SCRATCH HERE', w / 2, h * 0.48);
+  }
+
+  function drawHeartPath(c, w, h, offsetX = 0, offsetY = 0) {
+    c.save();
+    c.translate(offsetX, offsetY);
+    c.beginPath();
+    c.moveTo(w / 2, h * 0.9);
+    c.bezierCurveTo(w * 0.15, h * 0.65, 0, h * 0.45, 0, h * 0.28);
+    c.bezierCurveTo(0, h * 0.08, w * 0.18, 0, w * 0.35, 0);
+    c.bezierCurveTo(w * 0.44, 0, w / 2, h * 0.12, w / 2, h * 0.18);
+    c.bezierCurveTo(w / 2, h * 0.12, w * 0.56, 0, w * 0.65, 0);
+    c.bezierCurveTo(w * 0.82, 0, w, h * 0.08, w, h * 0.28);
+    c.bezierCurveTo(w, h * 0.45, w * 0.85, h * 0.65, w / 2, h * 0.9);
+    c.closePath();
+    c.restore();
+  }
+
+  function scratch(e) {
+    if (isRevealed) return;
+    const rect = canvas.getBoundingClientRect();
+    let clientX, clientY;
+
+    if (e.touches && e.touches.length > 0) {
+      clientX = e.touches[0].clientX;
+      clientY = e.touches[0].clientY;
+    } else {
+      clientX = e.clientX;
+      clientY = e.clientY;
+    }
+
+    const x = clientX - rect.left;
+    const y = clientY - rect.top;
+
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.beginPath();
+    ctx.arc(x, y, brushRadius, 0, Math.PI * 2);
+    ctx.fill();
+
+    checkScratchPercentage();
+  }
+
+  // Calculate percentage of pixels cleared inside the heart
+  let checkThrottle = 0;
+  function checkScratchPercentage() {
+    checkThrottle++;
+    if (checkThrottle % 4 !== 0) return;
+
+    const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const data = imgData.data;
+    let transparent = 0;
+    const total = data.length / 4;
+
+    for (let i = 3; i < data.length; i += 24) {
+      if (data[i] === 0) {
+        transparent++;
+      }
+    }
+
+    const percent = (transparent / (total / 6)) * 100;
+    if (percent > 38 && !isRevealed) {
+      revealFullContent();
+    }
+  }
+
+  function revealFullContent() {
+    isRevealed = true;
+    canvas.style.opacity = '0';
+
+    // Trigger golden border animation on the heart outline
+    if (stage) {
+      stage.classList.add('revealed');
+    }
+
+    // Dynamic Title Morph: "Scratch to Reveal" -> "Save the Date"
+    if (heading) {
+      heading.style.opacity = '0';
+      heading.style.transform = 'translateY(-8px)';
+      setTimeout(() => {
+        heading.innerText = 'Save the Date';
+        heading.style.opacity = '1';
+        heading.style.transform = 'translateY(0)';
+      }, 350);
+    }
+
+    if (subtitle) {
+      subtitle.style.opacity = '0';
+      setTimeout(() => {
+        subtitle.innerText = "We Can't Wait to Celebrate With You!";
+        subtitle.style.opacity = '1';
+      }, 350);
+    }
+
+    setTimeout(() => {
+      canvas.style.display = 'none';
+    }, 800);
+  }
+
+  // Event Listeners for Touch and Mouse
+  canvas.addEventListener('mousedown', (e) => {
+    isDrawing = true;
+    scratch(e);
+  });
+  window.addEventListener('mouseup', () => { isDrawing = false; });
+  canvas.addEventListener('mousemove', (e) => {
+    if (isDrawing) scratch(e);
+  });
+
+  canvas.addEventListener('touchstart', (e) => {
+    isDrawing = true;
+    scratch(e);
+  }, { passive: true });
+  window.addEventListener('touchend', () => { isDrawing = false; });
+  canvas.addEventListener('touchmove', (e) => {
+    if (isDrawing) scratch(e);
+  }, { passive: true });
+
+  window.addEventListener('load', initScratchCanvas);
+  window.addEventListener('resize', () => {
+    if (!isRevealed) initScratchCanvas();
+  });
+})();
+
+/* === countdown_confetti.js === */
+/**
+ * Animation 5: Live Countdown Timer & Confetti Burst
+ */
+
+(function () {
+  const daysEl = document.getElementById('days');
+  const hoursEl = document.getElementById('hours');
+  const minutesEl = document.getElementById('minutes');
+  const secondsEl = document.getElementById('seconds');
+  const countdownSection = document.getElementById('countdownSection');
+  const confettiCanvas = document.getElementById('confettiCanvas');
+
+  // 1. Live Countdown Timer
+  const targetDateStr = countdownSection ? countdownSection.dataset.target : '2026-12-14T19:00:00+05:30';
+  const targetDate = new Date(targetDateStr).getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance < 0) {
+      if (daysEl) daysEl.innerText = '00';
+      if (hoursEl) hoursEl.innerText = '00';
+      if (minutesEl) minutesEl.innerText = '00';
+      if (secondsEl) secondsEl.innerText = '00';
+      return;
+    }
+
+    const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+    if (daysEl) daysEl.innerText = d < 10 ? '0' + d : d;
+    if (hoursEl) hoursEl.innerText = h < 10 ? '0' + h : h;
+    if (minutesEl) minutesEl.innerText = m < 10 ? '0' + m : m;
+    if (secondsEl) secondsEl.innerText = s < 10 ? '0' + s : s;
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+
+  // 2. Confetti Particle Burst Engine
+  let confettiCtx = confettiCanvas ? confettiCanvas.getContext('2d') : null;
+  let confettiParticles = [];
+  let confettiBurstTriggered = false;
+
+  function resizeConfetti() {
+    if (confettiCanvas && countdownSection) {
+      confettiCanvas.width = countdownSection.offsetWidth;
+      confettiCanvas.height = countdownSection.offsetHeight;
+    }
+  }
+  window.addEventListener('resize', resizeConfetti);
+  resizeConfetti();
+
+  function triggerConfettiBurst() {
+    if (!confettiCanvas || !confettiCtx) return;
+    resizeConfetti();
+    confettiParticles = [];
+    const colors = ['#C5A46D', '#E8D3A7', '#D4AF37', '#781822', '#F7EFE2', '#E8A598', '#FFD700'];
+
+    const count = 120;
+    for (let i = 0; i < count; i++) {
+      confettiParticles.push({
+        x: confettiCanvas.width / 2 + (Math.random() - 0.5) * 60,
+        y: confettiCanvas.height * 0.35,
+        vx: (Math.random() - 0.5) * 12,
+        vy: -Math.random() * 9 - 4,
+        size: Math.random() * 6 + 4,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        rotation: Math.random() * Math.PI * 2,
+        vRot: (Math.random() - 0.5) * 0.2,
+        wobble: Math.random() * 10,
+        alpha: 1,
+        isPetal: Math.random() > 0.6
+      });
+    }
+    animateConfetti();
+  }
+
+  function animateConfetti() {
+    if (!confettiCtx || !confettiCanvas) return;
+    confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+
+    let hasActive = false;
+    for (let p of confettiParticles) {
+      if (p.alpha > 0.05 && p.y < confettiCanvas.height) {
+        hasActive = true;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.22; // gravity
+        p.vx *= 0.98; // air resistance
+        p.rotation += p.vRot;
+        p.wobble += 0.08;
+        p.alpha -= 0.006;
+
+        confettiCtx.save();
+        confettiCtx.globalAlpha = Math.max(0, p.alpha);
+        confettiCtx.fillStyle = p.color;
+        confettiCtx.translate(p.x + Math.sin(p.wobble) * 2, p.y);
+        confettiCtx.rotate(p.rotation);
+
+        if (p.isPetal) {
+          // Curved Rose Petal shape
+          confettiCtx.beginPath();
+          confettiCtx.ellipse(0, 0, p.size, p.size * 1.5, Math.PI / 4, 0, Math.PI * 2);
+          confettiCtx.fill();
+        } else {
+          // Metallic confetti flake
+          confettiCtx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.8);
+        }
+        confettiCtx.restore();
+      }
+    }
+
+    if (hasActive) {
+      requestAnimationFrame(animateConfetti);
+    } else {
+      confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+    }
+  }
+
+  // Trigger burst when Countdown scrolls into view
+  if ('IntersectionObserver' in window && countdownSection) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !confettiBurstTriggered) {
+          confettiBurstTriggered = true;
+          triggerConfettiBurst();
+        }
+      });
+    }, { threshold: 0.4 });
+    observer.observe(countdownSection);
+  }
+
+  // .ics Calendar file generator
+  const downloadIcsBtn = document.getElementById('downloadIcsBtn');
+  if (downloadIcsBtn) {
+    downloadIcsBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const title = downloadIcsBtn.dataset.title || 'Wedding Ceremony';
+      const venue = downloadIcsBtn.dataset.venue || 'Wedding Venue';
+      const start = '20261214T133000Z';
+      const end = '20261214T193000Z';
+      const icsData = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'BEGIN:VEVENT',
+        `SUMMARY:${title}`,
+        `LOCATION:${venue}`,
+        `DTSTART:${start}`,
+        `DTEND:${end}`,
+        'DESCRIPTION:Wedding celebration and sacred ceremonies',
+        'STATUS:CONFIRMED',
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ].join('\r\n');
+
+      const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8' });
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.setAttribute('download', 'wedding_invitation.ics');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  }
+})();
+
+/* === timeline_path.js === */
+/**
+ * Animation 6 & 7: "Our Story" Touch-Swipe Engine & Interactive Winding Timeline
+ */
+
+(function () {
+  // ============================================================================
+  // ANIMATION 6: "OUR STORY" TOUCH-SWIPE ENGINE
+  // ============================================================================
+  const track = document.getElementById('storyTrack');
+  const container = document.querySelector('.story-carousel-container');
+  const slides = document.querySelectorAll('.story-slide');
+  const prevBtn = document.getElementById('storyPrev');
+  const nextBtn = document.getElementById('storyNext');
+  const dots = document.querySelectorAll('.carousel-dots .dot');
+
+  let currentSlide = 0;
+  const totalSlides = slides.length;
+  let startX = 0;
+  let currentX = 0;
+  let isSwiping = false;
+
+  function updateSlidePosition(animate = true) {
+    if (!track) return;
+    track.style.transition = animate ? 'transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)' : 'none';
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+    dots.forEach((d, i) => {
+      d.classList.toggle('active', i === currentSlide);
+    });
+  }
+
+  function nextSlide() {
+    if (currentSlide < totalSlides - 1) {
+      currentSlide++;
+    } else {
+      currentSlide = 0; // loop
+    }
+    updateSlidePosition(true);
+  }
+
+  function prevSlide() {
+    if (currentSlide > 0) {
+      currentSlide--;
+    } else {
+      currentSlide = totalSlides - 1; // loop
+    }
+    updateSlidePosition(true);
+  }
+
+  if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+  if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+  dots.forEach(d => {
+    d.addEventListener('click', () => {
+      currentSlide = parseInt(d.dataset.index, 10);
+      updateSlidePosition(true);
+    });
+  });
+
+  // Touch Swipe with live finger tracking
+  if (container && track) {
+    container.addEventListener('touchstart', (e) => {
+      if (totalSlides <= 1) return;
+      isSwiping = true;
+      startX = e.touches[0].clientX;
+      currentX = startX;
+      track.style.transition = 'none';
+    }, { passive: true });
+
+    container.addEventListener('touchmove', (e) => {
+      if (!isSwiping) return;
+      currentX = e.touches[0].clientX;
+      const diffX = currentX - startX;
+      const currentOffset = -currentSlide * container.offsetWidth;
+      track.style.transform = `translateX(${currentOffset + diffX}px)`;
+    }, { passive: true });
+
+    container.addEventListener('touchend', () => {
+      if (!isSwiping) return;
+      isSwiping = false;
+      const diffX = currentX - startX;
+      const threshold = 45; // pixels to trigger slide change
+
+      if (diffX < -threshold) {
+        nextSlide();
+      } else if (diffX > threshold) {
+        prevSlide();
+      } else {
+        updateSlidePosition(true); // snap back
+      }
+    });
+
+    // Mouse drag support for desktop preview
+    let isMouseDown = false;
+    container.addEventListener('mousedown', (e) => {
+      isMouseDown = true;
+      startX = e.clientX;
+      currentX = startX;
+      track.style.transition = 'none';
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isMouseDown) return;
+      currentX = e.clientX;
+      const diffX = currentX - startX;
+      const currentOffset = -currentSlide * container.offsetWidth;
+      track.style.transform = `translateX(${currentOffset + diffX}px)`;
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (!isMouseDown) return;
+      isMouseDown = false;
+      const diffX = currentX - startX;
+      if (diffX < -45) nextSlide();
+      else if (diffX > 45) prevSlide();
+      else updateSlidePosition(true);
+    });
+  }
+
+  // ============================================================================
+  // ANIMATION 7: WINDING SVG THREAD & SCROLL-DRIVEN MOVING HEART MARKER
+  // (Strictly following https://nishkam-b.github.io/Wedding-Blueprint prompts)
+  // ============================================================================
+  const timelineSvg = document.getElementById('timelineSvg');
+  const pathBg = document.getElementById('timelinePathBg');
+  const pathActive = document.getElementById('timelinePathActive');
+  const heartMarker = document.getElementById('timelineHeartMarker');
+  const timelineWrapper = document.querySelector('.timeline-wrapper');
+  const eventCards = document.querySelectorAll('.event-card');
+
+  function buildWindingPath() {
+    if (!timelineWrapper || !timelineSvg || !pathBg || !pathActive || eventCards.length === 0) return;
+
+    const totalHeight = timelineWrapper.offsetHeight;
+    const width = 40;
+
+    timelineSvg.setAttribute('viewBox', `0 0 ${width} ${totalHeight}`);
+    timelineSvg.style.height = `${totalHeight}px`;
+
+    let d = `M 20 12 `;
+    const step = totalHeight / (eventCards.length * 2);
+
+    for (let i = 0; i < eventCards.length * 2; i++) {
+      const y = (i + 1) * step;
+      const x = i % 2 === 0 ? 32 : 8;
+      d += `S ${x} ${y - step / 2}, 20 ${y} `;
+    }
+
+    pathBg.setAttribute('d', d);
+    pathActive.setAttribute('d', d);
+
+    const pathLength = pathActive.getTotalLength();
+    pathActive.style.strokeDasharray = pathLength;
+    pathActive.style.strokeDashoffset = pathLength;
+  }
+
+  function updateTimelineProgress() {
+    if (!timelineWrapper || !pathActive || !heartMarker) return;
+
+    const rect = timelineWrapper.getBoundingClientRect();
+    const windowH = window.innerHeight;
+    const totalH = timelineWrapper.offsetHeight;
+
+    const startY = windowH * 0.75;
+    const progress = Math.min(Math.max((startY - rect.top) / totalH, 0), 1);
+
+    const pathLength = pathActive.getTotalLength();
+    const activeLength = pathLength * progress;
+
+    pathActive.style.strokeDashoffset = pathLength - activeLength;
+
+    if (activeLength > 0 && activeLength <= pathLength) {
+      const pt = pathActive.getPointAtLength(activeLength);
+      heartMarker.style.top = `${pt.y}px`;
+      heartMarker.style.left = `${pt.x}px`;
+      heartMarker.style.opacity = '1';
+    } else {
+      heartMarker.style.opacity = '0.4';
+    }
+  }
+
+  window.addEventListener('scroll', updateTimelineProgress, { passive: true });
+  window.addEventListener('resize', () => {
+    buildWindingPath();
+    updateTimelineProgress();
+  });
+
+    window.addEventListener('load', () => {
+    setTimeout(() => {
+      buildWindingPath();
+      updateTimelineProgress();
+    }, 200);
+  });
+
+  // ============================================================================
+  // ADD TO CALENDAR SMART HANDLER (Apple Calendar .ICS for iOS / Google Calendar for Android)
+  // Timezone: GMT + 5.30 India Standard Time - Kolkata
+  // ============================================================================
+  function initCalendarButtons() {
+    document.querySelectorAll('.event-btn.calendar').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const isApple = /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent) && !window.MSStream;
+        if (isApple && btn.dataset.start && btn.dataset.title) {
+          e.preventDefault();
+          const title = btn.dataset.title || 'Wedding Ceremony';
+          const start = btn.dataset.start;
+          const end = btn.dataset.end || start;
+          const location = btn.dataset.location || '';
+          const desc = btn.dataset.details || '';
+          const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '_');
+
+          const icsLines = [
+            'BEGIN:VCALENDAR',
+            'VERSION:2.0',
+            'PRODID:-//Luxury Wedding Invitation//EN',
+            'CALSCALE:GREGORIAN',
+            'METHOD:PUBLISH',
+            'BEGIN:VTIMEZONE',
+            'TZID:Asia/Kolkata',
+            'TZURL:http://tzurl.org/zoneinfo-outlook/Asia/Kolkata',
+            'X-LIC-LOCATION:Asia/Kolkata',
+            'BEGIN:STANDARD',
+            'TZOFFSETFROM:+0530',
+            'TZOFFSETTO:+0530',
+            'TZNAME:IST',
+            'DTSTART:19700101T000000',
+            'END:STANDARD',
+            'END:VTIMEZONE',
+            'BEGIN:VEVENT',
+            `SUMMARY:${title}`,
+            `DESCRIPTION:${desc.replace(/\n/g, '\\n')}`,
+            `LOCATION:${location.replace(/\n/g, '\\n')}`,
+            `DTSTART;TZID=Asia/Kolkata:${start}`,
+            `DTEND;TZID=Asia/Kolkata:${end}`,
+            'STATUS:CONFIRMED',
+            'END:VEVENT',
+            'END:VCALENDAR'
+          ];
+
+          const blob = new Blob([icsLines.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
+          const dlLink = document.createElement('a');
+          dlLink.href = URL.createObjectURL(blob);
+          dlLink.setAttribute('download', `${slug}.ics`);
+          document.body.appendChild(dlLink);
+          dlLink.click();
+          document.body.removeChild(dlLink);
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCalendarButtons);
+  } else {
+    initCalendarButtons();
+  }
+})();
+
+/* === rsvp_handler.js === */
+/**
+ * Animation 9: RSVP & Thank You Form with Checkmark Animation & WhatsApp Direct Sync
+ */
+
+(function () {
+  const rsvpForm = document.getElementById('rsvpForm');
+  const rsvpSuccessBox = document.getElementById('rsvpSuccessBox');
+  const guestNameInput = document.getElementById('guestName');
+  const attendanceSelect = document.getElementById('attendanceSelect');
+  const guestCountSelect = document.getElementById('guestCount');
+  const guestWishesInput = document.getElementById('guestWishes');
+  const whatsappDirectBtn = document.getElementById('whatsappDirectBtn');
+  const shareWhatsAppBtn = document.getElementById('shareWhatsAppBtn');
+  const backToTopBtn = document.getElementById('backToTopBtn');
+
+  // Submit Handler
+  if (rsvpForm) {
+    rsvpForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = guestNameInput.value.trim();
+      const attendance = attendanceSelect.value;
+      const count = guestCountSelect.value;
+      const wishes = guestWishesInput.value.trim();
+
+      if (!name) {
+        guestNameInput.focus();
+        return;
+      }
+
+      // Save locally
+      const rsvpData = { name, attendance, count, wishes, timestamp: new Date().toISOString() };
+      try {
+        const stored = JSON.parse(localStorage.getItem('wedding_rsvps') || '[]');
+        stored.push(rsvpData);
+        localStorage.setItem('wedding_rsvps', JSON.stringify(stored));
+      } catch (err) {
+        console.warn('localStorage error', err);
+      }
+
+      // Configure WhatsApp Direct Response Link
+      const hostPhone = rsvpForm.dataset.whatsapp || '+919876543210';
+      const cleanPhone = hostPhone.replace(/[^0-9]/g, '');
+      const waMessage = encodeURIComponent(
+        `✨ Wedding RSVP ✨\n\n` +
+        `Guest: ${name}\n` +
+        `Attendance: ${attendance}\n` +
+        `Guests: ${count}\n` +
+        (wishes ? `Blessings: "${wishes}"\n\n` : '\n') +
+        `Looking forward to celebrating with you! ❤️`
+      );
+
+      if (whatsappDirectBtn) {
+        whatsappDirectBtn.href = `https://wa.me/${cleanPhone}?text=${waMessage}`;
+      }
+
+      // Hide form & trigger checkmark success animation
+      rsvpForm.style.display = 'none';
+      if (rsvpSuccessBox) {
+        rsvpSuccessBox.classList.add('active');
+      }
+    });
+  }
+
+  // Global WhatsApp Share Button
+  if (shareWhatsAppBtn) {
+    shareWhatsAppBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const coupleNames = shareWhatsAppBtn.dataset.couple || 'Akash & Sakshi';
+      const url = window.location.href;
+      const text = encodeURIComponent(
+        `💌 You are cordially invited to celebrate the wedding of ${coupleNames}!\n\n` +
+        `Tap the interactive invitation link below to view ceremonies, venues & RSVP:\n${url}`
+      );
+      window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+    });
+  }
+
+  // Share Invite Button (Native phone function for Android & iPhone)
+  const shareInviteBtn = document.getElementById('shareInviteBtn');
+  if (shareInviteBtn) {
+    shareInviteBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const coupleNames = (document.querySelector('.hero-couple-names') ? document.querySelector('.hero-couple-names').textContent.replace(/\s+/g, ' ').trim() : 'Akash & Sakshi');
+      const shareUrl = window.location.href.startsWith('http') ? window.location.href : '';
+      const sharePayload = {
+        title: `Wedding Invitation - ${coupleNames}`,
+        text: `You are cordially invited to celebrate the wedding ceremony of ${coupleNames}! Please tap the link to view celebrations, venues & RSVP:`
+      };
+      if (shareUrl) {
+        sharePayload.url = shareUrl;
+      }
+
+      if (navigator.share) {
+        navigator.share(sharePayload).catch((err) => {
+          if (err.name !== 'AbortError') {
+            console.warn('Native share dismissed or failed, opening WhatsApp fallback:', err);
+            triggerWhatsAppShare(coupleNames);
+          }
+        });
+      } else {
+        triggerWhatsAppShare(coupleNames);
+      }
+    });
+  }
+
+  function triggerWhatsAppShare(coupleNames) {
+    const text = encodeURIComponent(
+      `💌 You are cordially invited to celebrate the wedding of ${coupleNames}!\n\n` +
+      `Tap the interactive invitation link below to view ceremonies, venues & RSVP:\n${window.location.href}`
+    );
+    window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+  }
+
+  // Copy Link Button with "Copied! ✓" visual feedback
+  const copyLinkBtn = document.getElementById('copyLinkBtn');
+  const copyLinkText = document.getElementById('copyLinkText');
+  if (copyLinkBtn) {
+    copyLinkBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const url = window.location.href;
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(url);
+        } else {
+          const temp = document.createElement('input');
+          temp.value = url;
+          document.body.appendChild(temp);
+          temp.select();
+          document.execCommand('copy');
+          document.body.removeChild(temp);
+        }
+        if (copyLinkText) copyLinkText.textContent = 'Copied! ✓';
+        copyLinkBtn.classList.add('copied');
+        setTimeout(() => {
+          if (copyLinkText) copyLinkText.textContent = 'Copy Link';
+          copyLinkBtn.classList.remove('copied');
+        }, 2200);
+      } catch (err) {
+        console.warn('Clipboard copy error', err);
+      }
+    });
+  }
+
+  // Save as PDF Button (Native print dialog: cover page = endscreen with couple names)
+  const savePdfBtn = document.getElementById('savePdfBtn');
+  if (savePdfBtn) {
+    savePdfBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const endscreen = document.getElementById('videoEndscreenReveal');
+      if (endscreen) endscreen.classList.add('active');
+      window.print();
+    });
+  }
+
+  // Back to Top Smooth Scroll
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+})();
+
+</script>
+</body>
+</html>

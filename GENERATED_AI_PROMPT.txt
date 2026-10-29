@@ -1,0 +1,22 @@
+Build a premium, mobile-first 9:16 digital wedding invitation website for a luxury Hindu wedding for Akash & Sakshi in Udaipur, Rajasthan.
+
+WEDDING DETAILS (USE EXACTLY AS GIVEN):
+- Couple: Akash & Sakshi (Akash Sharma weds Sakshi Verma)
+- Main Date: 2026-12-14 (07:00 PM onwards)
+- Venue: The Grand Palace Resort & Convention Center, 108 Heritage Lake Road, Near Lake Pichola, Udaipur, Rajasthan 313001
+- Hosts: Smt. Sunita & Shri Rajesh Sharma & Smt. Meena & Shri Dinesh Verma
+- Blessings: ॐ श्री गणेशाय नमः - With the divine blessings of Lord Ganesha and our beloved ancestors, we embark on this sacred journey of love and togetherness.
+- Grandparents: With heavenly blessings from Late Shri Ram Lal Sharma & Late Smt. Kamala Devi
+- Secret Scratch Card Reveal: "Save Our Date!" - We cannot wait to celebrate the most magical night of our lives with you in the City of Lakes! Pack your dancing shoes and festive best.
+- RSVP Contact: Rohit Sharma / Priya Verma (+919876543210)
+
+IMPLEMENT THE 9 KEY ANIMATIONS:
+1. Wax Seal & Envelope Opening: Cream envelope with damask texture, maroon wax seal stamped with lotus motif. Tap cracks seal, flaps swing open in 3D, golden particle wave bursts radially, and song starts at 50% volume.
+2. Cinematic Venue Reveal & Names: Golden light trails swirl on canvas to reveal "Akash & Sakshi" in shimmering editorial serif Cormorant Garamond.
+3. Traditional Invitation Card Scroll: Textured stationery card with double hairline gold border, holy invocation, and formal host lineage wording.
+4. Interactive Scratch to Reveal: Canvas scratch card with gold foil texture. Touch/mouse sweeps peel away the gold layer to reveal the hidden surprise once 50% is scratched.
+5. Live Countdown Timer & Confetti Burst: Save the date badge, 4-box live ticking countdown (Days/Hours/Mins/Secs) with celebratory confetti flake/petal burst.
+6. Our Story Photo Slide: Carousel with couple milestones with smooth touch swipe and subtle parallax.
+7. Interactive Timeline / Events Path: Chronological functions connected by a continuous winding gold SVG thread with dynamic stroke-dashoffset tracing and a moving glowing heart marker.
+8. Ceremony Location Card & Map Integration: Framed venue photo with pulsing "Open in Google Maps" CTA button.
+9. RSVP & Thank You Form: Guest attendance form with clean floating label transitions, animated SVG checkmark confirmation, and direct WhatsApp sync.
