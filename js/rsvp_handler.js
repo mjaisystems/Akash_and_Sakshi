@@ -41,14 +41,24 @@
       // Configure WhatsApp Direct Response Link
       const hostPhone = rsvpForm.dataset.whatsapp || '+919876543210';
       const cleanPhone = hostPhone.replace(/[^0-9]/g, '');
-      const waMessage = encodeURIComponent(
-        `✨ Wedding RSVP ✨\n\n` +
-        `Guest: ${name}\n` +
-        `Attendance: ${attendance}\n` +
-        `Guests: ${count}\n` +
-        (wishes ? `Blessings: "${wishes}"\n\n` : '\n') +
-        `Looking forward to celebrating with you! ❤️`
-      );
+      const isGu = (window.CURRENT_LANG === 'gu');
+      const waMessage = isGu
+        ? encodeURIComponent(
+            `✨ શુભ લગ્ન આરએસવીપી (RSVP) ✨\n\n` +
+            `મહેમાનનું નામ: ${name}\n` +
+            `ઉપસ્થિતિ: ${attendance}\n` +
+            `મહેમાનોની સંખ્યા: ${count}\n` +
+            (wishes ? `શુભેચ્છા / આશીર્વાદ: "${wishes}"\n\n` : '\n') +
+            `આપ સહુ સાથે મંગલ ઉત્સવ માણવા અત્યંત ઉત્સુક છીએ! ❤️`
+          )
+        : encodeURIComponent(
+            `✨ Wedding RSVP ✨\n\n` +
+            `Guest: ${name}\n` +
+            `Attendance: ${attendance}\n` +
+            `Guests: ${count}\n` +
+            (wishes ? `Blessings: "${wishes}"\n\n` : '\n') +
+            `Looking forward to celebrating with you! ❤️`
+          );
 
       if (whatsappDirectBtn) {
         whatsappDirectBtn.href = `https://wa.me/${cleanPhone}?text=${waMessage}`;
@@ -105,10 +115,16 @@
   }
 
   function triggerWhatsAppShare(coupleNames) {
-    const text = encodeURIComponent(
-      `💌 You are cordially invited to celebrate the wedding of ${coupleNames}!\n\n` +
-      `Tap the interactive invitation link below to view ceremonies, venues & RSVP:\n${window.location.href}`
-    );
+    const isGu = (window.CURRENT_LANG === 'gu');
+    const text = isGu
+      ? encodeURIComponent(
+          `💌 આપ શ્રીને આકાશ અને સાક્ષીના શુભ લગ્ન મહોત્સવમાં ઉપસ્થિત રહેવા ભાવભર્યું નિમંત્રણ છે!\n\n` +
+          `મંગલ પ્રસંગોની વિગત જોવા, સ્થળનો રસ્તો જાણવા અને RSVP નોંધાવવા માટે નીચે આપેલી લિંક ખોલો:\n${window.location.href}`
+        )
+      : encodeURIComponent(
+          `💌 You are cordially invited to celebrate the wedding of ${coupleNames}!\n\n` +
+          `Tap the interactive invitation link below to view ceremonies, venues & RSVP:\n${window.location.href}`
+        );
     window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
   }
 

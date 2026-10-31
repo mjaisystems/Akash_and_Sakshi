@@ -15,6 +15,11 @@
   <link rel="preload" as="image" href="images/hero/start_scene.png">
   <link rel="preload" as="video" href="video/envelope_opening.mp4" type="video/mp4">
 
+  <!-- Gujarati & Latin Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
   <!-- Core Stylesheet -->
   <style>
 /* ==============================================================================
@@ -1128,47 +1133,71 @@ body.scroll-unlocked {
   border-color: var(--gold-dark);
 }
 
+.event-card-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.event-card-info-col {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.event-card-art-col {
+  flex: 0 0 100px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-card-art-img {
+  width: 100%;
+  height: auto;
+  max-height: 105px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.08));
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.event-card:hover .event-card-art-img {
+  transform: translateY(-3px) scale(1.05);
+}
+
 .event-name-bold {
   font-family: var(--font-serif);
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 700;
   color: var(--espresso-text);
-  margin-bottom: 10px;
-  line-height: 1.2;
+  margin-bottom: 8px;
+  line-height: 1.25;
 }
 
 .event-info-line {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 13.5px;
+  font-size: 13px;
   color: var(--espresso-text);
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 
 .event-icon-sym {
-  font-size: 15px;
-  width: 20px;
+  font-size: 14px;
+  width: 18px;
   text-align: center;
   color: var(--terracotta);
 }
 
 .event-location-bold {
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 700;
   color: var(--espresso-text);
-  margin: 10px 0 6px;
-}
-
-.dress-code-badge {
-  display: inline-block;
-  font-size: 11px;
-  background: var(--bg-card-tint);
-  color: var(--espresso-text);
-  padding: 3px 10px;
-  border-radius: 12px;
-  border: 1px solid rgba(194, 155, 88, 0.4);
-  margin: 4px 0 8px;
+  margin: 6px 0 2px;
+  line-height: 1.3;
 }
 
 .event-desc {
@@ -1215,6 +1244,153 @@ body.scroll-unlocked {
 .event-btn.calendar:hover {
   background: var(--bg-card-tint);
   color: var(--espresso-text);
+}
+
+/* ==============================================================================
+   DRESS CODE SECTION (Standalone Luxury Dress Palette Section)
+   ============================================================================== */
+.dresscode-section {
+  position: relative;
+}
+
+.dresscode-card {
+  text-align: center;
+}
+
+.dresscode-heading-wrap {
+  margin-bottom: 12px;
+}
+
+.dresscode-title {
+  font-size: 46px;
+  margin-bottom: 4px;
+}
+
+.dresscode-flourish {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 6px 0 10px;
+}
+
+.dresscode-subtitle {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-style: italic;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.dresscode-banner-wrap {
+  width: 100%;
+  margin: 14px 0 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.dresscode-banner-img {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.06));
+}
+
+.dresscode-list {
+  text-align: left;
+  border-top: 1px solid rgba(194, 155, 88, 0.25);
+  margin-top: 10px;
+}
+
+.dresscode-item {
+  padding: 15px 4px;
+  border-bottom: 1px solid rgba(194, 155, 88, 0.22);
+}
+
+.dresscode-item:last-child {
+  border-bottom: none;
+  padding-bottom: 4px;
+}
+
+.dresscode-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.dresscode-item-names {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.dresscode-name-en {
+  font-family: var(--font-serif);
+  font-size: 16.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.2px;
+}
+
+.dresscode-name-hi {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  color: var(--gold-dark);
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.dresscode-swatches {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.color-swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.75), inset 0 -1px 2px rgba(0, 0, 0, 0.18), 0 2px 4px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.color-swatch:hover {
+  transform: scale(1.18);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.18);
+}
+
+.dresscode-item-desc {
+  font-family: var(--font-serif);
+  font-size: 13.5px;
+  color: var(--text-muted);
+  margin-top: 5px;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+@media (max-width: 380px) {
+  .event-card-art-col {
+    flex: 0 0 80px;
+    width: 80px;
+  }
+  .event-card-art-img {
+    max-height: 85px;
+  }
+  .event-name-bold {
+    font-size: 19px;
+  }
+  .color-swatch {
+    width: 19px;
+    height: 19px;
+  }
 }
 
 /* ==============================================================================
@@ -1551,7 +1727,8 @@ body.scroll-unlocked {
   #backToTopBtn,
   .carousel-nav,
   .event-actions-row,
-  .maps-pulse-btn {
+  .maps-pulse-btn,
+  .lang-switch-fab {
     display: none !important;
   }
 
@@ -1638,6 +1815,95 @@ body.scroll-unlocked {
   color: var(--text-muted);
 }
 
+/* ==============================================================================
+   GUJARATI BILINGUAL LANGUAGE SWITCHER & TYPOGRAPHY
+   ============================================================================== */
+.lang-switch-fab {
+  position: fixed;
+  bottom: 22px;
+  right: max(16px, calc(50% - 215px));
+  z-index: 99999;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid var(--gold-primary);
+  border-radius: 26px;
+  box-shadow: 0 6px 20px rgba(44, 36, 29, 0.18), 0 2px 6px rgba(184, 93, 75, 0.12);
+  color: var(--espresso-text);
+  font-family: 'Mukta Vaani', 'Noto Sans Gujarati', 'Shruti', sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  outline: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lang-switch-fab:hover {
+  transform: translateY(-2px) scale(1.04);
+  background: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(44, 36, 29, 0.24);
+  border-color: var(--terracotta);
+}
+
+.lang-switch-fab:active {
+  transform: scale(0.96);
+}
+
+.lang-pill-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--terracotta);
+}
+
+.lang-pill-text {
+  letter-spacing: 0.5px;
+}
+
+/* Gujarati Typography Enhancement */
+body.lang-gu {
+  font-family: 'Mukta Vaani', 'Noto Sans Gujarati', 'Shruti', 'Gujarati Sangam MN', sans-serif;
+}
+
+body.lang-gu .script-heading {
+  font-family: 'Mukta Vaani', 'Noto Sans Gujarati', serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.35;
+}
+
+body.lang-gu .hero-couple-names {
+  font-family: 'Mukta Vaani', 'Noto Sans Gujarati', serif;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+body.lang-gu .event-name-bold {
+  font-family: 'Mukta Vaani', 'Noto Sans Gujarati', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+body.lang-gu .venue-title-big {
+  font-family: 'Mukta Vaani', 'Noto Sans Gujarati', serif;
+  font-weight: 700;
+}
+
+body.lang-gu .blessing-text,
+body.lang-gu .invitation-wording,
+body.lang-gu .event-desc,
+body.lang-gu .story-desc {
+  font-family: 'Mukta Vaani', 'Noto Sans Gujarati', sans-serif;
+  line-height: 1.6;
+}
+
 </style>
   <style>
     /* Dynamic Theme Color Overrides if specified */
@@ -1655,6 +1921,18 @@ body.scroll-unlocked {
   </style>
 </head>
 <body class="scroll-locked">
+
+  <!-- Floating Gujarati / English Language Switcher Button -->
+  <button class="lang-switch-fab" id="langSwitchBtn" title="Switch to Gujarati / ગુજરાતીમાં જુઓ" aria-label="Switch Language">
+    <span class="lang-pill-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="2" y1="12" x2="22" y2="12"></line>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+      </svg>
+    </span>
+    <span class="lang-pill-text" id="langSwitchText">ગુજરાતી</span>
+  </button>
 
   <!-- Background Audio Element (preload="none" prevents stealing network bandwidth on initial load) -->
   <audio id="bgAudio" loop preload="none">
@@ -1681,15 +1959,15 @@ body.scroll-unlocked {
         <div class="video-endscreen-reveal" id="videoEndscreenReveal" style="background-image: url('images/hero/end_scene.png');">
           <canvas id="lightTrailCanvas"></canvas>
           <div class="hero-content">
-            <p class="hero-tagline">We're getting married</p>
-            <h1 class="hero-couple-names">
+            <p class="hero-tagline" data-i18n="hero_tagline">We're getting married</p>
+            <h1 class="hero-couple-names" data-i18n="hero_couple_names">
               Akash
               <span class="hero-ampersand">&</span>
               Sakshi
             </h1>
 
             <div class="scroll-hint">
-              <span style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase;">Scroll to Enter</span>
+              <span data-i18n="scroll_hint" style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase;">Scroll to Enter</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
@@ -1707,33 +1985,33 @@ body.scroll-unlocked {
           <div class="ganesha-header-wrap">
             <img src="images/decor/ganesha.png" alt="Shree Ganeshji" class="ganesha-img">
           </div>
-          <h2 class="shloka-header">ॐ श्री गणेशाय नमः</h2>
-          <p class="shloka-desc">With the divine blessings of Lord Ganesha and our beloved ancestors, we embark on this sacred journey of love and togetherness.</p>
+          <h2 class="shloka-header" data-i18n="blessing_header">ॐ श्री गणेशाय नमः</h2>
+          <p class="shloka-desc" data-i18n="blessing_text">With the divine blessings of Lord Ganesha and our beloved ancestors, we embark on this sacred journey of love and togetherness.</p>
 
           <div class="gold-divider">✦ ✦ ✦</div>
 
-          <p class="lineage-text">With heavenly blessings from Late Shri Ram Lal Sharma & Late Smt. Kamala Devi</p>
+          <p class="lineage-text" data-i18n="grandparents_blessings">With heavenly blessings from Late Shri Ram Lal Sharma & Late Smt. Kamala Devi</p>
 
-          <p class="invitation-body">
+          <p class="invitation-body" data-i18n="formal_invitation_body">
             Cordially request the pleasure of your gracious company and blessings on the auspicious wedding ceremony of their beloved children.
           </p>
 
           <!-- Individual Lineage: Son of / Daughter of format -->
           <div class="couple-family-lineage">
             <div class="person-card">
-              <div class="person-full-name">Akash Sharma</div>
-              <p class="person-relation">Son of <strong>Smt. Sunita & Shri Rajesh Sharma</strong></p>
+              <div class="person-full-name" data-i18n="groom_full_name">Akash Sharma</div>
+              <p class="person-relation"><span data-i18n="son_of">Son of</span> <strong data-i18n="host_groom_parents">Smt. Sunita & Shri Rajesh Sharma</strong></p>
             </div>
 
-            <div class="weds-script">weds</div>
+            <div class="weds-script" data-i18n="weds_text">weds</div>
 
             <div class="person-card">
-              <div class="person-full-name">Sakshi Verma</div>
-              <p class="person-relation">Daughter of <strong>Smt. Meena & Shri Dinesh Verma</strong></p>
+              <div class="person-full-name" data-i18n="bride_full_name">Sakshi Verma</div>
+              <p class="person-relation"><span data-i18n="daughter_of">Daughter of</span> <strong data-i18n="host_bride_parents">Smt. Meena & Shri Dinesh Verma</strong></p>
             </div>
           </div>
 
-          <p class="compliments-footer">With best compliments from all Sharma & Verma family members, relatives and friends.</p>
+          <p class="compliments-footer" data-i18n="compliments_note">With best compliments from all Sharma & Verma family members, relatives and friends.</p>
         </div>
       </section>
 
@@ -1743,17 +2021,17 @@ body.scroll-unlocked {
            ============================================================================ -->
       <section class="section-container heart-scratch-section" id="scratchCardSection">
         <div class="scratch-header-wrap">
-          <h2 class="scratch-title" id="scratchHeading">Scratch to Reveal</h2>
+          <h2 class="scratch-title" id="scratchHeading" data-i18n="scratch_card_title">Scratch to Reveal</h2>
         </div>
 
         <div class="pure-heart-stage">
           <!-- Revealed Date Card Layer (Heart Shaped) -->
           <div class="revealed-heart-card" id="revealedHeartCard">
             <div class="heart-inner-decor">✦</div>
-            <div class="revealed-date-day">14th</div>
-            <div class="revealed-date-month">December</div>
-            <div class="revealed-date-year">2026</div>
-            <div class="heart-city-note">Udaipur, Rajasthan</div>
+            <div class="revealed-date-day" data-i18n="revealed_date_day">14th</div>
+            <div class="revealed-date-month" data-i18n="revealed_date_month">December</div>
+            <div class="revealed-date-year" data-i18n="revealed_date_year">2026</div>
+            <div class="heart-city-note" data-i18n="heart_venue_city">Udaipur, Rajasthan</div>
           </div>
 
           <!-- Animated Golden Heart Border Layer -->
@@ -1786,29 +2064,29 @@ body.scroll-unlocked {
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
             </svg>
-            Counting the Days
+            <span data-i18n="countdown_subtitle">Counting the Days</span>
           </div>
 
-          <h2 style="font-family: var(--font-serif); font-size: 26px; margin-bottom: 18px; color: var(--espresso-text);">
+          <h2 data-i18n="countdown_heading" style="font-family: var(--font-serif); font-size: 26px; margin-bottom: 18px; color: var(--espresso-text);">
             Counting Down To The Big Day
           </h2>
 
           <div class="countdown-grid">
             <div class="countdown-box">
               <div class="countdown-num" id="days">00</div>
-              <div class="countdown-label">Days</div>
+              <div class="countdown-label" data-i18n="countdown_days">Days</div>
             </div>
             <div class="countdown-box">
               <div class="countdown-num" id="hours">00</div>
-              <div class="countdown-label">Hours</div>
+              <div class="countdown-label" data-i18n="countdown_hours">Hours</div>
             </div>
             <div class="countdown-box">
               <div class="countdown-num" id="minutes">00</div>
-              <div class="countdown-label">Mins</div>
+              <div class="countdown-label" data-i18n="countdown_mins">Mins</div>
             </div>
             <div class="countdown-box">
               <div class="countdown-num" id="seconds">00</div>
-              <div class="countdown-label">Secs</div>
+              <div class="countdown-label" data-i18n="countdown_secs">Secs</div>
             </div>
           </div>
         </div>
@@ -1819,7 +2097,7 @@ body.scroll-unlocked {
            ============================================================================ -->
       <section class="section-container story-section-wrap" id="storySection">
         <div style="text-align: center; margin-bottom: 20px;">
-          <h2 class="script-heading" style="font-size: 46px;">
+          <h2 class="script-heading" data-i18n="story_heading" style="font-size: 46px;">
             Our Story
           </h2>
         </div>
@@ -1833,9 +2111,9 @@ body.scroll-unlocked {
                     <img src="images/gallery/story_1.jpg" alt="How We Met">
                   </div>
                   <div class="story-content">
-                    <div class="story-year">October 2022</div>
-                    <h3 class="story-title">How We Met</h3>
-                    <p class="story-desc">A chance encounter at a cozy rooftop café over cold brew coffee turned into a four-hour conversation about dreams, music, and travel.</p>
+                    <div class="story-year" data-i18n="story_1_year">October 2022</div>
+                    <h3 class="story-title" data-i18n="story_1_title">How We Met</h3>
+                    <p class="story-desc" data-i18n="story_1_desc">A chance encounter at a cozy rooftop café over cold brew coffee turned into a four-hour conversation about dreams, music, and travel.</p>
                   </div>
                 </div>
               </div>
@@ -1847,9 +2125,9 @@ body.scroll-unlocked {
                     <img src="images/gallery/story_2.jpg" alt="The First Trip">
                   </div>
                   <div class="story-content">
-                    <div class="story-year">November 2023</div>
-                    <h3 class="story-title">The First Trip</h3>
-                    <p class="story-desc">Exploring the misty hills of Munnar, getting caught in sudden monsoon rains, and realizing we never wanted to wander through life without each other.</p>
+                    <div class="story-year" data-i18n="story_2_year">November 2023</div>
+                    <h3 class="story-title" data-i18n="story_2_title">The First Trip</h3>
+                    <p class="story-desc" data-i18n="story_2_desc">Exploring the misty hills of Munnar, getting caught in sudden monsoon rains, and realizing we never wanted to wander through life without each other.</p>
                   </div>
                 </div>
               </div>
@@ -1861,9 +2139,9 @@ body.scroll-unlocked {
                     <img src="images/gallery/story_3.jpg" alt="The Proposal">
                   </div>
                   <div class="story-content">
-                    <div class="story-year">February 2025</div>
-                    <h3 class="story-title">The Proposal</h3>
-                    <p class="story-desc">Under a golden sunset on a quiet beach in Goa, with waves softly crashing against the shore, Akash got down on one knee. Sakshi said yes before he could even finish asking!</p>
+                    <div class="story-year" data-i18n="story_3_year">February 2025</div>
+                    <h3 class="story-title" data-i18n="story_3_title">The Proposal</h3>
+                    <p class="story-desc" data-i18n="story_3_desc">Under a golden sunset on a quiet beach in Goa, with waves softly crashing against the shore, Akash got down on one knee. Sakshi said yes before he could even finish asking!</p>
                   </div>
                 </div>
               </div>
@@ -1875,9 +2153,9 @@ body.scroll-unlocked {
                     <img src="images/gallery/story_4.jpg" alt="Growing Together">
                   </div>
                   <div class="story-content">
-                    <div class="story-year">June 2025</div>
-                    <h3 class="story-title">Growing Together</h3>
-                    <p class="story-desc">Through every laugh, shared dream, and adventure, our bond grew deeper and stronger each passing day.</p>
+                    <div class="story-year" data-i18n="story_4_year">June 2025</div>
+                    <h3 class="story-title" data-i18n="story_4_title">Growing Together</h3>
+                    <p class="story-desc" data-i18n="story_4_desc">Through every laugh, shared dream, and adventure, our bond grew deeper and stronger each passing day.</p>
                   </div>
                 </div>
               </div>
@@ -1889,9 +2167,9 @@ body.scroll-unlocked {
                     <img src="images/gallery/story_5.jpg" alt="The Families Meet">
                   </div>
                   <div class="story-content">
-                    <div class="story-year">September 2025</div>
-                    <h3 class="story-title">The Families Meet</h3>
-                    <p class="story-desc">Bringing our two families together filled the room with joy, sweet blessings, and heartwarming celebration.</p>
+                    <div class="story-year" data-i18n="story_5_year">September 2025</div>
+                    <h3 class="story-title" data-i18n="story_5_title">The Families Meet</h3>
+                    <p class="story-desc" data-i18n="story_5_desc">Bringing our two families together filled the room with joy, sweet blessings, and heartwarming celebration.</p>
                   </div>
                 </div>
               </div>
@@ -1903,9 +2181,9 @@ body.scroll-unlocked {
                     <img src="images/gallery/story_6.jpg" alt="Counting Down to Forever">
                   </div>
                   <div class="story-content">
-                    <div class="story-year">December 2026</div>
-                    <h3 class="story-title">Counting Down to Forever</h3>
-                    <p class="story-desc">Ready to begin this sacred next chapter surrounded by the love, laughter, and blessings of our dearest family and friends.</p>
+                    <div class="story-year" data-i18n="story_6_year">December 2026</div>
+                    <h3 class="story-title" data-i18n="story_6_title">Counting Down to Forever</h3>
+                    <p class="story-desc" data-i18n="story_6_desc">Ready to begin this sacred next chapter surrounded by the love, laughter, and blessings of our dearest family and friends.</p>
                   </div>
                 </div>
               </div>
@@ -1941,7 +2219,7 @@ body.scroll-unlocked {
            ============================================================================ -->
       <section class="section-container timeline-section" id="timelineSection">
         <div style="text-align: center; margin-bottom: 24px;">
-          <h2 class="script-heading" style="font-size: 48px;">
+          <h2 class="script-heading" data-i18n="celebrations_heading" style="font-size: 48px;">
             The Celebrations
           </h2>
         </div>
@@ -1966,20 +2244,26 @@ body.scroll-unlocked {
           <div class="timeline-cards-list">
             
           <div class="event-card">
-            <h3 class="event-name-bold">Satsang & Ganesh Puja</h3>
-            <div class="event-info-line">
-              <span class="event-icon-sym">📅</span>
-              <span>Friday, December 12, 2026</span>
+            <div class="event-card-header-row">
+              <div class="event-card-info-col">
+                <h3 class="event-name-bold" data-i18n="event_1_name">Satsang & Ganesh Puja</h3>
+                <div class="event-info-line">
+                  <span class="event-icon-sym">📅</span>
+                  <span data-i18n="event_1_date">Friday, December 12, 2026</span>
+                </div>
+                <div class="event-info-line">
+                  <span class="event-icon-sym">⏰</span>
+                  <span data-i18n="event_1_time">10:00 AM - 01:00 PM</span>
+                </div>
+                <div class="event-location-bold">
+                  <strong data-i18n="event_1_venue">Crystal Banquet Hall, The Grand Palace</strong>
+                </div>
+              </div>
+              <div class="event-card-art-col">
+                <img src="images/events/event_1_satsang.webp" alt="Satsang & Ganesh Puja" class="event-card-art-img" loading="lazy">
+              </div>
             </div>
-            <div class="event-info-line">
-              <span class="event-icon-sym">⏰</span>
-              <span>10:00 AM - 01:00 PM</span>
-            </div>
-            <div class="event-location-bold">
-              <strong>Crystal Banquet Hall, The Grand Palace</strong>
-            </div>
-            <div class="dress-code-badge">👗 Dress Code: Traditional Pastels & Florals</div>
-            <p class="event-desc">An auspicious prayer gathering invoking divine grace for the couple's new beginning, followed by lunch.</p>
+            <p class="event-desc" data-i18n="event_1_desc">An auspicious prayer gathering invoking divine grace for the couple's new beginning, followed by lunch.</p>
             <div class="event-actions-row">
               <a href="https://www.google.com/maps/search/?api=1&query=Crystal+Banquet+Hall+The+Grand+Palace+Udaipur+Rajasthan" target="_blank" rel="noopener" class="event-btn directions" title="Get Directions to Satsang & Ganesh Puja">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
@@ -2000,20 +2284,26 @@ body.scroll-unlocked {
         
 
           <div class="event-card">
-            <h3 class="event-name-bold">Mehendi & Sundowner Carnival</h3>
-            <div class="event-info-line">
-              <span class="event-icon-sym">📅</span>
-              <span>Friday, December 12, 2026</span>
+            <div class="event-card-header-row">
+              <div class="event-card-info-col">
+                <h3 class="event-name-bold" data-i18n="event_2_name">Mehendi & Sundowner Carnival</h3>
+                <div class="event-info-line">
+                  <span class="event-icon-sym">📅</span>
+                  <span data-i18n="event_2_date">Friday, December 12, 2026</span>
+                </div>
+                <div class="event-info-line">
+                  <span class="event-icon-sym">⏰</span>
+                  <span data-i18n="event_2_time">04:00 PM onwards</span>
+                </div>
+                <div class="event-location-bold">
+                  <strong data-i18n="event_2_venue">Lakeside Lawn, The Grand Palace</strong>
+                </div>
+              </div>
+              <div class="event-card-art-col">
+                <img src="images/events/event_2_mehendi.webp" alt="Mehendi & Sundowner Carnival" class="event-card-art-img" loading="lazy">
+              </div>
             </div>
-            <div class="event-info-line">
-              <span class="event-icon-sym">⏰</span>
-              <span>04:00 PM onwards</span>
-            </div>
-            <div class="event-location-bold">
-              <strong>Lakeside Lawn, The Grand Palace</strong>
-            </div>
-            <div class="dress-code-badge">👗 Dress Code: Bright Festive & Bohemian Colors</div>
-            <p class="event-desc">Henna patterns, foot-tapping beats, live food stalls, and sunset cocktails by the lake.</p>
+            <p class="event-desc" data-i18n="event_2_desc">Henna patterns, foot-tapping beats, live food stalls, and sunset cocktails by the lake.</p>
             <div class="event-actions-row">
               <a href="https://www.google.com/maps/search/?api=1&query=Lakeside+Lawn+The+Grand+Palace+Udaipur+Rajasthan" target="_blank" rel="noopener" class="event-btn directions" title="Get Directions to Mehendi & Sundowner Carnival">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
@@ -2034,20 +2324,26 @@ body.scroll-unlocked {
         
 
           <div class="event-card">
-            <h3 class="event-name-bold">Sangeet & DJ Night</h3>
-            <div class="event-info-line">
-              <span class="event-icon-sym">📅</span>
-              <span>Saturday, December 13, 2026</span>
+            <div class="event-card-header-row">
+              <div class="event-card-info-col">
+                <h3 class="event-name-bold" data-i18n="event_3_name">Sangeet & DJ Night</h3>
+                <div class="event-info-line">
+                  <span class="event-icon-sym">📅</span>
+                  <span data-i18n="event_3_date">Saturday, December 13, 2026</span>
+                </div>
+                <div class="event-info-line">
+                  <span class="event-icon-sym">⏰</span>
+                  <span data-i18n="event_3_time">07:30 PM till late</span>
+                </div>
+                <div class="event-location-bold">
+                  <strong data-i18n="event_3_venue">Royal Ballroom, The Grand Palace</strong>
+                </div>
+              </div>
+              <div class="event-card-art-col">
+                <img src="images/events/event_3_sangeet.webp" alt="Sangeet & DJ Night" class="event-card-art-img" loading="lazy">
+              </div>
             </div>
-            <div class="event-info-line">
-              <span class="event-icon-sym">⏰</span>
-              <span>07:30 PM till late</span>
-            </div>
-            <div class="event-location-bold">
-              <strong>Royal Ballroom, The Grand Palace</strong>
-            </div>
-            <div class="dress-code-badge">👗 Dress Code: Glitz, Glamour & Indo-Western</div>
-            <p class="event-desc">An electrifying night of family dance performances, cocktails, and non-stop dancing under the starlight!</p>
+            <p class="event-desc" data-i18n="event_3_desc">An electrifying night of family dance performances, cocktails, and non-stop dancing under the starlight!</p>
             <div class="event-actions-row">
               <a href="https://www.google.com/maps/search/?api=1&query=Royal+Ballroom+The+Grand+Palace+Udaipur+Rajasthan" target="_blank" rel="noopener" class="event-btn directions" title="Get Directions to Sangeet & DJ Night">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
@@ -2068,20 +2364,26 @@ body.scroll-unlocked {
         
 
           <div class="event-card">
-            <h3 class="event-name-bold">Shubh Vivah (Wedding & Pheras)</h3>
-            <div class="event-info-line">
-              <span class="event-icon-sym">📅</span>
-              <span>Sunday, December 14, 2026</span>
+            <div class="event-card-header-row">
+              <div class="event-card-info-col">
+                <h3 class="event-name-bold" data-i18n="event_4_name">Shubh Vivah (Wedding & Pheras)</h3>
+                <div class="event-info-line">
+                  <span class="event-icon-sym">📅</span>
+                  <span data-i18n="event_4_date">Sunday, December 14, 2026</span>
+                </div>
+                <div class="event-info-line">
+                  <span class="event-icon-sym">⏰</span>
+                  <span data-i18n="event_4_time">06:30 PM (Baraat Swagat) | 08:30 PM (Pheras)</span>
+                </div>
+                <div class="event-location-bold">
+                  <strong data-i18n="event_4_venue">Shahi Mandapam by the Lake</strong>
+                </div>
+              </div>
+              <div class="event-card-art-col">
+                <img src="images/events/event_4_wedding.webp" alt="Shubh Vivah (Wedding & Pheras)" class="event-card-art-img" loading="lazy">
+              </div>
             </div>
-            <div class="event-info-line">
-              <span class="event-icon-sym">⏰</span>
-              <span>06:30 PM (Baraat Swagat) | 08:30 PM (Pheras)</span>
-            </div>
-            <div class="event-location-bold">
-              <strong>Shahi Mandapam by the Lake</strong>
-            </div>
-            <div class="dress-code-badge">👗 Dress Code: Royal Traditional Elegance</div>
-            <p class="event-desc">The grand wedding rituals, Vedic vows around the sacred fire, followed by royal dinner and blessings.</p>
+            <p class="event-desc" data-i18n="event_4_desc">The grand wedding rituals, Vedic vows around the sacred fire, followed by royal dinner and blessings.</p>
             <div class="event-actions-row">
               <a href="https://www.google.com/maps/search/?api=1&query=Shahi+Mandapam+The+Grand+Palace+Resort+Udaipur+Rajasthan" target="_blank" rel="noopener" class="event-btn directions" title="Get Directions to Shubh Vivah (Wedding & Pheras)">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
@@ -2105,20 +2407,111 @@ body.scroll-unlocked {
       </section>
 
       <!-- ============================================================================
+           DRESS CODE SECTION (Standalone Luxury Dress Palette Section)
+           ============================================================================ -->
+      
+      <section class="section-container dresscode-section" id="dressCodeSection">
+        <div class="ornate-card dresscode-card">
+          <div class="dresscode-heading-wrap">
+            <h2 class="script-heading dresscode-title" data-i18n="dresscode_title">Dress code</h2>
+            <div class="dresscode-flourish">
+              <svg width="140" height="24" viewBox="0 0 140 24" fill="none">
+                <path d="M70 12 C72 8, 76 6, 78 12 C76 18, 72 16, 70 12 Z" fill="#D35400" />
+                <circle cx="70" cy="12" r="3" fill="#F39C12" />
+                <path d="M68 12 C55 12, 45 9, 32 12 C25 14, 15 13, 0 12" stroke="#C29B58" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M58 12 C56 7, 50 8, 52 12" fill="#5B8C51"/>
+                <path d="M42 12 C40 17, 34 16, 36 12" fill="#E67E22"/>
+                <path d="M26 12 C24 7, 18 8, 20 12" fill="#5B8C51"/>
+                <path d="M72 12 C85 12, 95 9, 108 12 C115 14, 125 13, 140 12" stroke="#C29B58" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M82 12 C84 7, 90 8, 88 12" fill="#5B8C51"/>
+                <path d="M98 12 C100 17, 106 16, 104 12" fill="#E67E22"/>
+                <path d="M114 12 C116 7, 122 8, 120 12" fill="#5B8C51"/>
+              </svg>
+            </div>
+            <p class="dresscode-subtitle" data-i18n="dresscode_subtitle">A colour for each function, if you'd like a hint.</p>
+          </div>
+
+          <div class="dresscode-banner-wrap">
+            <img src="images/decor/dresscode_banner.webp" alt="Dress code" class="dresscode-banner-img" loading="lazy">
+          </div>
+
+          <div class="dresscode-list">
+            
+          <div class="dresscode-item">
+            <div class="dresscode-item-header">
+              <div class="dresscode-item-names">
+                <span class="dresscode-name-en" data-i18n="dress_1_name">Satsang & Ganesh Puja</span>
+                <span class="dresscode-name-hi">सत्संग एवं गणेश पूजा</span>
+              </div>
+              <div class="dresscode-swatches">
+                <span class="color-swatch" style="background-color: #F7D070;" title="#F7D070"></span><span class="color-swatch" style="background-color: #F4A6B7;" title="#F4A6B7"></span><span class="color-swatch" style="background-color: #C5DFC3;" title="#C5DFC3"></span>
+              </div>
+            </div>
+            <div class="dresscode-item-desc" data-i18n="dress_1_desc">Traditional pastels & florals</div>
+          </div>
+        
+
+          <div class="dresscode-item">
+            <div class="dresscode-item-header">
+              <div class="dresscode-item-names">
+                <span class="dresscode-name-en" data-i18n="dress_2_name">Mehendi & Sundowner Carnival</span>
+                <span class="dresscode-name-hi">मेहंदी</span>
+              </div>
+              <div class="dresscode-swatches">
+                <span class="color-swatch" style="background-color: #4A7C59;" title="#4A7C59"></span><span class="color-swatch" style="background-color: #E58A9F;" title="#E58A9F"></span><span class="color-swatch" style="background-color: #F5EEDB;" title="#F5EEDB"></span>
+              </div>
+            </div>
+            <div class="dresscode-item-desc" data-i18n="dress_2_desc">Greens and soft pinks</div>
+          </div>
+        
+
+          <div class="dresscode-item">
+            <div class="dresscode-item-header">
+              <div class="dresscode-item-names">
+                <span class="dresscode-name-en" data-i18n="dress_3_name">Sangeet & DJ Night</span>
+                <span class="dresscode-name-hi">संगीत</span>
+              </div>
+              <div class="dresscode-swatches">
+                <span class="color-swatch" style="background-color: #2B3377;" title="#2B3377"></span><span class="color-swatch" style="background-color: #A31D4B;" title="#A31D4B"></span><span class="color-swatch" style="background-color: #CCA447;" title="#CCA447"></span>
+              </div>
+            </div>
+            <div class="dresscode-item-desc" data-i18n="dress_3_desc">Jewel tones and sparkle</div>
+          </div>
+        
+
+          <div class="dresscode-item">
+            <div class="dresscode-item-header">
+              <div class="dresscode-item-names">
+                <span class="dresscode-name-en" data-i18n="dress_4_name">Shubh Vivah (Wedding & Pheras)</span>
+                <span class="dresscode-name-hi">विवाह</span>
+              </div>
+              <div class="dresscode-swatches">
+                <span class="color-swatch" style="background-color: #A01830;" title="#A01830"></span><span class="color-swatch" style="background-color: #E58B24;" title="#E58B24"></span><span class="color-swatch" style="background-color: #FAF5EE;" title="#FAF5EE"></span>
+              </div>
+            </div>
+            <div class="dresscode-item-desc" data-i18n="dress_4_desc">Traditional Indian, in any colour you love</div>
+          </div>
+        
+          </div>
+        </div>
+      </section>
+    
+
+      <!-- ============================================================================
            ANIMATION 8: CEREMONY LOCATION CARD & MAP INTEGRATION
            ============================================================================ -->
       <section class="section-container">
         <div class="ornate-card venue-location-card">
-          <h2 class="script-heading" style="font-size: 44px; margin-bottom: 16px;">
+          <h2 class="script-heading" data-i18n="venue_section_heading" style="font-size: 44px; margin-bottom: 16px;">
             The Wedding Ceremony
           </h2>
           <div class="venue-thumb-frame">
             <img src="images/venue/venue.png" alt="The Grand Palace Resort & Convention Center">
           </div>
-          <h3 class="venue-title-big" style="font-family: var(--font-serif); font-size: 22px;">The Grand Palace Resort & Convention Center</h3>
-          <p class="venue-address-text">108 Heritage Lake Road, Near Lake Pichola, Udaipur, Rajasthan 313001</p>
+          <h3 class="venue-title-big" data-i18n="venue_name" style="font-family: var(--font-serif); font-size: 22px;">The Grand Palace Resort & Convention Center</h3>
+          <p class="venue-address-text" data-i18n="venue_address">108 Heritage Lake Road, Near Lake Pichola, Udaipur, Rajasthan 313001</p>
 
-          <a href="https://maps.google.com/?q=The+Grand+Palace+Resort+Udaipur" target="_blank" rel="noopener" class="maps-pulse-btn">
+          <a href="https://maps.google.com/?q=The+Grand+Palace+Resort+Udaipur" target="_blank" rel="noopener" class="maps-pulse-btn" data-i18n="btn_open_maps">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
               <circle cx="12" cy="10" r="3"></circle>
@@ -2133,15 +2526,15 @@ body.scroll-unlocked {
            ============================================================================ -->
       <section class="section-container rsvp-section" id="rsvpSection">
         <div class="ornate-card">
-          <h2 class="script-heading" style="font-size: 44px; margin-bottom: 8px;">
+          <h2 class="script-heading" data-i18n="our_family_heading" style="font-size: 44px; margin-bottom: 8px;">
             Our Family
           </h2>
           <div style="font-size: 14.5px; color: var(--text-muted); line-height: 1.8; margin-bottom: 16px;">
-            <div>Smt. Sunita & Shri Rajesh Sharma</div>
-            <div>Smt. Meena & Shri Dinesh Verma</div>
-            <div>With heavenly blessings from Late Shri Ram Lal Sharma & Late Smt. Kamala Devi</div>
+            <div data-i18n="family_groom_parents">Smt. Sunita & Shri Rajesh Sharma</div>
+            <div data-i18n="family_bride_parents">Smt. Meena & Shri Dinesh Verma</div>
+            <div data-i18n="family_grandparents">With heavenly blessings from Late Shri Ram Lal Sharma & Late Smt. Kamala Devi</div>
           </div>
-          <p style="font-family: var(--font-serif); font-size: 17px; font-weight: 600; color: var(--terracotta); letter-spacing: 1px;">
+          <p data-i18n="family_compliments" style="font-family: var(--font-serif); font-size: 17px; font-weight: 600; color: var(--terracotta); letter-spacing: 1px;">
             All Relatives & Friends
           </p>
 
@@ -2154,24 +2547,24 @@ body.scroll-unlocked {
             </svg>
           </div>
 
-          <h2 class="script-heading" style="font-size: 46px; margin-bottom: 8px;">
+          <h2 class="script-heading" data-i18n="thank_you_heading" style="font-size: 46px; margin-bottom: 8px;">
             Thank You
           </h2>
           <p style="font-size: 14px; color: var(--text-muted); line-height: 1.5;">
-            Your love, laughter, and presence will make our celebration truly complete.<br>
-            <strong style="color: var(--terracotta);">Please let us know by November 15, 2026</strong>
+            <span data-i18n="thank_you_note">Your love, laughter, and presence will make our celebration truly complete.</span><br>
+            <strong data-i18n="rsvp_deadline" style="color: var(--terracotta);">Please let us know by November 15, 2026</strong>
           </p>
 
           <form class="rsvp-form" id="rsvpForm" data-whatsapp="+919876543210">
             <div class="form-group">
               <input type="text" id="guestName" placeholder=" " required>
-              <label for="guestName">Your Full Name</label>
+              <label for="guestName" data-i18n="rsvp_name_label">Your Full Name</label>
             </div>
 
             <div class="form-group">
               <select id="attendanceSelect" required>
-                <option value="Joyfully Accepts">Joyfully Accepts (Will Attend)</option>
-                <option value="Regretfully Declines">Regretfully Declines</option>
+                <option value="Joyfully Accepts" data-i18n="rsvp_accept_label">Joyfully Accepts (Will Attend)</option>
+                <option value="Regretfully Declines" data-i18n="rsvp_decline_label">Regretfully Declines</option>
               </select>
             </div>
 
@@ -2180,17 +2573,18 @@ body.scroll-unlocked {
                 <option value="1 Guest">1 Guest</option>
                 <option value="2 Guests" selected>2 Guests</option>
                 <option value="3 Guests">3 Guests</option>
-                <option value="4+ Guests">4+ Guests</option>
+                <option value="4 Guests">4 Guests</option>
+                <option value="5+ Guests">5+ Guests</option>
               </select>
             </div>
 
             <div class="form-group">
               <textarea id="guestWishes" rows="3" placeholder=" "></textarea>
-              <label for="guestWishes">Warm Wishes & Blessings for Couple</label>
+              <label for="guestWishes" data-i18n="rsvp_wishes_label">Warm Wishes & Blessings for Couple</label>
             </div>
 
             <button type="submit" class="rsvp-submit-btn">
-              <span>Send RSVP Confirmation</span>
+              <span data-i18n="rsvp_submit_btn">Send RSVP Confirmation</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="22" y1="2" x2="11" y2="13"></line>
                 <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
@@ -2205,13 +2599,13 @@ body.scroll-unlocked {
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
             </div>
-            <h3 style="font-family: var(--font-serif); font-size: 24px; color: var(--espresso-text); margin-bottom: 6px;">
+            <h3 style="font-family: var(--font-serif); font-size: 24px; color: var(--espresso-text); margin-bottom: 6px;" data-i18n="rsvp_success_heading">
               Thank You!
             </h3>
-            <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 16px;">
+            <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 16px;" data-i18n="rsvp_success_text">
               Your response and heartfelt blessings have been received with love.
             </p>
-            <a href="#" id="whatsappDirectBtn" target="_blank" rel="noopener" class="whatsapp-direct-btn">
+            <a href="#" id="whatsappDirectBtn" target="_blank" rel="noopener" class="whatsapp-direct-btn" data-i18n="rsvp_success_btn">
               Send RSVP to Host via WhatsApp 💬
             </a>
           </div>
@@ -2226,7 +2620,7 @@ body.scroll-unlocked {
                 <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
                 <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
               </svg>
-              <span>Share Invite</span>
+              <span data-i18n="btn_share">Share Invite</span>
             </button>
 
             <button type="button" class="action-pill-btn" id="copyLinkBtn" title="Copy Website Link">
@@ -2234,7 +2628,7 @@ body.scroll-unlocked {
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
               </svg>
-              <span id="copyLinkText">Copy Link</span>
+              <span id="copyLinkText" data-i18n="btn_copy_link">Copy Link</span>
             </button>
 
             <button type="button" class="action-pill-btn" id="savePdfBtn" title="Save as PDF">
@@ -2245,7 +2639,7 @@ body.scroll-unlocked {
                 <line x1="9" y1="15" x2="12" y2="18"></line>
                 <line x1="15" y1="15" x2="12" y2="18"></line>
               </svg>
-              <span>Save as PDF</span>
+              <span data-i18n="btn_pdf">Save as PDF</span>
             </button>
           </div>
         </div>
@@ -2253,9 +2647,9 @@ body.scroll-unlocked {
 
       <!-- Global Footer -->
       <footer class="wedding-footer">
-        <div class="footer-hashtag">#AkashKiSakshi</div>
-        <p class="footer-credits">Made with love for our family and friends</p>
-        <button id="backToTopBtn" style="margin-top: 20px; background: none; border: none; font-size: 12px; color: var(--terracotta); cursor: pointer; text-decoration: underline;">
+        <div class="footer-hashtag" data-i18n="hero_hashtag">#AkashKiSakshi</div>
+        <p class="footer-credits" data-i18n="footer_credits">Made with love for our family and friends</p>
+        <button id="backToTopBtn" data-i18n="back_to_top" style="margin-top: 20px; background: none; border: none; font-size: 12px; color: var(--terracotta); cursor: pointer; text-decoration: underline;">
           Back to Top ↑
         </button>
       </footer>
@@ -2264,6 +2658,7 @@ body.scroll-unlocked {
   </div>
 
   <!-- Interactive JavaScript Modules -->
+  
   
   
   
@@ -3530,14 +3925,24 @@ body.scroll-unlocked {
       // Configure WhatsApp Direct Response Link
       const hostPhone = rsvpForm.dataset.whatsapp || '+919876543210';
       const cleanPhone = hostPhone.replace(/[^0-9]/g, '');
-      const waMessage = encodeURIComponent(
-        `✨ Wedding RSVP ✨\n\n` +
-        `Guest: ${name}\n` +
-        `Attendance: ${attendance}\n` +
-        `Guests: ${count}\n` +
-        (wishes ? `Blessings: "${wishes}"\n\n` : '\n') +
-        `Looking forward to celebrating with you! ❤️`
-      );
+      const isGu = (window.CURRENT_LANG === 'gu');
+      const waMessage = isGu
+        ? encodeURIComponent(
+            `✨ શુભ લગ્ન આરએસવીપી (RSVP) ✨\n\n` +
+            `મહેમાનનું નામ: ${name}\n` +
+            `ઉપસ્થિતિ: ${attendance}\n` +
+            `મહેમાનોની સંખ્યા: ${count}\n` +
+            (wishes ? `શુભેચ્છા / આશીર્વાદ: "${wishes}"\n\n` : '\n') +
+            `આપ સહુ સાથે મંગલ ઉત્સવ માણવા અત્યંત ઉત્સુક છીએ! ❤️`
+          )
+        : encodeURIComponent(
+            `✨ Wedding RSVP ✨\n\n` +
+            `Guest: ${name}\n` +
+            `Attendance: ${attendance}\n` +
+            `Guests: ${count}\n` +
+            (wishes ? `Blessings: "${wishes}"\n\n` : '\n') +
+            `Looking forward to celebrating with you! ❤️`
+          );
 
       if (whatsappDirectBtn) {
         whatsappDirectBtn.href = `https://wa.me/${cleanPhone}?text=${waMessage}`;
@@ -3594,10 +3999,16 @@ body.scroll-unlocked {
   }
 
   function triggerWhatsAppShare(coupleNames) {
-    const text = encodeURIComponent(
-      `💌 You are cordially invited to celebrate the wedding of ${coupleNames}!\n\n` +
-      `Tap the interactive invitation link below to view ceremonies, venues & RSVP:\n${window.location.href}`
-    );
+    const isGu = (window.CURRENT_LANG === 'gu');
+    const text = isGu
+      ? encodeURIComponent(
+          `💌 આપ શ્રીને આકાશ અને સાક્ષીના શુભ લગ્ન મહોત્સવમાં ઉપસ્થિત રહેવા ભાવભર્યું નિમંત્રણ છે!\n\n` +
+          `મંગલ પ્રસંગોની વિગત જોવા, સ્થળનો રસ્તો જાણવા અને RSVP નોંધાવવા માટે નીચે આપેલી લિંક ખોલો:\n${window.location.href}`
+        )
+      : encodeURIComponent(
+          `💌 You are cordially invited to celebrate the wedding of ${coupleNames}!\n\n` +
+          `Tap the interactive invitation link below to view ceremonies, venues & RSVP:\n${window.location.href}`
+        );
     window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
   }
 
@@ -3649,6 +4060,484 @@ body.scroll-unlocked {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
+})();
+
+/* === lang_switcher.js === */
+/**
+ * ==============================================================================
+ * GUJARATI & ENGLISH BILINGUAL TRANSLATION ENGINE
+ * ==============================================================================
+ * Seamlessly converts every single string on the entire wedding invitation
+ * between English and Gujarati (Kankotri language) upon clicking the
+ * floating language switcher button.
+ * ==============================================================================
+ */
+
+(function () {
+  window.CURRENT_LANG = 'en';
+
+  const TRANSLATIONS = {
+    en: {
+      lang_btn_text: "ગુજરાતી",
+      lang_btn_title: "Switch to Gujarati / ગુજરાતીમાં જુઓ",
+
+      // Tap / Hero Overlay
+      tap_overlay_title: "Click anywhere to open invitation",
+      hero_tagline: "We're getting married",
+      hero_couple_names: 'Akash <span class="hero-ampersand">&</span> Sakshi',
+      hero_together_tagline: "Together with their families, invite you to celebrate their love",
+      hero_hashtag: "#AkashKiSakshi",
+      scroll_hint: "Scroll to explore",
+
+      // Blessing / Traditional Card
+      blessing_header: "ॐ श्री गणेशाय नमः",
+      blessing_text: "With the divine blessings of Lord Ganesha and our beloved ancestors, we embark on this sacred journey of love and togetherness.",
+      grandparents_blessings: "With heavenly blessings from Late Shri Ram Lal Sharma & Late Smt. Kamala Devi",
+      host_groom_parents: "Smt. Sunita & Shri Rajesh Sharma",
+      son_of: "Son of",
+      groom_full_name: "Akash Sharma",
+      weds_text: "weds",
+      bride_full_name: "Sakshi Verma",
+      daughter_of: "Daughter of",
+      host_bride_parents: "Smt. Meena & Shri Dinesh Verma",
+      formal_invitation_body: "Cordially request the pleasure of your gracious company and blessings on the auspicious wedding ceremony of their beloved children.",
+      compliments_note: "With best compliments from all Sharma & Verma family members, relatives and friends.",
+
+      // Scratch to Reveal
+      scratch_card_title: "Scratch to Reveal",
+      scratch_card_instruction: "Swipe across the golden heart",
+      revealed_headline: "Save the Date",
+      revealed_date_day: "14th",
+      revealed_date_month: "December",
+      revealed_date_year: "2026",
+      revealed_message: "We cannot wait to celebrate the most magical night of our lives with you!",
+
+      // Countdown Timer
+      countdown_heading: "Counting Down to Forever",
+      countdown_days: "Days",
+      countdown_hours: "Hours",
+      countdown_mins: "Mins",
+      countdown_secs: "Secs",
+      countdown_subtitle: "Until We Say I Do",
+
+      // Story Milestones
+      story_heading: "Our Story",
+      story_1_title: "How We Met",
+      story_1_year: "October 2022",
+      story_1_desc: "A chance encounter at a cozy rooftop café over cold brew coffee turned into a four-hour conversation about dreams, music, and travel.",
+      story_2_title: "The First Trip",
+      story_2_year: "November 2023",
+      story_2_desc: "Exploring the misty hills of Munnar, getting caught in sudden monsoon rains, and realizing we never wanted to wander through life without each other.",
+      story_3_title: "The Proposal",
+      story_3_year: "February 2025",
+      story_3_desc: "Under a golden sunset on a quiet beach in Goa, with waves softly crashing against the shore, Akash got down on one knee. Sakshi said yes before he could even finish asking!",
+      story_4_title: "Growing Together",
+      story_4_year: "June 2025",
+      story_4_desc: "Through every laugh, shared dream, and adventure, our bond grew deeper and stronger each passing day.",
+      story_5_title: "The Families Meet",
+      story_5_year: "September 2025",
+      story_5_desc: "Bringing our two families together filled the room with joy, sweet blessings, and heartwarming celebration.",
+      story_6_title: "Counting Down to Forever",
+      story_6_year: "December 2026",
+      story_6_desc: "Ready to begin this sacred next chapter surrounded by the love, laughter, and blessings of our dearest family and friends.",
+
+      // The Celebrations
+      celebrations_heading: "The Celebrations",
+      event_1_name: "Satsang & Ganesh Puja",
+      event_1_date: "Friday, December 12, 2026",
+      event_1_time: "10:00 AM - 01:00 PM",
+      event_1_venue: "Crystal Banquet Hall, The Grand Palace",
+      event_1_desc: "An auspicious prayer gathering invoking divine grace for the couple's new beginning, followed by lunch.",
+
+      event_2_name: "Mehendi & Sundowner Carnival",
+      event_2_date: "Friday, December 12, 2026",
+      event_2_time: "04:00 PM onwards",
+      event_2_venue: "Lakeside Lawn, The Grand Palace",
+      event_2_desc: "Henna patterns, foot-tapping beats, live food stalls, and sunset cocktails by the lake.",
+
+      event_3_name: "Sangeet & DJ Night",
+      event_3_date: "Saturday, December 13, 2026",
+      event_3_time: "07:30 PM till late",
+      event_3_venue: "Royal Ballroom, The Grand Palace",
+      event_3_desc: "An electrifying night of family dance performances, cocktails, and non-stop dancing under the starlight!",
+
+      event_4_name: "Shubh Vivah (Wedding & Pheras)",
+      event_4_date: "Sunday, December 14, 2026",
+      event_4_time: "06:30 PM (Baraat Swagat) | 08:30 PM (Pheras)",
+      event_4_venue: "Shahi Mandapam by the Lake",
+      event_4_desc: "The grand wedding rituals, Vedic vows around the sacred fire, followed by royal dinner and blessings.",
+
+      btn_directions: "Get Directions",
+      btn_calendar: "Add to Calendar",
+
+      // Dress Code
+      dresscode_title: "Dress code",
+      dresscode_subtitle: "A colour for each function, if you'd like a hint.",
+      dress_1_name: "Satsang & Ganesh Puja",
+      dress_1_desc: "Traditional pastels & florals",
+      dress_2_name: "Mehendi & Sundowner Carnival",
+      dress_2_desc: "Greens and soft pinks",
+      dress_3_name: "Sangeet & DJ Night",
+      dress_3_desc: "Jewel tones and sparkle",
+      dress_4_name: "Shubh Vivah (Wedding & Pheras)",
+      dress_4_desc: "Traditional Indian, in any colour you love",
+
+      // Venue Section
+      venue_section_heading: "The Wedding Ceremony",
+      venue_name: "The Grand Palace Resort & Convention Center",
+      venue_address: "108 Heritage Lake Road, Near Lake Pichola, Udaipur, Rajasthan 313001",
+      btn_open_maps: "OPEN IN MAPS",
+
+      // Our Family & Thank You
+      our_family_heading: "Our Family",
+      family_groom_parents: "Smt. Sunita & Shri Rajesh Sharma",
+      family_bride_parents: "Smt. Meena & Shri Dinesh Verma",
+      family_grandparents: "With heavenly blessings from Late Shri Ram Lal Sharma & Late Smt. Kamala Devi",
+      family_compliments: "All Relatives & Friends",
+      thank_you_heading: "Thank You",
+      thank_you_note: "Your love, laughter, and presence will make our celebration truly complete.",
+      rsvp_deadline: "Please let us know by November 15, 2026",
+
+      // RSVP Form
+      rsvp_name_label: "Your Full Name",
+      rsvp_guests_label: "Number of Guests Attending",
+      rsvp_guests_opt1: "1 Guest",
+      rsvp_guests_opt2: "2 Guests",
+      rsvp_guests_opt3: "3 Guests",
+      rsvp_guests_opt4: "4 Guests",
+      rsvp_guests_opt5: "5+ Guests",
+      rsvp_accept_label: "Joyfully Accept",
+      rsvp_decline_label: "Regretfully Decline",
+      rsvp_diet_label: "Dietary Preferences (Optional)",
+      rsvp_diet_placeholder: "e.g. Vegetarian, Jain, Vegan...",
+      rsvp_wishes_label: "Blessings & Wishes for the Couple",
+      rsvp_wishes_placeholder: "Write your warm wishes here...",
+      rsvp_submit_btn: "CONFIRM RSVP VIA WHATSAPP",
+
+      // Quick Actions
+      btn_share: "Share Invite",
+      btn_copy_link: "Copy Link",
+      btn_copy_link_copied: "Copied! ✓",
+      btn_pdf: "Save as PDF",
+
+      // Success & Footer
+      rsvp_success_heading: "Thank You!",
+      rsvp_success_text: "Your response and heartfelt blessings have been received with love.",
+      rsvp_success_btn: "Send RSVP to Host via WhatsApp 💬",
+      footer_credits: "Made with love for our family and friends",
+      back_to_top: "Back to Top ↑",
+      heart_venue_city: "Udaipur, Rajasthan"
+    },
+
+    gu: {
+      lang_btn_text: "English",
+      lang_btn_title: "Switch to English / અંગ્રેજીમાં જુઓ",
+
+      // Tap / Hero Overlay
+      tap_overlay_title: "નિમંત્રણ પત્રિકા ખોલવા માટે અહીં સ્પર્શ કરો",
+      hero_tagline: "અમે લગ્નગ્રંથિથી જોડાઈ રહ્યા છીએ",
+      hero_couple_names: 'આકાશ <span class="hero-ampersand">અને</span> સાક્ષી',
+      hero_together_tagline: "અમારા પરિવારો સાથે, આપ સૌને અમારા સ્નેહમિલનની ઉજવણીમાં હાર્દિક આમંત્રણ આપીએ છીએ",
+      hero_hashtag: "#આકાશ_સંગ_સાક્ષી",
+      scroll_hint: "વધુ જોવા માટે નીચે સ્ક્રોલ કરો",
+
+      // Blessing / Traditional Card
+      blessing_header: "ૐ શ્રી ગણેશાય નમઃ",
+      blessing_text: "શ્રી ગણેશજી અને અમારા પૂજ્ય પૂર્વજોના દિવ્ય આશીર્વાદથી, અમે પ્રેમ અને સ્નેહના આ પવિત્ર મંગલ પંથે પ્રયાણ કરી રહ્યા છીએ.",
+      grandparents_blessings: "સ્વ. શ્રી રામલાલ શર્મા અને સ્વ. શ્રીમતી કમલાદેવીના દિવ્ય આશીર્વાદ સહ",
+      host_groom_parents: "શ્રીમતી સુનિતા અને શ્રી રાજેશ શર્મા",
+      son_of: "સુપુત્ર",
+      groom_full_name: "આકાશ શર્મા",
+      weds_text: "સંગ",
+      bride_full_name: "સાક્ષી વર્મા",
+      daughter_of: "સુપુત્રી",
+      host_bride_parents: "શ્રીમતી મીના અને શ્રી દિનેશ વર્મા",
+      formal_invitation_body: "અમારા પ્રિય સંતાનોના શુભ લગ્ન પ્રસંગે આપના સ્નેહભર્યા સાન્નિધ્ય અને મંગલ આશીર્વાદની નમ્ર પ્રાર્થના કરીએ છીએ.",
+      compliments_note: "સમસ્ત શર્મા અને વર્મા પરિવાર, સ્નેહીજનો તથા મિત્રવૃંદ તરફથી ભાવભર્યું નિમંત્રણ.",
+
+      // Scratch to Reveal
+      scratch_card_title: "તારીખ જાણવા માટે સ્ક્રેચ કરો",
+      scratch_card_instruction: "સુવર્ણ હૃદય પર સ્વાઇપ કરો",
+      revealed_headline: "શુભ લગ્ન તારીખ",
+      revealed_date_day: "૧૪",
+      revealed_date_month: "ડિસેમ્બર",
+      revealed_date_year: "૨૦૨૬",
+      revealed_message: "અમારા જીવનની આ અવિસ્મરણીય અને મંગલ ક્ષણો આપ સહુની સાથે માણવા અમે અત્યંત ઉત્સુક છીએ!",
+
+      // Countdown Timer
+      countdown_heading: "મંગલ ઘડીની ગણતરી",
+      countdown_days: "દિવસ",
+      countdown_hours: "કલાક",
+      countdown_mins: "મિનિટ",
+      countdown_secs: "સેકન્ડ",
+      countdown_subtitle: "શુભ લગ્ન ઘડી આવવા સુધી",
+
+      // Story Milestones
+      story_heading: "અમારી પ્રેમકથા",
+      story_1_title: "પહેલી મુલાકાત",
+      story_1_year: "ઓક્ટોબર ૨૦૨૨",
+      story_1_desc: "એક સુંદર રૂફટોપ કાફેમાં અચાનક થયેલી મુલાકાત, સપનાઓ, સંગીત અને પ્રવાસની ચાર કલાકની મધુર વાતોમાં ફેરવાઈ ગઈ.",
+      story_2_title: "પ્રથમ પ્રવાસ",
+      story_2_year: "નવેમ્બર ૨૦૨૩",
+      story_2_desc: "મુન્નારની ધુમ્મસભરી ટેકરીઓ, અચાનક વરસેલો વરસાદ અને એ અહેસાસ કે જીવનનો પ્રત્યેક પ્રવાસ હવે સાથે જ કરવો છે.",
+      story_3_title: "જીવનભરનો સાથ",
+      story_3_year: "ફેબ્રુઆરી ૨૦૨૫",
+      story_3_desc: "ગોવાના શાંત દરિયાકિનારે, સુવર્ણ સૂર્યાસ્ત અને મોજાઓના સંગાથે આકાશે પ્રપોઝ કર્યું અને સાક્ષીએ ક્ષણનાય વિલંબ વગર હા પાડી દીધી!",
+      story_4_title: "સાથે વિકાસ",
+      story_4_year: "જૂન ૨૦૨૫",
+      story_4_desc: "દરેક હાસ્ય, સપના અને સફરમાં અમારો સ્નેહ સંબંધ દિવસેને દિવસે વધુ ગાઢ અને મજબૂત બનતો ગયો.",
+      story_5_title: "પરિવારનું મિલન",
+      story_5_year: "સપ્ટેમ્બર ૨૦૨૫",
+      story_5_desc: "બંને પરિવારોના મિલનથી સમગ્ર વાતાવરણ ખુશીઓ, આશીર્વાદ અને આનંદોલ્લાસથી છલકાઈ ઊઠ્યું.",
+      story_6_title: "નવા જીવન તરફ",
+      story_6_year: "ડિસેમ્બર ૨૦૨૬",
+      story_6_desc: "અમારા સ્નેહીજનો અને મિત્રોના પ્રેમ તથા આશીર્વાદની છત્રછાયામાં જીવનના આ પવિત્ર અધ્યાયની શરૂઆત કરવા આતુર છીએ.",
+
+      // The Celebrations
+      celebrations_heading: "મંગલ ઉત્સવો",
+      event_1_name: "સત્સંગ અને ગણેશ પૂજા",
+      event_1_date: "શુક્રવાર, ૧૨ ડિસેમ્બર, ૨૦૨૬",
+      event_1_time: "સવારે ૧૦:૦૦ થી બપોરે ૦૧:૦૦",
+      event_1_venue: "ક્રિસ્ટલ બેન્ક્વેટ હોલ, ધ ગ્રાન્ડ પેલેસ",
+      event_1_desc: "નવદંપતીના મંગલ ભવિષ્ય માટે પ્રભુ કૃપાની યાચના અર્થે પવિત્ર સત્સંગ અને પૂજન, ત્યારબાદ પ્રીતિભોજન.",
+
+      event_2_name: "મહેંદી અને સનડાઉન્સર કાર્નિવલ",
+      event_2_date: "શુક્રવાર, ૧૨ ડિસેમ્બર, ૨૦૨૬",
+      event_2_time: "સાંજે ૦૪:૦૦ વાગ્યાથી",
+      event_2_venue: "લેકસાઇડ લૉન, ધ ગ્રાન્ડ પેલેસ",
+      event_2_desc: "હાથોમાં રચાતી મહેંદી, ઢોલના તાલે ઝૂમતો આનંદ, સ્વાદિષ્ટ વાનગીઓ અને સરોવર કિનારે સાંજનો ઉત્સવ.",
+
+      event_3_name: "સંગીત સંધ્યા અને ડીજે નાઇટ",
+      event_3_date: "શનિવાર, ૧૩ ડિસેમ્બર, ૨૦૨૬",
+      event_3_time: "સાંજે ૦૭:૩૦ થી રાત્રિ સુધી",
+      event_3_venue: "રોયલ બૉલરૂમ, ધ ગ્રાન્ડ પેલેસ",
+      event_3_desc: "તારાઓની છાયામાં પારિવારિક નૃત્ય, સંગીતના સૂર અને ધમાકેદાર ઉજવણીની રોમાંચક રાત!",
+
+      event_4_name: "શુભ વિવાહ (હસ્તમેળાપ અને ફેરા)",
+      event_4_date: "રવિવાર, ૧૪ ડિસેમ્બર, ૨૦૨૬",
+      event_4_time: "સાંજે ૦૬:૩૦ (જાન આગમન) | રાત્રે ૦૮:૩૦ (હસ્તમેળાપ અને સપ્તપદી)",
+      event_4_venue: "શાહી મંડપમ, તળાવ કિનારે",
+      event_4_desc: "પવિત્ર અગ્નિની સાક્ષીએ વૈદિક મંત્રોચ્ચાર સાથે સપ્તપદીના ફેરા, ત્યારબાદ શાહી ભોજન સમારંભ અને આશીર્વાદ.",
+
+      btn_directions: "સ્થળનો રસ્તો જુઓ",
+      btn_calendar: "કેલેન્ડરમાં ઉમેરો",
+
+      // Dress Code
+      dresscode_title: "પહેરવેશ (ડ્રેસ કોડ)",
+      dresscode_subtitle: "દરેક પ્રસંગ માટે મનપસંદ રંગોની એક ઝલક",
+      dress_1_name: "સત્સંગ અને ગણેશ પૂજા",
+      dress_1_desc: "પરંપરાગત પેસ્ટલ અને ફ્લોરલ વસ્ત્રો",
+      dress_2_name: "મહેંદી અને સનડાઉન્સર કાર્નિવલ",
+      dress_2_desc: "લીલા અને ગુલાબી રંગોના વસ્ત્રો",
+      dress_3_name: "સંગીત સંધ્યા અને ડીજે નાઇટ",
+      dress_3_desc: "ચમકદાર અને રોયલ કલરના વસ્ત્રો",
+      dress_4_name: "શુભ વિવાહ (હસ્તમેળાપ અને ફેરા)",
+      dress_4_desc: "પરંપરાગત ભારતીય પરિધાન, આપના મનપસંદ રંગમાં",
+
+      // Venue Section
+      venue_section_heading: "શુભ લગ્ન સ્થળ",
+      venue_name: "ધ ગ્રાન્ડ પેલેસ રિસોર્ટ અને કન્વેન્શન સેન્ટર",
+      venue_address: "૧૦૮ હેરિટેજ લેક રોડ, પીછોલા તળાવ પાસે, ઉદયપુર, રાજસ્થાન ૩૧૩૦૦૧",
+      btn_open_maps: "મેપમાં જુઓ",
+
+      // Our Family & Thank You
+      our_family_heading: "અમારો પરિવાર",
+      family_groom_parents: "શ્રીમતી સુનિતા અને શ્રી રાજેશ શર્મા",
+      family_bride_parents: "શ્રીમતી મીના અને શ્રી દિનેશ વર્મા",
+      family_grandparents: "સ્વ. શ્રી રામલાલ શર્મા અને સ્વ. શ્રીમતી કમલાદેવીના દિવ્ય આશીર્વાદ સહ",
+      family_compliments: "સમસ્ત સ્નેહીજનો તથા મિત્રવૃંદ",
+      thank_you_heading: "આભાર દર્શન",
+      thank_you_note: "આપની ઉપસ્થિતિ અને આશીર્વાદ અમારા આ ઉત્સવને પરિપૂર્ણ અને સ્મરણીય બનાવશે.",
+      rsvp_deadline: "કૃપા કરીને ૧૫ નવેમ્બર, ૨૦૨૬ સુધીમાં જાણ કરશો",
+
+      // RSVP Form
+      rsvp_name_label: "આપનું પૂરું નામ",
+      rsvp_guests_label: "ઉપસ્થિત રહેનાર મહેમાનોની સંખ્યા",
+      rsvp_guests_opt1: "૧ મહેમાન",
+      rsvp_guests_opt2: "૨ મહેમાનો",
+      rsvp_guests_opt3: "૩ મહેમાનો",
+      rsvp_guests_opt4: "૪ મહેમાનો",
+      rsvp_guests_opt5: "૫+ મહેમાનો",
+      rsvp_accept_label: "આનંદપૂર્વક ઉપસ્થિત રહીશું",
+      rsvp_decline_label: "દિલગીરી સાથે અસમર્થ છીએ",
+      rsvp_diet_label: "ભોજનની પસંદગી (વૈકલ્પિક)",
+      rsvp_diet_placeholder: "દા.ત. શુદ્ધ શાકાહારી, જૈન...",
+      rsvp_wishes_label: "નવદંપતી માટે શુભકામનાઓ અને આશીર્વાદ",
+      rsvp_wishes_placeholder: "અહીં આપના સ્નેહભર્યા આશીર્વાદ લખો...",
+      rsvp_submit_btn: "વોટ્સએપ દ્વારા પુષ્ટિ કરો",
+
+      // Quick Actions
+      btn_share: "નિમંત્રણ શેર કરો",
+      btn_copy_link: "લિંક કોપી કરો",
+      btn_copy_link_copied: "કોપી થઈ ગયું! ✓",
+      btn_pdf: "પીડીએફ સાચવો",
+
+      // Success & Footer
+      rsvp_success_heading: "આભાર!",
+      rsvp_success_text: "આપનો પ્રતિસાદ અને સ્નેહભર્યા આશીર્વાદ પ્રેમપૂર્વક સ્વીકારવામાં આવ્યા છે.",
+      rsvp_success_btn: "વોટ્સએપ દ્વારા હોસ્ટને આરએસવીપી મોકલો 💬",
+      footer_credits: "અમારા પરિવાર અને સ્નેહીજનો માટે સ્નેહપૂર્વક નિર્મિત",
+      back_to_top: "ટોચ પર જાઓ ↑",
+      heart_venue_city: "ઉદયપુર, રાજસ્થાન"
+    }
+  };
+
+  window.CARD_TRANSLATIONS = TRANSLATIONS;
+
+  function applyLanguage(lang) {
+    if (!TRANSLATIONS[lang]) lang = 'en';
+    window.CURRENT_LANG = lang;
+    const t = TRANSLATIONS[lang];
+
+    // 1. Update HTML document lang attribute & body class for typography
+    document.documentElement.lang = lang;
+    if (lang === 'gu') {
+      document.body.classList.add('lang-gu');
+    } else {
+      document.body.classList.remove('lang-gu');
+    }
+
+    // 2. Update language switcher button text and title
+    const langBtnText = document.getElementById('langSwitchText');
+    const langBtn = document.getElementById('langSwitchBtn');
+    if (langBtnText) langBtnText.textContent = t.lang_btn_text;
+    if (langBtn) {
+      langBtn.title = t.lang_btn_title;
+      langBtn.setAttribute('aria-label', t.lang_btn_title);
+    }
+
+    // 3. Update all elements mapped via data-i18n
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) {
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+          el.placeholder = t[key];
+        } else {
+          el.innerHTML = t[key];
+        }
+      }
+    });
+
+    // 4. Update form dropdown option labels
+    const countSelect = document.getElementById('guestCount');
+    if (countSelect && countSelect.options.length >= 5) {
+      countSelect.options[0].text = t.rsvp_guests_opt1;
+      countSelect.options[1].text = t.rsvp_guests_opt2;
+      countSelect.options[2].text = t.rsvp_guests_opt3;
+      countSelect.options[3].text = t.rsvp_guests_opt4;
+      countSelect.options[4].text = t.rsvp_guests_opt5;
+    }
+
+    const attendSelect = document.getElementById('attendanceSelect');
+    if (attendSelect && attendSelect.options.length >= 2) {
+      attendSelect.options[0].text = t.rsvp_accept_label;
+      attendSelect.options[1].text = t.rsvp_decline_label;
+    }
+
+    // 5. Update Scratch Card Heading state if already revealed
+    const scratchStage = document.querySelector('.pure-heart-stage');
+    const scratchHeading = document.getElementById('scratchHeading');
+    if (scratchStage && scratchHeading) {
+      if (scratchStage.classList.contains('revealed')) {
+        scratchHeading.textContent = t.revealed_headline;
+      } else {
+        scratchHeading.textContent = t.scratch_card_title;
+      }
+    }
+
+    // 6. Update action buttons text
+    document.querySelectorAll('.event-btn.directions').forEach((btn) => {
+      const svg = btn.querySelector('svg');
+      btn.innerHTML = '';
+      if (svg) btn.appendChild(svg);
+      btn.appendChild(document.createTextNode(' ' + t.btn_directions));
+    });
+
+    document.querySelectorAll('.event-btn.calendar').forEach((btn) => {
+      const svg = btn.querySelector('svg');
+      btn.innerHTML = '';
+      if (svg) btn.appendChild(svg);
+      btn.appendChild(document.createTextNode(' ' + t.btn_calendar));
+    });
+
+    // 7. Update bottom action buttons (Share, Copy, PDF)
+    const shareBtn = document.getElementById('shareInviteBtn');
+    if (shareBtn) {
+      const svg = shareBtn.querySelector('svg');
+      shareBtn.innerHTML = '';
+      if (svg) shareBtn.appendChild(svg);
+      shareBtn.appendChild(document.createTextNode(' ' + t.btn_share));
+    }
+
+    const copyBtn = document.getElementById('copyInviteLinkBtn');
+    if (copyBtn) {
+      const svg = copyBtn.querySelector('svg');
+      copyBtn.innerHTML = '';
+      if (svg) copyBtn.appendChild(svg);
+      copyBtn.appendChild(document.createTextNode(' ' + t.btn_copy_link));
+    }
+
+    const pdfBtn = document.getElementById('savePdfBtn');
+    if (pdfBtn) {
+      const svg = pdfBtn.querySelector('svg');
+      pdfBtn.innerHTML = '';
+      if (svg) pdfBtn.appendChild(svg);
+      pdfBtn.appendChild(document.createTextNode(' ' + t.btn_pdf));
+    }
+
+    // 8. Update Open Maps Button
+    const mapsBtn = document.querySelector('.maps-pulse-btn');
+    if (mapsBtn) {
+      const svg = mapsBtn.querySelector('svg');
+      mapsBtn.innerHTML = '';
+      if (svg) mapsBtn.appendChild(svg);
+      mapsBtn.appendChild(document.createTextNode(' ' + t.btn_open_maps));
+    }
+
+    // 9. Update RSVP Submit Button
+    const rsvpBtn = document.querySelector('.rsvp-submit-btn');
+    if (rsvpBtn) {
+      const span = rsvpBtn.querySelector('span');
+      if (span) span.textContent = t.rsvp_submit_btn;
+      else rsvpBtn.textContent = t.rsvp_submit_btn;
+    }
+
+    // 10. Update Tap Overlay Tooltip
+    const tapOverlay = document.getElementById('videoTapOverlay');
+    if (tapOverlay) {
+      tapOverlay.title = t.tap_overlay_title;
+    }
+
+    // Broadcast event for any other module
+    window.dispatchEvent(new CustomEvent('languageSwitched', { detail: { lang } }));
+  }
+
+  // Toggle Function
+  function toggleLanguage() {
+    const targetLang = (window.CURRENT_LANG === 'gu') ? 'en' : 'gu';
+    applyLanguage(targetLang);
+
+    // Visual pulse feedback on button
+    const btn = document.getElementById('langSwitchBtn');
+    if (btn) {
+      btn.style.transform = 'scale(0.92)';
+      setTimeout(() => {
+        btn.style.transform = '';
+      }, 180);
+    }
+  }
+
+  // Bind Switcher Button
+  window.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('langSwitchBtn');
+    if (btn) {
+      btn.addEventListener('click', toggleLanguage);
+    }
+  });
+
+  // Export globally
+  window.applyLanguage = applyLanguage;
+  window.toggleLanguage = toggleLanguage;
 })();
 
 </script>

@@ -12,8 +12,8 @@ CULTURE: Hindu
 # Theme Palette: RoyalGold | SandstoneTerracotta | PastelSage | EmeraldPearl | RoseBlush | KanjeevaramGold
 THEME_PALETTE: SandstoneTerracotta
 LANGUAGE: English
-# Optional bilingual script (e.g. Hindi, Punjabi, Urdu, Tamil, etc.)
-SECONDARY_LANGUAGE: Hindi
+# Optional bilingual script (e.g. Hindi, Punjabi, Urdu, Tamil, Gujarati, etc.)
+SECONDARY_LANGUAGE: Gujarati
 
 [COUPLE_DETAILS]
 GROOM_NAME: Akash
@@ -97,6 +97,7 @@ EVENT_1_VENUE: Crystal Banquet Hall, The Grand Palace
 EVENT_1_MAPS_LINK: https://www.google.com/maps/search/?api=1&query=Crystal+Banquet+Hall+The+Grand+Palace+Udaipur+Rajasthan
 EVENT_1_DRESS_CODE: Traditional Pastels & Florals
 EVENT_1_DESC: An auspicious prayer gathering invoking divine grace for the couple's new beginning, followed by lunch.
+EVENT_1_IMAGE: images/events/event_1_satsang.webp
 
 EVENT_2_NAME: Mehendi & Sundowner Carnival
 EVENT_2_DATE: Friday, December 12, 2026
@@ -105,6 +106,7 @@ EVENT_2_VENUE: Lakeside Lawn, The Grand Palace
 EVENT_2_MAPS_LINK: https://www.google.com/maps/search/?api=1&query=Lakeside+Lawn+The+Grand+Palace+Udaipur+Rajasthan
 EVENT_2_DRESS_CODE: Bright Festive & Bohemian Colors
 EVENT_2_DESC: Henna patterns, foot-tapping beats, live food stalls, and sunset cocktails by the lake.
+EVENT_2_IMAGE: images/events/event_2_mehendi.webp
 
 EVENT_3_NAME: Sangeet & DJ Night
 EVENT_3_DATE: Saturday, December 13, 2026
@@ -113,6 +115,7 @@ EVENT_3_VENUE: Royal Ballroom, The Grand Palace
 EVENT_3_MAPS_LINK: https://www.google.com/maps/search/?api=1&query=Royal+Ballroom+The+Grand+Palace+Udaipur+Rajasthan
 EVENT_3_DRESS_CODE: Glitz, Glamour & Indo-Western
 EVENT_3_DESC: An electrifying night of family dance performances, cocktails, and non-stop dancing under the starlight!
+EVENT_3_IMAGE: images/events/event_3_sangeet.webp
 
 EVENT_4_NAME: Shubh Vivah (Wedding & Pheras)
 EVENT_4_DATE: Sunday, December 14, 2026
@@ -121,6 +124,33 @@ EVENT_4_VENUE: Shahi Mandapam by the Lake
 EVENT_4_MAPS_LINK: https://www.google.com/maps/search/?api=1&query=Shahi+Mandapam+The+Grand+Palace+Resort+Udaipur+Rajasthan
 EVENT_4_DRESS_CODE: Royal Traditional Elegance
 EVENT_4_DESC: The grand wedding rituals, Vedic vows around the sacred fire, followed by royal dinner and blessings.
+EVENT_4_IMAGE: images/events/event_4_wedding.webp
+
+[DRESS_CODE_SECTION]
+# Dedicated luxury dress code section with illustrations & color swatches
+DRESS_CODE_TITLE: Dress code
+DRESS_CODE_SUBTITLE: A colour for each function, if you'd like a hint.
+DRESS_CODE_BANNER: images/decor/dresscode_banner.webp
+
+EVENT_1_DRESS_NAME: Satsang & Ganesh Puja
+EVENT_1_DRESS_HINDI: सत्संग एवं गणेश पूजा
+EVENT_1_DRESS_DESC: Traditional pastels & florals
+EVENT_1_DRESS_COLORS: #F7D070,#F4A6B7,#C5DFC3
+
+EVENT_2_DRESS_NAME: Mehendi & Sundowner Carnival
+EVENT_2_DRESS_HINDI: मेहंदी
+EVENT_2_DRESS_DESC: Greens and soft pinks
+EVENT_2_DRESS_COLORS: #4A7C59,#E58A9F,#F5EEDB
+
+EVENT_3_DRESS_NAME: Sangeet & DJ Night
+EVENT_3_DRESS_HINDI: संगीत
+EVENT_3_DRESS_DESC: Jewel tones and sparkle
+EVENT_3_DRESS_COLORS: #2B3377,#A31D4B,#CCA447
+
+EVENT_4_DRESS_NAME: Shubh Vivah (Wedding & Pheras)
+EVENT_4_DRESS_HINDI: विवाह
+EVENT_4_DRESS_DESC: Traditional Indian, in any colour you love
+EVENT_4_DRESS_COLORS: #A01830,#E58B24,#FAF5EE
 
 [RSVP_AND_GUESTBOOK]
 RSVP_CLOSING_NOTE: Your love, laughter, and presence will make our celebration truly complete.
@@ -145,3 +175,66 @@ MONOGRAM_IMAGE: images/monogram/monogram.png
 BACKGROUND_SONG: song/song.mp3
 INVITATION_VIDEO: video/invite_film.mp4
 UI_MOCKUP_REFERENCE: images/reference/ui_reference.png
+
+[GUJARATI_TRANSLATIONS]
+GU_GROOM_NAME: આકાશ
+GU_BRIDE_NAME: સાક્ષી
+GU_GROOM_FULL_NAME: આકાશ શર્મા
+GU_BRIDE_FULL_NAME: સાક્ષી વર્મા
+GU_HASHTAG: #આકાશ_સંગ_સાક્ષી
+GU_TAGLINE: અમે લગ્નગ્રંથિથી જોડાઈ રહ્યા છીએ
+GU_TOGETHER_TAGLINE: અમારા પરિવારો સાથે, આપ સૌને અમારા સ્નેહમિલનની ઉજવણીમાં હાર્દિક આમંત્રણ આપીએ છીએ
+GU_BLESSING_HEADER: ૐ શ્રી ગણેશાય નમઃ
+GU_BLESSING_TEXT: શ્રી ગણેશજી અને અમારા પૂજ્ય પૂર્વજોના દિવ્ય આશીર્વાદથી, અમે પ્રેમ અને સ્નેહના આ પવિત્ર મંગલ પંથે પ્રયાણ કરી રહ્યા છીએ.
+GU_GRANDPARENTS_BLESSINGS: સ્વ. શ્રી રામલાલ શર્મા અને સ્વ. શ્રીમતી કમલાદેવીના દિવ્ય આશીર્વાદ સહ
+GU_HOST_GROOM_PARENTS: શ્રીમતી સુનિતા અને શ્રી રાજેશ શર્મા
+GU_HOST_BRIDE_PARENTS: શ્રીમતી મીના અને શ્રી દિનેશ વર્મા
+GU_FORMAL_INVITATION_BODY: અમારા પ્રિય સંતાનોના શુભ લગ્ન પ્રસંગે આપના સ્નેહભર્યા સાન્નિધ્ય અને મંગલ આશીર્વાદની નમ્ર પ્રાર્થના કરીએ છીએ.
+GU_COMPLIMENTS_NOTE: સમસ્ત શર્મા અને વર્મા પરિવાર, સ્નેહીજનો તથા મિત્રવૃંદ તરફથી ભાવભર્યું નિમંત્રણ.
+GU_SCRATCH_CARD_TITLE: તારીખ જાણવા માટે સ્ક્રેચ કરો
+GU_SCRATCH_CARD_INSTRUCTION: સુવર્ણ હૃદય પર સ્વાઇપ કરો
+GU_REVEALED_HEADLINE: શુભ લગ્ન તારીખ
+GU_REVEALED_DATE: ૧૪ ડિસેમ્બર, ૨૦૨૬
+GU_REVEALED_MESSAGE: અમારા જીવનની આ અવિસ્મરણીય અને મંગલ ક્ષણો આપ સહુની સાથે માણવા અમે અત્યંત ઉત્સુક છીએ!
+GU_COUNTDOWN_HEADING: મંગલ ઘડીની ગણતરી
+GU_COUNTDOWN_SUBTITLE: શુભ લગ્ન ઘડી આવવા સુધી
+GU_CELEBRATIONS_HEADING: મંગલ ઉત્સવો
+GU_DRESS_CODE_TITLE: પહેરવેશ (ડ્રેસ કોડ)
+GU_DRESS_CODE_SUBTITLE: દરેક પ્રસંગ માટે મનપસંદ રંગોની એક ઝલક
+GU_VENUE_SECTION_HEADING: શુભ લગ્ન સ્થળ
+GU_VENUE_NAME: ધ ગ્રાન્ડ પેલેસ રિસોર્ટ અને કન્વેન્શન સેન્ટર
+GU_VENUE_CITY: ઉદયપુર, રાજસ્થાન
+GU_VENUE_ADDRESS: ૧૦૮ હેરિટેજ લેક રોડ, પીછોલા તળાવ પાસે, ઉદયપુર, રાજસ્થાન ૩૧૩૦૦૧
+GU_OUR_FAMILY_HEADING: અમારો પરિવાર
+GU_THANK_YOU_HEADING: આભાર દર્શન
+GU_FAMILY_COMPLIMENTS: સમસ્ત સ્નેહીજનો તથા મિત્રવૃંદ
+GU_RSVP_CLOSING_NOTE: આપની ઉપસ્થિતિ અને આશીર્વાદ અમારા આ ઉત્સવને પરિપૂર્ણ અને સ્મરણીય બનાવશે.
+GU_RSVP_DEADLINE: કૃપા કરીને ૧૫ નવેમ્બર, ૨૦૨૬ સુધીમાં જાણ કરશો
+
+GU_EVENT_1_NAME: સત્સંગ અને ગણેશ પૂજા
+GU_EVENT_1_DATE: શુક્રવાર, ૧૨ ડિસેમ્બર, ૨૦૨૬
+GU_EVENT_1_TIME: સવારે ૧૦:૦૦ થી બપોરે ૦૧:૦૦
+GU_EVENT_1_VENUE: ક્રિસ્ટલ બેન્ક્વેટ હોલ, ધ ગ્રાન્ડ પેલેસ
+GU_EVENT_1_DESC: નવદંપતીના મંગલ ભવિષ્ય માટે પ્રભુ કૃપાની યાચના અર્થે પવિત્ર સત્સંગ અને પૂજન, ત્યારબાદ પ્રીતિભોજન.
+GU_EVENT_1_DRESS: પરંપરાગત પેસ્ટલ અને ફ્લોરલ વસ્ત્રો
+
+GU_EVENT_2_NAME: મહેંદી અને સનડાઉન્સર કાર્નિવલ
+GU_EVENT_2_DATE: શુક્રવાર, ૧૨ ડિસેમ્બર, ૨૦૨૬
+GU_EVENT_2_TIME: સાંજે ૦૪:૦૦ વાગ્યાથી
+GU_EVENT_2_VENUE: લેકસાઇડ લૉન, ધ ગ્રાન્ડ પેલેસ
+GU_EVENT_2_DESC: હાથોમાં રચાતી મહેંદી, ઢોલના તાલે ઝૂમતો આનંદ, સ્વાદિષ્ટ વાનગીઓ અને સરોવર કિનારે સાંજનો ઉત્સવ.
+GU_EVENT_2_DRESS: લીલા અને ગુલાબી રંગોના વસ્ત્રો
+
+GU_EVENT_3_NAME: સંગીત સંધ્યા અને ડીજે નાઇટ
+GU_EVENT_3_DATE: શનિવાર, ૧૩ ડિસેમ્બર, ૨૦૨૬
+GU_EVENT_3_TIME: સાંજે ૦૭:૩૦ થી રાત્રિ સુધી
+GU_EVENT_3_VENUE: રોયલ બૉલરૂમ, ધ ગ્રાન્ડ પેલેસ
+GU_EVENT_3_DESC: તારાઓની છાયામાં પારિવારિક નૃત્ય, સંગીતના સૂર અને ધમાકેદાર ઉજવણીની રોમાંચક રાત!
+GU_EVENT_3_DRESS: ચમકદાર અને રોયલ કલરના વસ્ત્રો
+
+GU_EVENT_4_NAME: શુભ વિવાહ (હસ્તમેળાપ અને ફેરા)
+GU_EVENT_4_DATE: રવિવાર, ૧૪ ડિસેમ્બર, ૨૦૨૬
+GU_EVENT_4_TIME: સાંજે ૦૬:૩૦ (જાન આગમન) | રાત્રે ૦૮:૩૦ (હસ્તમેળાપ અને સપ્તપદી)
+GU_EVENT_4_VENUE: શાહી મંડપમ, તળાવ કિનારે
+GU_EVENT_4_DESC: પવિત્ર અગ્નિની સાક્ષીએ વૈદિક મંત્રોચ્ચાર સાથે સપ્તપદીના ફેરા, ત્યારબાદ શાહી ભોજન સમારંભ અને આશીર્વાદ.
+GU_EVENT_4_DRESS: પરંપરાગત ભારતીય પરિધાન, આપના મનપસંદ રંગમાં
