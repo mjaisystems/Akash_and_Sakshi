@@ -27,29 +27,9 @@
   }
   window.addEventListener('resize', resizeTrailCanvas);
 
-  // ==========================================================================
-  // ULTRA-FAST IN-MEMORY BLOB PRELOADER
-  // Downloads video into local RAM blob cache immediately on page load
-  // ==========================================================================
+  // Initialize video element with progressive streaming
   if (openingVideo) {
     openingVideo.preload = 'auto';
-
-    const sourceEl = openingVideo.querySelector('source');
-    const videoUrl = (sourceEl ? sourceEl.getAttribute('src') : openingVideo.src) || 'video/envelope_opening.mp4';
-
-    fetch(videoUrl)
-      .then(res => {
-        if (!res.ok) throw new Error('Fetch failed');
-        return res.blob();
-      })
-      .then(blob => {
-        const blobUrl = URL.createObjectURL(blob);
-        openingVideo.src = blobUrl;
-        openingVideo.load();
-      })
-      .catch(err => {
-        console.log('Progressive HTTP streaming active:', err);
-      });
   }
 
   function startInvitation() {
@@ -89,19 +69,24 @@
           hideOverlay();
         }
       });
-      // Safety fallback
-      setTimeout(hideOverlay, 1500);
 
       const playPromise = openingVideo.play();
       if (playPromise !== undefined) {
         playPromise.catch(err => {
-          console.warn('Video play error, triggering fallback reveal:', err);
+          // Ignore transient interruptions (e.g. AbortError on rapid touch)
+          if (err.name === 'AbortError') {
+            console.log('Playback temporarily interrupted, continuing...');
+            openingVideo.play().catch(() => {});
+            return;
+          }
+          console.warn('Video playback error:', err);
+          // Only on non-recoverable error do we reveal endscreen as emergency fallback
           hideOverlay();
           revealEndscreen();
         });
       }
 
-      // Detect end of video or near-end
+      // Detect end of video or near-end - NEVER skip early
       openingVideo.addEventListener('timeupdate', () => {
         if (openingVideo.duration && openingVideo.currentTime >= openingVideo.duration - 0.45) {
           revealEndscreen();
