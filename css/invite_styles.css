@@ -175,7 +175,11 @@ html, body {
   justify-content: center;
   z-index: 20;
   cursor: pointer;
-  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+}
+
+.video-tap-overlay.opening-active {
+  filter: brightness(1.08);
 }
 
 .video-tap-overlay.hidden {

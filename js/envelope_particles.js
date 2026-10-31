@@ -27,16 +27,25 @@
   }
   window.addEventListener('resize', resizeTrailCanvas);
 
+  // Pre-warm video decoder as soon as initial DOM render is idle
+  if (openingVideo) {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => { openingVideo.load(); });
+    } else {
+      setTimeout(() => { openingVideo.load(); }, 200);
+    }
+  }
+
   function startInvitation() {
     if (hasStarted) return;
     hasStarted = true;
 
-    // 1. Hide tap overlay
+    // 1. Instant tactile visual feedback on tap
     if (videoTapOverlay) {
-      videoTapOverlay.classList.add('hidden');
+      videoTapOverlay.classList.add('opening-active');
     }
 
-    // 2. Play background audio safely
+    // 2. Play background audio safely (user gesture unlocks audio context)
     if (bgAudio) {
       bgAudio.volume = 0.5;
       bgAudio.play().then(() => {
@@ -47,17 +56,35 @@
       });
     }
 
-    // 3. Play envelope opening video
+    // 3. Play envelope opening video with zero-flicker transition
     if (openingVideo) {
       openingVideo.currentTime = 0;
-      openingVideo.play().catch(err => {
-        console.warn('Video play error, triggering fallback reveal:', err);
-        revealEndscreen();
-      });
+
+      let overlayHidden = false;
+      function hideOverlay() {
+        if (!overlayHidden && videoTapOverlay) {
+          overlayHidden = true;
+          videoTapOverlay.classList.add('hidden');
+        }
+      }
+
+      // Seamless hand-off: only fade out the still card once video frames are actively playing
+      openingVideo.addEventListener('playing', hideOverlay, { once: true });
+      // Safety fallback in case event is delayed by battery saver or webview
+      setTimeout(hideOverlay, 450);
+
+      const playPromise = openingVideo.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(err => {
+          console.warn('Video play error, triggering fallback reveal:', err);
+          hideOverlay();
+          revealEndscreen();
+        });
+      }
 
       // Detect end of video or near-end
       openingVideo.addEventListener('timeupdate', () => {
-        if (openingVideo.duration && openingVideo.currentTime >= openingVideo.duration - 0.5) {
+        if (openingVideo.duration && openingVideo.currentTime >= openingVideo.duration - 0.45) {
           revealEndscreen();
         }
       });

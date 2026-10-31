@@ -11,6 +11,10 @@
   <meta property="og:image" content="images/reference/ui_reference.png">
   <meta property="og:type" content="website">
 
+  <!-- High-Priority Preload Hints for Instant First-Frame Experience -->
+  <link rel="preload" as="image" href="images/hero/start_scene.png">
+  <link rel="preload" as="video" href="video/envelope_opening.mp4" type="video/mp4">
+
   <!-- Core Stylesheet -->
   <link rel="stylesheet" href="css/invite_styles.css">
   <style>
@@ -30,8 +34,8 @@
 </head>
 <body class="scroll-locked">
 
-  <!-- Background Audio Element -->
-  <audio id="bgAudio" loop preload="auto">
+  <!-- Background Audio Element (preload="none" prevents stealing network bandwidth on initial load) -->
+  <audio id="bgAudio" loop preload="none">
     <source src="song/song.mp3" type="audio/mp3">
   </audio>
 
