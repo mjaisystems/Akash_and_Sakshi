@@ -158,8 +158,6 @@ html, body {
   height: 100%;
   object-fit: cover;
   display: block;
-  transform: scale(1.15);
-  transform-origin: 50% 0%;
 }
 
 /* Initial Tap to Open Overlay showing card start scene */
@@ -175,11 +173,38 @@ html, body {
   justify-content: center;
   z-index: 20;
   cursor: pointer;
-  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .video-tap-overlay.opening-active {
-  filter: brightness(1.08);
+  filter: brightness(1.04);
+}
+
+/* Luxury Golden Opening Ripple on Tap */
+.video-tap-overlay.opening-active::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140px;
+  height: 140px;
+  margin: -70px 0 0 -70px;
+  border-radius: 50%;
+  border: 2px solid rgba(194, 155, 88, 0.85);
+  box-shadow: 0 0 30px rgba(194, 155, 88, 0.6), inset 0 0 20px rgba(194, 155, 88, 0.4);
+  animation: openingRipple 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes openingRipple {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
 }
 
 .video-tap-overlay.hidden {

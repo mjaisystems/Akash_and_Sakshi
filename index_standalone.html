@@ -177,8 +177,6 @@ html, body {
   height: 100%;
   object-fit: cover;
   display: block;
-  transform: scale(1.15);
-  transform-origin: 50% 0%;
 }
 
 /* Initial Tap to Open Overlay showing card start scene */
@@ -194,11 +192,38 @@ html, body {
   justify-content: center;
   z-index: 20;
   cursor: pointer;
-  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .video-tap-overlay.opening-active {
-  filter: brightness(1.08);
+  filter: brightness(1.04);
+}
+
+/* Luxury Golden Opening Ripple on Tap */
+.video-tap-overlay.opening-active::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140px;
+  height: 140px;
+  margin: -70px 0 0 -70px;
+  border-radius: 50%;
+  border: 2px solid rgba(194, 155, 88, 0.85);
+  box-shadow: 0 0 30px rgba(194, 155, 88, 0.6), inset 0 0 20px rgba(194, 155, 88, 0.4);
+  animation: openingRipple 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes openingRipple {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
 }
 
 .video-tap-overlay.hidden {
@@ -2658,20 +2683,36 @@ body.scroll-unlocked {
   }
   window.addEventListener('resize', resizeTrailCanvas);
 
-  // Pre-warm video decoder as soon as initial DOM render is idle
+  // ==========================================================================
+  // ULTRA-FAST IN-MEMORY BLOB PRELOADER
+  // Downloads video into local RAM blob cache immediately on page load
+  // ==========================================================================
   if (openingVideo) {
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(() => { openingVideo.load(); });
-    } else {
-      setTimeout(() => { openingVideo.load(); }, 200);
-    }
+    openingVideo.preload = 'auto';
+
+    const sourceEl = openingVideo.querySelector('source');
+    const videoUrl = (sourceEl ? sourceEl.getAttribute('src') : openingVideo.src) || 'video/envelope_opening.mp4';
+
+    fetch(videoUrl)
+      .then(res => {
+        if (!res.ok) throw new Error('Fetch failed');
+        return res.blob();
+      })
+      .then(blob => {
+        const blobUrl = URL.createObjectURL(blob);
+        openingVideo.src = blobUrl;
+        openingVideo.load();
+      })
+      .catch(err => {
+        console.log('Progressive HTTP streaming active:', err);
+      });
   }
 
   function startInvitation() {
     if (hasStarted) return;
     hasStarted = true;
 
-    // 1. Instant tactile visual feedback on tap
+    // 1. Instant tactile visual feedback on tap (Golden Bloom Ripple)
     if (videoTapOverlay) {
       videoTapOverlay.classList.add('opening-active');
     }
@@ -2689,8 +2730,6 @@ body.scroll-unlocked {
 
     // 3. Play envelope opening video with zero-flicker transition
     if (openingVideo) {
-      openingVideo.currentTime = 0;
-
       let overlayHidden = false;
       function hideOverlay() {
         if (!overlayHidden && videoTapOverlay) {
@@ -2699,10 +2738,15 @@ body.scroll-unlocked {
         }
       }
 
-      // Seamless hand-off: only fade out the still card once video frames are actively playing
+      // Seamless hand-off: only fade out still card once video frames are actively playing
       openingVideo.addEventListener('playing', hideOverlay, { once: true });
-      // Safety fallback in case event is delayed by battery saver or webview
-      setTimeout(hideOverlay, 450);
+      openingVideo.addEventListener('timeupdate', () => {
+        if (openingVideo.currentTime > 0.05) {
+          hideOverlay();
+        }
+      });
+      // Safety fallback
+      setTimeout(hideOverlay, 1500);
 
       const playPromise = openingVideo.play();
       if (playPromise !== undefined) {

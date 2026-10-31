@@ -27,20 +27,36 @@
   }
   window.addEventListener('resize', resizeTrailCanvas);
 
-  // Pre-warm video decoder as soon as initial DOM render is idle
+  // ==========================================================================
+  // ULTRA-FAST IN-MEMORY BLOB PRELOADER
+  // Downloads video into local RAM blob cache immediately on page load
+  // ==========================================================================
   if (openingVideo) {
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(() => { openingVideo.load(); });
-    } else {
-      setTimeout(() => { openingVideo.load(); }, 200);
-    }
+    openingVideo.preload = 'auto';
+
+    const sourceEl = openingVideo.querySelector('source');
+    const videoUrl = (sourceEl ? sourceEl.getAttribute('src') : openingVideo.src) || 'video/envelope_opening.mp4';
+
+    fetch(videoUrl)
+      .then(res => {
+        if (!res.ok) throw new Error('Fetch failed');
+        return res.blob();
+      })
+      .then(blob => {
+        const blobUrl = URL.createObjectURL(blob);
+        openingVideo.src = blobUrl;
+        openingVideo.load();
+      })
+      .catch(err => {
+        console.log('Progressive HTTP streaming active:', err);
+      });
   }
 
   function startInvitation() {
     if (hasStarted) return;
     hasStarted = true;
 
-    // 1. Instant tactile visual feedback on tap
+    // 1. Instant tactile visual feedback on tap (Golden Bloom Ripple)
     if (videoTapOverlay) {
       videoTapOverlay.classList.add('opening-active');
     }
@@ -58,8 +74,6 @@
 
     // 3. Play envelope opening video with zero-flicker transition
     if (openingVideo) {
-      openingVideo.currentTime = 0;
-
       let overlayHidden = false;
       function hideOverlay() {
         if (!overlayHidden && videoTapOverlay) {
@@ -68,10 +82,15 @@
         }
       }
 
-      // Seamless hand-off: only fade out the still card once video frames are actively playing
+      // Seamless hand-off: only fade out still card once video frames are actively playing
       openingVideo.addEventListener('playing', hideOverlay, { once: true });
-      // Safety fallback in case event is delayed by battery saver or webview
-      setTimeout(hideOverlay, 450);
+      openingVideo.addEventListener('timeupdate', () => {
+        if (openingVideo.currentTime > 0.05) {
+          hideOverlay();
+        }
+      });
+      // Safety fallback
+      setTimeout(hideOverlay, 1500);
 
       const playPromise = openingVideo.play();
       if (playPromise !== undefined) {
